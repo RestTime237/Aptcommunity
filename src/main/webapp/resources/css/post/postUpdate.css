@@ -1,0 +1,141 @@
+/* 공통 스타일 */
+body {
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* 페이지 타이틀 */
+.page-title {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.page-title::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #0d6efd;
+}
+
+/* 카드 스타일 */
+.content-card {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    padding: 2rem;
+}
+
+/* 폼 스타일 */
+.form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* 버튼 스타일 */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-secondary {
+    color: #6c757d;
+    border-color: #6c757d;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-danger:hover {
+    background-color: #bb2d3b;
+    border-color: #bb2d3b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Summernote 커스텀 스타일 */
+.note-editor {
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6 !important;
+    box-shadow: none !important;
+}
+
+.note-toolbar {
+    background-color: #f8f9fa !important;
+    border-bottom: 1px solid #dee2e6 !important;
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+}
+
+.note-btn {
+    border-radius: 0.25rem !important;
+    padding: 0.25rem 0.5rem !important;
+}
+
+.note-btn:hover {
+    background-color: #e9ecef !important;
+}
+
+.note-editable {
+    background-color: #fff !important;
+    color: #333 !important;
+    padding: 1rem !important;
+}
+
+.note-status-output {
+    height: auto !important;
+}
+
+/* 반응형 조정 */
+@media (max-width: 768px) {
+    .content-card {
+        padding: 1.5rem;
+    }
+}
