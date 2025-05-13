@@ -11,202 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-
-    <style>
-        /* 전체 스타일 */
-        body {
-            font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-
-        /* 페이지 타이틀 */
-        .page-title {
-            font-size: 1.75rem;
-            font-weight: bold;
-            position: relative;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .page-title::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background-color: #0d6efd;
-        }
-
-        /* 카드 스타일 */
-        .vote-card {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.125);
-            border-radius: 0.5rem;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .vote-header {
-            background-color: #e7f1ff;
-            color: #0d6efd;
-            border-bottom: 1px solid #dee2e6;
-            border-radius: 0.5rem 0.5rem 0 0;
-            padding: 1.25rem;
-        }
-
-        .vote-info {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            color: #6c757d;
-        }
-
-        .vote-status {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .status-active {
-            background-color: #d1e7dd;
-            color: #0f5132;
-        }
-
-        .status-closed {
-            background-color: #f8d7da;
-            color: #842029;
-        }
-
-        .vote-description {
-            padding: 1.5rem;
-            border-bottom: 1px solid #dee2e6;
-            line-height: 1.6;
-        }
-
-        /* 투표 옵션 스타일 */
-        .vote-options {
-            padding: 1.5rem;
-        }
-
-        .option-item {
-            margin-bottom: 1rem;
-            padding: 1rem;
-            border: 1px solid #dee2e6;
-            border-radius: 0.5rem;
-            transition: all 0.2s ease;
-        }
-
-        .option-item:hover {
-            background-color: #f8f9fa;
-            border-color: #0d6efd;
-        }
-
-        .option-item.selected {
-            background-color: #e7f1ff;
-            border-color: #0d6efd;
-        }
-
-        .option-radio {
-            margin-right: 0.75rem;
-        }
-
-        /* 결과 그래프 스타일 */
-        .result-bar-container {
-            height: 25px;
-            background-color: #e9ecef;
-            border-radius: 0.25rem;
-            margin-top: 0.5rem;
-            overflow: hidden;
-        }
-
-        .result-bar {
-            height: 100%;
-            background-color: #0d6efd;
-            border-radius: 0.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 0.5rem;
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 500;
-            transition: width 0.5s ease;
-        }
-
-        /* 버튼 스타일 */
-        .vote-actions {
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid #dee2e6;
-        }
-
-        /* 참여자 목록 */
-        .participants {
-            padding: 1.5rem;
-            border-top: 1px solid #dee2e6;
-        }
-
-        .participant-badge {
-            background-color: #e7f1ff;
-            color: #0d6efd;
-            border-radius: 1rem;
-            padding: 0.25rem 0.75rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-            font-size: 0.85rem;
-        }
-
-        /* 댓글 스타일 */
-        .comments-section {
-            margin-top: 2rem;
-        }
-
-        .comment-item {
-            padding: 1rem;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        .comment-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-
-        .comment-author {
-            font-weight: 500;
-        }
-
-        .comment-date {
-            font-size: 0.85rem;
-            color: #6c757d;
-        }
-
-        .comment-content {
-            line-height: 1.5;
-        }
-
-        .comment-form {
-            margin-top: 1.5rem;
-        }
-
-        footer a {
-            color: #333;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #0D6EFD !important;
-            transition: color 0.3s ease;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/vote/voteDetail.css"/>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -283,7 +88,7 @@
 
             <c:otherwise>
                 <!-- 투표 참여 폼 -->
-                <form action="/AptCommunity/vote/submit" method="post" class="vote-options">
+                <form action="${pageContext.request.contextPath}/vote/submit" method="post" class="vote-options">
                     <h5 class="mb-3">투표 옵션</h5>
                     <input type="hidden" name="voteId" value="${vote.voteId}"/>
 
@@ -312,14 +117,14 @@
 
         <div class="vote-actions">
             <div>
-                <a href="/AptCommunity/vote/list" class="btn btn-outline-secondary">
+                <a href="${pageContext.request.contextPath}/vote/list" class="btn btn-outline-secondary">
                     <i class="bi bi-arrow-left me-1"></i>목록으로
                 </a>
             </div>
 
             <c:if test="${userId == vote.creatorId}">
                 <div>
-                    <a href="/AptCommunity/vote/edit?voteId=${vote.voteId}" class="btn btn-outline-primary me-2">
+                    <a href="${pageContext.request.contextPath}/vote/edit?voteId=${vote.voteId}" class="btn btn-outline-primary me-2">
                         <i class="bi bi-pencil me-1"></i>수정
                     </a>
                     <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
@@ -347,7 +152,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                <form action="/AptCommunity/vote/delete" method="post">
+                <form action="${pageContext.request.contextPath}/vote/delete" method="post">
                     <input type="hidden" name="voteId" value="${vote.voteId}"/>
                     <button type="submit" class="btn btn-danger">삭제</button>
                 </form>
@@ -359,23 +164,7 @@
 
 <!-- JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // 옵션 선택 시 시각적 피드백
-        const optionItems = document.querySelectorAll('.option-item');
-        const optionRadios = document.querySelectorAll('.option-radio');
-
-        optionRadios.forEach((radio, index) => {
-            radio.addEventListener('change', function () {
-                optionItems.forEach(item => item.classList.remove('selected'));
-                if (this.checked) {
-                    optionItems[index].classList.add('selected');
-                }
-            });
-        });
-    });
-</script>
+<script src="${pageContext.request.contextPath}/resources/js/vote/voteDetail.js"></script>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

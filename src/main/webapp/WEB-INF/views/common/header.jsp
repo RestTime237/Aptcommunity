@@ -26,7 +26,7 @@
 <!-- 헤더 -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="/AptCommunity/">
+        <a class="navbar-brand d-flex align-items-center" href="${pageContext.request.contextPath}/">
             <i class="bi bi-house-door me-2"></i>
             아파트 커뮤니티
         </a>
@@ -36,34 +36,34 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/AptCommunity/post/list">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/post/list">
                         <i class="bi bi-file-text me-1"></i> 커뮤니티
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/AptCommunity/product/list">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/product/list">
                         <i class="bi bi-bag me-1"></i> 중고마켓
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/AptCommunity/schedule/calendar">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/schedule/calendar">
                         <i class="bi bi-calendar-event me-1"></i> 아파트 일정
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/AptCommunity/map">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/map">
                         <i class="ri-map-pin-2-line"></i> 내 주변
                     </a>
                 </li>
                 <c:if test="${not empty sessionScope.mb and sessionScope.mb.role >= 3}">
                     <li class="nav-item">
-                        <a class="nav-link" href="/AptCommunity/admin/dashboard">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/admin/dashboard">
                             <i class="bi bi-bell me-1"></i> 관리자
                         </a>
                     </li>
                 </c:if>
                 <li class="nav-item">
-                    <a class="nav-link" href="/AptCommunity/member/mypage">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/member/mypage">
                         <i class="bi bi-person me-1"></i> 마이페이지
                     </a>
                 </li>

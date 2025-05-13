@@ -15,9 +15,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css/member/memberUpdate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/member/memberUpdate.css">
 
-    <script src="/AptCommunity/resources/js/member/memberUpdate.js" defer></script>
+    <script src="${pageContext.request.contextPath}/resources/js/member/memberUpdate.js" defer></script>
 
 </head>
 <body>
@@ -185,7 +185,7 @@
 
                         <!-- 버튼 영역 -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
-                            <a href="/AptCommunity/member/mypage" class="btn btn-cancel me-md-2">
+                            <a href="${pageContext.request.contextPath}/member/mypage" class="btn btn-cancel me-md-2">
                                 <i class="bi bi-x-lg me-1"></i> 취소
                             </a>
                             <button type="button" id="check" class="btn btn-update">

@@ -18,14 +18,14 @@
     <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
 
     <!-- 이모지 선택기 스타일 -->
-    <link rel="stylesheet" href="/AptCommunity/resources/css/emoji-picker.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/emoji-picker.css">
 
     <!-- 이모지 선택기 스크립트 -->
-    <script src="/AptCommunity/resources/js/emoji-picker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/emoji-picker.js"></script>
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css/chat/room.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/chat/room.css">
 
-    <script src="/AptCommunity/resources/js/chat/room.js" defer></script>
+    <script src="${pageContext.request.contextPath}/resources/js/chat/room.js" defer></script>
 
     <script>
         // DOM이 완전히 로드된 후 실행
@@ -44,7 +44,7 @@
         <!-- 채팅방 헤더 -->
         <div class="chat-header">
             <div class="chat-header-left">
-                <a href="/AptCommunity/chat/rooms" class="back-button">
+                <a href="${pageContext.request.contextPath}/chat/rooms" class="back-button">
                     <i class="bi bi-arrow-left"></i>
                 </a>
                 <div class="chat-partner">

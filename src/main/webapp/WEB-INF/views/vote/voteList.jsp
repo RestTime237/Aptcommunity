@@ -10,190 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-
-    <style>
-        /* 전체 스타일 */
-        body {
-            font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-
-        /* 페이지 타이틀 */
-        .page-title {
-            font-size: 1.75rem;
-            font-weight: bold;
-            position: relative;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #e9ecef;
-            display: flex;
-            align-items: center;
-        }
-
-        .page-title::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background-color: #0d6efd;
-        }
-
-        /* 카드 스타일 */
-        .content-card {
-            background-color: white;
-            border-radius: 0.5rem;
-            padding: 2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.125);
-        }
-
-        /* 테이블 스타일 */
-        .vote-table {
-            margin-bottom: 0;
-        }
-
-        .vote-table th {
-            background-color: #e7f1ff;
-            color: #0d6efd;
-            border-bottom: 2px solid #0d6efd;
-            font-weight: 600;
-            padding: 0.75rem 1rem;
-        }
-
-        .vote-table td {
-            padding: 1rem;
-            vertical-align: middle;
-        }
-
-        .vote-table tr:hover {
-            background-color: #f8f9fa;
-        }
-
-        .vote-link {
-            text-decoration: none;
-            color: #0d6efd;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            transition: color 0.2s ease;
-        }
-
-        .vote-link:hover {
-            color: #0a58ca;
-            text-decoration: underline;
-        }
-
-        /* 상태 배지 */
-        .status-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-left: 0.75rem;
-        }
-
-        .status-active {
-            background-color: #d1e7dd;
-            color: #0f5132;
-        }
-
-        .status-closed {
-            background-color: #f8d7da;
-            color: #842029;
-        }
-
-        /* 버튼 스타일 */
-        .btn-create {
-            background-color: #0d6efd;
-            color: white;
-            border: none;
-            padding: 0.5rem 1.25rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-
-        .btn-create:hover {
-            background-color: #0a58ca;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* 빈 상태 스타일 */
-        .empty-state {
-            text-align: center;
-            padding: 3rem 1rem;
-        }
-
-        .empty-icon {
-            font-size: 3rem;
-            color: #dee2e6;
-            margin-bottom: 1rem;
-        }
-
-        /* 페이지네이션 스타일 */
-        .pagination {
-            margin-top: 1.5rem;
-            justify-content: center;
-        }
-
-        .page-link {
-            color: #0d6efd;
-            border-radius: 0.25rem;
-            margin: 0 0.25rem;
-        }
-
-        .page-item.active .page-link {
-            background-color: #0d6efd;
-            border-color: #0d6efd;
-        }
-
-        /* 필터 스타일 */
-        .filter-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .filter-dropdown {
-            min-width: 150px;
-        }
-
-        /* 반응형 스타일 */
-        @media (max-width: 768px) {
-            .filter-section {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .filter-dropdown {
-                width: 100%;
-            }
-
-            .vote-table th:nth-child(3),
-            .vote-table td:nth-child(3) {
-                display: none;
-            }
-        }
-
-        footer a {
-            color: #333;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #0D6EFD !important;
-            transition: color 0.3s ease;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/vote/voteList.css"/>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -221,7 +38,7 @@
                 </div>
             </div>
             <c:if test="${mb.role >= 3}">
-                <a class="btn btn-create" href="/AptCommunity/vote/add">
+                <a class="btn btn-create" href="${pageContext.request.contextPath}/vote/add">
                     <i class="bi bi-plus-circle me-1"></i> 새 투표 만들기
                 </a>
             </c:if>
@@ -242,7 +59,7 @@
                         <c:forEach var="vote" items="${voteList}">
                             <tr>
                                 <td>
-                                    <a class="vote-link" href="/AptCommunity/vote/detail?voteId=${vote.voteId}">
+                                    <a class="vote-link" href="${pageContext.request.contextPath}/vote/detail?voteId=${vote.voteId}">
                                         <i class="bi bi-check2-square me-2"></i>
                                             ${vote.title}
 
@@ -307,7 +124,7 @@
                     <i class="bi bi-clipboard-check empty-icon"></i>
                     <h4>등록된 투표가 없습니다</h4>
                     <p class="text-muted mb-4">아파트 주민들과 함께 결정할 사항이 있으신가요?<br>새로운 투표를 만들어 의견을 모아보세요!</p>
-                    <a href="/AptCommunity/vote/add" class="btn btn-primary">
+                    <a href="${pageContext.request.contextPath}/vote/add" class="btn btn-primary">
                         <i class="bi bi-plus-circle me-1"></i> 첫 투표 만들기
                     </a>
                 </div>
@@ -363,21 +180,5 @@
 
 <!-- JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<style>
-    /* 서비스 아이콘 스타일 (home.jsp에서 가져옴) */
-    .service-icon {
-        width: 48px;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #e7f1ff;
-        color: #0d6efd;
-        border-radius: 0.5rem;
-        margin: 0 auto 0.5rem;
-        font-size: 1.5rem;
-    }
-</style>
 </body>
 </html>

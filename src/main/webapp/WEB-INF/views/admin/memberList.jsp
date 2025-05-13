@@ -17,10 +17,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- css -->
-    <link rel="stylesheet" href="/AptCommunity/resources/css/admin/memberList.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin/memberList.css">
 
     <!-- js -->
-    <script src="/AptCommunity/resources/js/admin/memberList.js" defer></script>
+    <script src="${pageContext.request.contextPath}/resources/js/admin/memberList.js" defer></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -158,7 +158,7 @@
                 <ul class="pagination justify-content-center mb-0">
                     <!-- 이전 -->
                     <li class="page-item ${currentPage == 1 ? 'disabled' : ''}">
-                        <a class="page-link" href="/AptCommunity/admin/members?page=${currentPage - 1}"
+                        <a class="page-link" href="${pageContext.request.contextPath}/admin/members?page=${currentPage - 1}"
                            aria-label="Previous">
                             <i class="bi bi-chevron-left"></i>
                         </a>
@@ -167,13 +167,13 @@
                     <!-- 숫자 페이지 -->
                     <c:forEach var="i" begin="1" end="${totalPages}">
                         <li class="page-item ${currentPage == i ? 'active' : ''}">
-                            <a class="page-link" href="/AptCommunity/admin/members?page=${i}">${i}</a>
+                            <a class="page-link" href="${pageContext.request.contextPath}/admin/members?page=${i}">${i}</a>
                         </li>
                     </c:forEach>
 
                     <!-- 다음 -->
                     <li class="page-item ${currentPage == totalPages ? 'disabled' : ''}">
-                        <a class="page-link" href="/AptCommunity/admin/members?page=${currentPage + 1}"
+                        <a class="page-link" href="${pageContext.request.contextPath}/admin/members?page=${currentPage + 1}"
                            aria-label="Next">
                             <i class="bi bi-chevron-right"></i>
                         </a>

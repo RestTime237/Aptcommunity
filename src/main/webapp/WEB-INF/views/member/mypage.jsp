@@ -16,9 +16,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css//member/mypage.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css//member/mypage.css"/>
 
-    <script src="/AptCommunity/resources/js/member/mypage.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/member/mypage.js"></script>
 
 </head>
 
@@ -42,7 +42,7 @@
             <div class="profile-card text-center">
                 <div id="profileImageArea" class="position-relative d-inline-block profile-img-wrapper"
                      style="cursor: pointer;">
-                    <img src="/AptCommunity/resources/images/${empty mb.profileImage ? 'default-profile.png' : mb.profileImage}"
+                    <img src="${pageContext.request.contextPath}/resources/images/${empty mb.profileImage ? 'default-profile.png' : mb.profileImage}"
                          id="profileImagePreview" class="profile-image rounded-circle border border-3"
                          style="width: 120px; height: 120px; object-fit: cover; cursor: pointer;"
                          data-bs-toggle="modal" data-bs-target="#profileImageModal">
@@ -58,7 +58,7 @@
                     </p>
                 </div>
 
-                <a href="/AptCommunity/chat/rooms" class="btn btn-sm btn-primary">
+                <a href="${pageContext.request.contextPath}/chat/rooms" class="btn btn-sm btn-primary">
                     <i class="ri-chat-1-line"></i> 내 채팅
                 </a>
 
@@ -81,7 +81,7 @@
                             <input type="file" name="profileImage" accept="image/*" class="form-control mb-3"
                                    required/>
                             <img id="previewProfile"
-                                 src="/AptCommunity/resources/images/${empty mb.profileImage ? 'default-profile.png' : mb.profileImage}"
+                                 src="${pageContext.request.contextPath}/resources/images/${empty mb.profileImage ? 'default-profile.png' : mb.profileImage}"
                                  class="img-fluid rounded-circle border" style="width: 100px; height: 100px;"/>
                         </div>
                         <div class="modal-footer">
@@ -168,7 +168,7 @@
                     <h3 class="section-title mb-0">
                         <i class="bi bi-file-text"></i> 내가 작성한 게시글
                     </h3>
-                    <a href="/AptCommunity/post/add" class="btn btn-sm btn-primary">
+                    <a href="${pageContext.request.contextPath}/post/add" class="btn btn-sm btn-primary">
                         <i class="bi bi-plus-lg me-1"></i> 새 글 작성
                     </a>
                 </div>
@@ -177,7 +177,7 @@
                     <div class="empty-state">
                         <i class="bi bi-file-earmark-text empty-state-icon"></i>
                         <p class="empty-state-text">작성한 게시글이 없습니다.</p>
-                        <a href="/AptCommunity/post/add" class="btn btn-primary">
+                        <a href="${pageContext.request.contextPath}/post/add" class="btn btn-primary">
                             <i class="bi bi-pencil-square me-1"></i> 첫 게시글 작성하기
                         </a>
                     </div>
@@ -214,7 +214,7 @@
                                         <fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd"/>
                                     </td>
                                     <td>
-                                        <a href="/AptCommunity/post/detail?id=${post.id}"
+                                        <a href="${pageContext.request.contextPath}/post/detail?id=${post.id}"
                                            class="btn btn-sm btn-outline-primary">
                                             <i class="bi bi-eye"></i>
                                         </a>
@@ -236,7 +236,7 @@
                     <h3 class="section-title mb-0">
                         <i class="bi bi-box-seam"></i> 내가 등록한 상품
                     </h3>
-                    <a href="/AptCommunity/product/add" class="btn btn-sm btn-primary">
+                    <a href="${pageContext.request.contextPath}/product/add" class="btn btn-sm btn-primary">
                         <i class="bi bi-plus-lg me-1"></i> 상품 등록
                     </a>
                 </div>
@@ -245,7 +245,7 @@
                     <div class="empty-state">
                         <i class="bi bi-box2 empty-state-icon"></i>
                         <p class="empty-state-text">등록한 상품이 없습니다.</p>
-                        <a href="/AptCommunity/product/add" class="btn btn-primary">
+                        <a href="${pageContext.request.contextPath}/product/add" class="btn btn-primary">
                             <i class="bi bi-plus-lg me-1"></i> 상품 등록하기
                         </a>
                     </div>
@@ -294,11 +294,11 @@
                                     </td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
-                                            <a href="/AptCommunity/product/detail?id=${product.id}"
+                                            <a href="${pageContext.request.contextPath}/product/detail?id=${product.id}"
                                                class="btn btn-outline-primary">
                                                 <i class="bi bi-eye"></i>
                                             </a>
-                                            <a href="/AptCommunity/product/update?id=${product.id}"
+                                            <a href="${pageContext.request.contextPath}/product/update?id=${product.id}"
                                                class="btn btn-outline-primary">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
@@ -325,7 +325,7 @@
                 <div id="wishlistEmpty" class="empty-state d-none">
                     <i class="bi bi-heart empty-state-icon"></i>
                     <p class="empty-state-text">찜한 상품이 없습니다.</p>
-                    <a href="/AptCommunity/product/list" class="btn btn-primary">
+                    <a href="${pageContext.request.contextPath}/product/list" class="btn btn-primary">
                         <i class="bi bi-shop me-1"></i> 상품 둘러보기
                     </a>
                 </div>
@@ -342,7 +342,7 @@
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-<script src="/AptCommunity/resources/js/mypage.js" defer></script>
+<script src="${pageContext.request.contextPath}/resources/js/mypage.js" defer></script>
 </body>
 
 </html>

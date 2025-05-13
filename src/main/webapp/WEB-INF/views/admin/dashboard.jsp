@@ -16,9 +16,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css/admin/dashboard.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin/dashboard.css"/>
 
-    <script src="/AptCommunity/resources/js/admin/dashboard.js" defer></script>
+    <script src="${pageContext.request.contextPath}/resources/js/admin/dashboard.js" defer></script>
 
 
 </head>
@@ -108,25 +108,25 @@
         <h5 class="mb-3">빠른 작업</h5>
         <div class="row g-3">
             <div class="col-6 col-md-3">
-                <a href="/AptCommunity/post/add" class="action-btn">
+                <a href="${pageContext.request.contextPath}/post/add" class="action-btn">
                     <i class="bi bi-file-earmark-plus"></i>
                     <span>공지사항 작성</span>
                 </a>
             </div>
             <div class="col-6 col-md-3">
-                <a href="/AptCommunity/admin/members" class="action-btn">
+                <a href="${pageContext.request.contextPath}/admin/members" class="action-btn">
                     <i class="bi bi-person-plus"></i>
                     <span>회원 관리</span>
                 </a>
             </div>
             <div class="col-6 col-md-3">
-                <a href="/AptCommunity/admin/reports" class="action-btn">
+                <a href="${pageContext.request.contextPath}/admin/reports" class="action-btn">
                     <i class="bi bi-flag"></i>
                     <span>신고 처리</span>
                 </a>
             </div>
             <div class="col-6 col-md-3">
-                <a href="/AptCommunity/admin/settings" class="action-btn">
+                <a href="${pageContext.request.contextPath}/admin/settings" class="action-btn">
                     <i class="bi bi-gear"></i>
                     <span>시스템 설정</span>
                 </a>
@@ -193,7 +193,7 @@
                 </div>
 
                 <div class="text-center mt-3">
-                    <a href="/AptCommunity/admin/activities" class="btn btn-sm btn-outline-primary">모든 활동 보기</a>
+                    <a href="${pageContext.request.contextPath}/admin/activities" class="btn btn-sm btn-outline-primary">모든 활동 보기</a>
                 </div>
             </div>
         </div>
@@ -205,7 +205,7 @@
             <div class="table-container">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 class="mb-0">최근 게시글</h5>
-                    <a href="/AptCommunity/post/list" class="btn btn-sm btn-outline-primary">
+                    <a href="${pageContext.request.contextPath}/post/list" class="btn btn-sm btn-outline-primary">
                         <i class="bi bi-list me-1"></i> 전체보기
                     </a>
                 </div>
@@ -311,7 +311,7 @@
             <div class="table-container">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 class="mb-0">최근 상품</h5>
-                    <a href="/AptCommunity/product/list" class="btn btn-sm btn-outline-success">
+                    <a href="${pageContext.request.contextPath}/product/list" class="btn btn-sm btn-outline-success">
                         <i class="bi bi-list me-1"></i> 전체보기
                     </a>
                 </div>

@@ -15,9 +15,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css/member/register.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/member/register.css">
 
-    <script src="/AptCommunity/resources/js/member/register.js" defer></script>
+    <script src="${pageContext.request.contextPath}/resources/js/member/register.js" defer></script>
 
 </head>
 <body>
@@ -150,7 +150,7 @@
                     <!-- 로그인 링크 -->
                     <div class="login-link">
                         <p>이미 계정이 있으신가요?</p>
-                        <a href="/AptCommunity/member/login" class="d-inline-block">
+                        <a href="${pageContext.request.contextPath}/member/login" class="d-inline-block">
                             <i class="bi bi-box-arrow-in-right me-1"></i> 로그인하기
                         </a>
                     </div>

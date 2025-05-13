@@ -21,9 +21,9 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/lang/summernote-ko-KR.min.js"></script>
 
-    <link rel="stylesheet" href="/resources/css/post/postUpdate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/post/postUpdate.css">
 
-    <script src="/resources/js/post/postUpdate.js" defer></script>
+    <script src="${pageContext.request.contextPath}/resources/js/post/postUpdate.js" defer></script>
 </head>
 <body>
 
@@ -41,7 +41,7 @@
 
     <!-- 게시글 수정 폼 -->
     <div class="content-card">
-        <form:form modelAttribute="updatePost" method="POST" action="/AptCommunity/post/update" class="row g-4">
+        <form:form modelAttribute="updatePost" method="POST" action="${pageContext.request.contextPath}/post/update" class="row g-4">
             <form:hidden path="id"/>
             <form:hidden path="userId"/>
 
@@ -80,7 +80,7 @@
             <!-- 버튼 영역 -->
             <div class="col-md-12 d-flex justify-content-between mt-4">
                 <div>
-                    <a href="/AptCommunity/post/detail?id=${post.id}" class="btn btn-outline-secondary">
+                    <a href="${pageContext.request.contextPath}/post/detail?id=${post.id}" class="btn btn-outline-secondary">
                         <i class="bi bi-arrow-left me-1"></i> 취소
                     </a>
                     <button type="button" id="deleteButton" class="btn btn-danger ms-2">

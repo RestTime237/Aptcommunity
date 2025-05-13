@@ -1,0 +1,246 @@
+/* 공통 스타일 */
+body {
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* 페이지 타이틀 */
+.page-title {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.page-title::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #0d6efd;
+}
+
+/* 카드 스타일 */
+.content-card {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}
+
+/* 폼 스타일 */
+.form-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+.form-control, .form-select {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #dee2e6;
+    transition: all 0.2s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* 섹션 타이틀 */
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.section-title i {
+    margin-right: 0.5rem;
+    color: #0d6efd;
+}
+
+/* 가격 입력 그룹 */
+.price-input-group {
+    position: relative;
+}
+
+.price-input-group .form-control {
+    padding-left: 2.5rem;
+}
+
+.price-input-group .currency-symbol {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    font-weight: 600;
+    color: #495057;
+    z-index: 5;
+}
+
+/* 상태 선택 버튼 */
+.status-btn-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.status-btn {
+    flex: 1;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid #dee2e6;
+    transition: all 0.2s;
+    font-weight: 600;
+}
+
+.status-btn:hover {
+    border-color: #0d6efd;
+    background-color: #e7f1ff;
+}
+
+.status-btn.active {
+    border-color: #0d6efd;
+    background-color: #e7f1ff;
+    color: #0d6efd;
+}
+
+.status-btn i {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 버튼 스타일 */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-primary {
+    color: #0d6efd;
+    border-color: #0d6efd;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 써머노트 에디터 스타일 조정 */
+.note-editor {
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6 !important;
+    box-shadow: none !important;
+}
+
+.note-editor.note-frame .note-statusbar {
+    border-top: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+.note-editor .note-toolbar {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.5rem;
+}
+
+.note-btn {
+    border-radius: 0.25rem !important;
+    padding: 0.25rem 0.5rem !important;
+}
+
+/* 도움말 박스 */
+.help-box {
+    background-color: #e7f1ff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #0d6efd;
+}
+
+.help-box-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.help-box-title i {
+    margin-right: 0.5rem;
+    color: #0d6efd;
+}
+
+.help-box ul {
+    margin-bottom: 0;
+    padding-left: 1.5rem;
+}
+
+.help-box li {
+    margin-bottom: 0.5rem;
+}
+
+.help-box li:last-child {
+    margin-bottom: 0;
+}
+
+/* 반응형 조정 */
+@media (max-width: 768px) {
+    .content-card {
+        padding: 1rem;
+    }
+
+    .status-btn i {
+        font-size: 1.25rem;
+    }
+
+    .status-btn {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+    }
+}

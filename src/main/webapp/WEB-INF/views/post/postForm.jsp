@@ -21,9 +21,9 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/lang/summernote-ko-KR.min.js"></script>
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css/post/postForm.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/post/postForm.css">
 
-    <script src="/AptCommunity/resources/js/post/postForm.js" defer></script>
+    <script src="${pageContext.request.contextPath}/resources/js/post/postForm.js" defer></script>
 
 </head>
 <body>
@@ -78,7 +78,7 @@
 
             <!-- 버튼 영역 -->
             <div class="col-md-12 d-flex justify-content-between mt-4">
-                <a href="/AptCommunity/post/list" class="btn btn-outline-secondary">
+                <a href="${pageContext.request.contextPath}/post/list" class="btn btn-outline-secondary">
                     <i class="bi bi-arrow-left me-1"></i> 목록으로
                 </a>
                 <button type="submit" class="btn btn-primary">

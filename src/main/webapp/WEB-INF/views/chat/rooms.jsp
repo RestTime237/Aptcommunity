@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css/chat/rooms.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/chat/rooms.css"/>
 
-    <script src="/AptCommunity/resources/js/chat/rooms.js" defer></script>
+    <script src="${pageContext.request.contextPath}/resources/js/chat/rooms.js" defer></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -93,7 +93,7 @@
                                 <div class="user-avatar">
                                     <c:choose>
                                         <c:when test="${not empty opponent.profileImage}">
-                                            <img src="/AptCommunity/resources/images/${opponent.profileImage}"
+                                            <img src="${pageContext.request.contextPath}/resources/images/${opponent.profileImage}"
                                                  alt="Profile">
                                         </c:when>
                                         <c:otherwise>
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
 
-                                <a href="/AptCommunity/chat/room/${room.id}" class="btn btn-enter">
+                                <a href="${pageContext.request.contextPath}/chat/room/${room.id}" class="btn btn-enter">
                                     <i class="bi bi-box-arrow-in-right"></i>
                                     입장하기
                                 </a>

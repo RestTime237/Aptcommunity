@@ -79,10 +79,10 @@
             </div>
             <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                 <h5 class="footer-heading">서비스</h5>
-                <a href="/AptCommunity/post/list" class="footer-link">커뮤니티</a>
-                <a href="/AptCommunity/product/list" class="footer-link">중고마켓</a>
-                <a href="/AptCommunity/schedule/calendar" class="footer-link">아파트 일정</a>
-                <a href="/AptCommunity/vote/list" class="footer-link">주민투표</a>
+                <a href="${pageContext.request.contextPath}/post/list" class="footer-link">커뮤니티</a>
+                <a href="${pageContext.request.contextPath}/product/list" class="footer-link">중고마켓</a>
+                <a href="${pageContext.request.contextPath}/schedule/calendar" class="footer-link">아파트 일정</a>
+                <a href="${pageContext.request.contextPath}/vote/list" class="footer-link">주민투표</a>
             </div>
             <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                 <h5 class="footer-heading">고객지원</h5>

@@ -18,9 +18,9 @@
     <!-- 1. 아임포트 스크립트 불러오기 -->
     <script src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css/product/productDetail.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/product/productDetail.css"/>
 
-    <script src="/AptCommunity/resources/js/product/productDetail.js" defer></script>
+    <script src="${pageContext.request.contextPath}/resources/js/product/productDetail.js" defer></script>
 
 
 </head>
@@ -126,7 +126,7 @@
 
                         <!-- 관리 버튼 (작성자 또는 관리자만 표시) -->
                         <c:if test="${product.userId == mb.userId || mb.role >= 3}">
-                            <a href="/AptCommunity/product/update?id=${product.id}" class="btn btn-outline-primary">
+                            <a href="${pageContext.request.contextPath}/product/update?id=${product.id}" class="btn btn-outline-primary">
                                 <i class="bi bi-pencil me-1"></i> 수정
                             </a>
                             <button id="deleteProduct" class="btn btn-outline-danger">
@@ -142,7 +142,7 @@
 
                     <!-- 목록으로 버튼 -->
                     <div class="mt-4 text-center">
-                        <a href="/AptCommunity/product/list" class="btn btn-outline-secondary">
+                        <a href="${pageContext.request.contextPath}/product/list" class="btn btn-outline-secondary">
                             <i class="bi bi-arrow-left me-1"></i> 목록으로
                         </a>
                     </div>
@@ -161,7 +161,7 @@
 
                         <!-- 댓글 작성 폼 -->
                         <div class="comment-form">
-                            <form id="commentForm" method="post" action="/AptCommunity/comment/add">
+                            <form id="commentForm" method="post" action="${pageContext.request.contextPath}/comment/add">
                                 <input type="hidden" name="refType" value="product">
                                 <input type="hidden" name="refId" value="${product.id}"/>
                                 <div class="form-group mb-3">
@@ -304,7 +304,7 @@
 
                     <div class="list-group">
                         <c:forEach var="p" items="${otherProducts}">
-                            <a href="/AptCommunity/product/detail?id=${p.id}"
+                            <a href="${pageContext.request.contextPath}/product/detail?id=${p.id}"
                                class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3">
 
                                 <div class="flex-shrink-0"
@@ -315,7 +315,7 @@
                                                  class="w-100 h-100 object-fit-cover"/>
                                         </c:when>
                                         <c:otherwise>
-                                            <img src="/AptCommunity/resources/images/default-image.png" alt="${p.name}"
+                                            <img src="${pageContext.request.contextPath}/resources/images/default-image.png" alt="${p.name}"
                                                  class="w-100 h-100 object-fit-cover"/>
                                         </c:otherwise>
                                     </c:choose>
@@ -334,7 +334,7 @@
                     </div>
 
                     <div class="text-center mt-3">
-                        <a href="/AptCommunity/product/list?userId=${product.userId}"
+                        <a href="${pageContext.request.contextPath}/product/list?userId=${product.userId}"
                            class="btn btn-sm btn-outline-primary">
                             <i class="bi bi-grid me-1"></i> 판매자의 모든 상품 보기
                         </a>
@@ -406,7 +406,7 @@
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
             <c:forEach var="p" items="${relatedProducts}">
                 <div class="col">
-                    <a href="/AptCommunity/product/detail?id=${p.id}" class="text-decoration-none text-dark">
+                    <a href="${pageContext.request.contextPath}/product/detail?id=${p.id}" class="text-decoration-none text-dark">
                         <div class="card related-product-card h-100">
                             <div class="related-product-img">
                                 <c:choose>
@@ -415,7 +415,7 @@
                                              class="w-100 object-fit-cover"/>
                                     </c:when>
                                     <c:otherwise>
-                                        <img src="/AptCommunity/resources/images/default-image.png" alt="${p.name}"
+                                        <img src="${pageContext.request.contextPath}/resources/images/default-image.png" alt="${p.name}"
                                              class="w-100 object-fit-cover"/>
                                     </c:otherwise>
                                 </c:choose>

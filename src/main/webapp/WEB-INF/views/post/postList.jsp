@@ -13,9 +13,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css/post/postList.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/post/postList.css"/>
 
-    <script src="/AptCommunity/resources/js/post/postList.js" defer></script>
+    <script src="${pageContext.request.contextPath}/resources/js/post/postList.js" defer></script>
 
 </head>
 <body>
@@ -90,16 +90,16 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-4">
             <c:forEach var="post" items="${popularPosts}">
                 <div class="col">
-                    <a href="/AptCommunity/post/detail?id=${post.id}" class="text-decoration-none text-dark">
+                    <a href="${pageContext.request.contextPath}/post/detail?id=${post.id}" class="text-decoration-none text-dark">
                         <div class="popular-post-card">
                             <div class="popular-post-img">
                                 <c:choose>
                                     <c:when test="${not empty thumbnailMap[post.id]}">
-                                        <img src="/AptCommunity/resources/images/${thumbnailMap[post.id]}"
+                                        <img src="${pageContext.request.contextPath}/resources/images/${thumbnailMap[post.id]}"
                                              alt="인기 게시글"/>
                                     </c:when>
                                     <c:otherwise>
-                                        <img src="/AptCommunity/resources/images/default-image.png" alt="인기 게시글"/>
+                                        <img src="${pageContext.request.contextPath}/resources/images/default-image.png" alt="인기 게시글"/>
                                     </c:otherwise>
                                 </c:choose>
 
@@ -226,7 +226,7 @@
                 </button>
             </div>
         </div>
-        <a href="/AptCommunity/post/add" class="btn btn-write">
+        <a href="${pageContext.request.contextPath}/post/add" class="btn btn-write">
             <i class="bi bi-pencil-square me-1"></i> 글쓰기
         </a>
     </div>

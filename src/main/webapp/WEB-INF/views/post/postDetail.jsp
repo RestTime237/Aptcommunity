@@ -16,9 +16,9 @@
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css/post/postDetail.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/post/postDetail.css"/>
 
-    <script src="/AptCommunity/resources/js/post/postDetail.js" defer></script>
+    <script src="${pageContext.request.contextPath}/resources/js/post/postDetail.js" defer></script>
 
 </head>
 
@@ -75,8 +75,8 @@
                 <div class="image-gallery mb-4">
                     <c:forEach var="image" items="${images}" varStatus="status">
                         <div class="image-item" data-bs-toggle="modal" data-bs-target="#imageModal"
-                             data-img-src="/AptCommunity/resources/images/${image.fileName}">
-                            <img src="/AptCommunity/resources/images/${image.fileName}" class="img-fluid"
+                             data-img-src="${pageContext.request.contextPath}/resources/images/${image.fileName}">
+                            <img src="${pageContext.request.contextPath}/resources/images/${image.fileName}" class="img-fluid"
                                  style="width: 200px; height: 150px; object-fit: cover;"
                                  alt="첨부 이미지 ${status.index + 1}"/>
                         </div>
@@ -96,7 +96,7 @@
 
                 <!-- 왼쪽 여백: 목록 버튼 -->
                 <div style="min-width: 150px;">
-                    <a href="/AptCommunity/post/list" class="btn btn-primary-soft">
+                    <a href="${pageContext.request.contextPath}/post/list" class="btn btn-primary-soft">
                         <i class="bi bi-arrow-left me-1"></i> 목록으로
                     </a>
                 </div>
@@ -111,7 +111,7 @@
                 <div style="min-width: 150px;" class="text-end">
                     <c:if test="${post.userId == mb.userId || mb.role >= 3}">
                         <div class="btn-group-sm">
-                            <a href="/AptCommunity/post/update?id=${post.id}" class="btn btn-primary-soft me-2">
+                            <a href="${pageContext.request.contextPath}/post/update?id=${post.id}" class="btn btn-primary-soft me-2">
                                 <i class="bi bi-pencil-square me-1"></i> 수정
                             </a>
                             <button type="button" id="deleteButton" class="btn btn-danger-soft">
