@@ -10,7 +10,7 @@ let currentView = "grid"; // 기본 뷰 타입
 // 상품 데이터 가져오기
 function fetchProducts(page = 1) {
     $.ajax({
-        url: "${pageContext.request.contextPath}/product/search",
+        url: "/AptCommunity/product/search",
         method: "GET",
         data: {
             category: currentCategory,
@@ -92,11 +92,11 @@ function renderGridView(products, wishlistedIds) {
         // 상품 카드 생성
         const card = `
                   <div class="col-lg-3 col-md-4 col-sm-6 mb-4 position-relative">
-                  	<a href="${pageContext.request.contextPath}/product/detail?id=${product.id}" class="text-decoration-none text-dark">
+                  	<a href="${contextPath}/product/detail?id=${product.id}" class="text-decoration-none text-dark">
 	                	<div class="product-card">
 	                      <div class="product-img-container">
 	                      <img 
-		                      src="${product.image ? product.image + '?height=200&width=300' : '${pageContext.request.contextPath}/resources/images/default-image.png'}" 
+		                      src="${product.image ? product.image + '?height=200&width=300' : contextPath + '/resources/images/default-image.png'}" 
 		                      class="product-img" 
 		                      alt="${product.name}">
 	                        <span class="product-status ${statusClass}">${product.status}</span>
@@ -148,7 +148,7 @@ function renderTableView(products) {
                         <td>${product.status}</td>
                         <td>${product.category}</td>
                         <td>
-                        	<a href="${pageContext.request.contextPath}/product/detail?id=${product.id}" class="text-decoration-none full-link">
+                        	<a href="${contextPath}/product/detail?id=${product.id}" class="text-decoration-none full-link">
                         		${product.name}
                    			</a>
                         </td>
@@ -206,7 +206,7 @@ function toggleWishlist(productId, element) {
     const icon = element.querySelector("i");
 
     $.ajax({
-        url: "${pageContext.request.contextPath}/wishlist/toggle-ajax",
+        url: contextPath + "/wishlist/toggle-ajax",
         method: "POST",
         contentType: 'application/json',
         data: JSON.stringify({productId: productId}),

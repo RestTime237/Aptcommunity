@@ -16,6 +16,10 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/product/productList.css"/>
 
+    <script>
+        // Set the context path for the JS file
+        var contextPath = "${pageContext.request.contextPath}";
+    </script>
     <script src="${pageContext.request.contextPath}/resources/js/product/productList.js"></script>
 </head>
 <body>
