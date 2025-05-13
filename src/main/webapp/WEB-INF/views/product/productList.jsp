@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
     <title>상품 목록 - 아파트 커뮤니티</title>
 
     <!-- Bootstrap & jQuery -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -366,10 +366,10 @@
         }
 
         .full-link {
-        	display: block;
-        	width: 100%;
-        	height: 100%;
-        	padding: 8px 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 8px 0;
         }
 
         /* 반응형 조정 */
@@ -393,264 +393,267 @@
     </style>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/views/common/header.jsp" />
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-    <div class="container my-5">
-        <!-- 페이지 타이틀 -->
-        <div class="page-title">
-            <h2 class="d-flex align-items-center">
-                <i class="bi bi-shop me-2 text-primary"></i>
-                상품 목록
-            </h2>
-            <p class="text-muted">이웃 주민들이 판매하는 다양한 상품을 확인하세요.</p>
-        </div>
+<div class="container my-5">
+    <!-- 페이지 타이틀 -->
+    <div class="page-title">
+        <h2 class="d-flex align-items-center">
+            <i class="bi bi-shop me-2 text-primary"></i>
+            상품 목록
+        </h2>
+        <p class="text-muted">이웃 주민들이 판매하는 다양한 상품을 확인하세요.</p>
+    </div>
 
-        <!-- 필터 영역 -->
-        <div class="filter-area">
-            <form action="/AptCommunity/product/search" method="get" id="searchForm">
-                <div class="row g-3">
-                    <div class="col-lg-3 col-md-6">
-                        <label class="filter-title">
-                            <i class="bi bi-tag"></i> 카테고리
-                        </label>
-                        <select name="category" class="form-select">
-                            <option value="">전체 카테고리</option>
-                            <option value="전자제품">전자제품</option>
-                            <option value="생활용품">생활용품</option>
-                            <option value="의류">의류</option>
-                            <option value="식품">식품</option>
-                            <option value="기타">기타</option>
-                        </select>
-                    </div>
+    <!-- 필터 영역 -->
+    <div class="filter-area">
+        <form action="/AptCommunity/product/search" method="get" id="searchForm">
+            <div class="row g-3">
+                <div class="col-lg-3 col-md-6">
+                    <label class="filter-title">
+                        <i class="bi bi-tag"></i> 카테고리
+                    </label>
+                    <select name="category" class="form-select">
+                        <option value="">전체 카테고리</option>
+                        <option value="전자제품">전자제품</option>
+                        <option value="생활용품">생활용품</option>
+                        <option value="의류">의류</option>
+                        <option value="식품">식품</option>
+                        <option value="기타">기타</option>
+                    </select>
+                </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <label class="filter-title">
-                            <i class="bi bi-info-circle"></i> 상태
-                        </label>
-                        <select name="status" class="form-select">
-                            <option value="">전체 상태</option>
-                            <option value="새상품">새상품</option>
-                            <option value="중고">중고</option>
-                            <option value="나눔">나눔</option>
-                        </select>
-                    </div>
+                <div class="col-lg-3 col-md-6">
+                    <label class="filter-title">
+                        <i class="bi bi-info-circle"></i> 상태
+                    </label>
+                    <select name="status" class="form-select">
+                        <option value="">전체 상태</option>
+                        <option value="새상품">새상품</option>
+                        <option value="중고">중고</option>
+                        <option value="나눔">나눔</option>
+                    </select>
+                </div>
 
-                    <div class="col-lg-6 col-md-12">
-                        <label class="filter-title">
-                            <i class="bi bi-currency-dollar"></i> 가격 범위
-                        </label>
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <div class="input-group">
-                                    <span class="input-group-text">₩</span>
-                                    <input type="number" name="minPrice" class="form-control" placeholder="최소가격" value="${param.minPrice}" />
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="input-group">
-                                    <span class="input-group-text">₩</span>
-                                    <input type="number" name="maxPrice" class="form-control" placeholder="최대가격" value="${param.maxPrice}" />
-                                </div>
+                <div class="col-lg-6 col-md-12">
+                    <label class="filter-title">
+                        <i class="bi bi-currency-dollar"></i> 가격 범위
+                    </label>
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <span class="input-group-text">₩</span>
+                                <input type="number" name="minPrice" class="form-control" placeholder="최소가격"
+                                       value="${param.minPrice}"/>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4">
-                        <label class="filter-title">
-                            <i class="bi bi-search"></i> 검색 조건
-                        </label>
-                        <select name="choice" class="form-select">
-                            <option value="all">전체</option>
-                            <option value="titleAndContent">제목+내용</option>
-                            <option value="writer">작성자</option>
-                        </select>
-                    </div>
-
-                    <div class="col-lg-6 col-md-8">
-                        <label class="filter-title">
-                            <i class="bi bi-search"></i> 검색어
-                        </label>
-                        <div class="input-group">
-                            <input type="text" name="keyword" class="form-control" placeholder="검색어 입력" value="${param.keyword}" />
-                            <button type="button" id="search" class="btn btn-primary">
-                                <i class="bi bi-search me-1"></i> 검색
-                            </button>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <span class="input-group-text">₩</span>
+                                <input type="number" name="maxPrice" class="form-control" placeholder="최대가격"
+                                       value="${param.maxPrice}"/>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-12 d-flex align-items-end">
-                        <a href="add" class="btn btn-primary w-100">
-                            <i class="bi bi-plus-lg me-1"></i> 상품 등록하기
-                        </a>
                     </div>
                 </div>
-            </form>
-        </div>
 
-        <!-- 뷰 전환 및 정렬 옵션 -->
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <div class="view-toggle">
-                <button type="button" class="view-toggle-btn active" id="gridViewBtn" title="그리드 보기">
-                    <i class="bi bi-grid-3x3-gap-fill"></i>
-                </button>
-                <button type="button" class="view-toggle-btn" id="tableViewBtn" title="테이블 보기">
-                    <i class="bi bi-list-ul"></i>
-                </button>
+                <div class="col-lg-3 col-md-4">
+                    <label class="filter-title">
+                        <i class="bi bi-search"></i> 검색 조건
+                    </label>
+                    <select name="choice" class="form-select">
+                        <option value="all">전체</option>
+                        <option value="titleAndContent">제목+내용</option>
+                        <option value="writer">작성자</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-6 col-md-8">
+                    <label class="filter-title">
+                        <i class="bi bi-search"></i> 검색어
+                    </label>
+                    <div class="input-group">
+                        <input type="text" name="keyword" class="form-control" placeholder="검색어 입력"
+                               value="${param.keyword}"/>
+                        <button type="button" id="search" class="btn btn-primary">
+                            <i class="bi bi-search me-1"></i> 검색
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-12 d-flex align-items-end">
+                    <a href="add" class="btn btn-primary w-100">
+                        <i class="bi bi-plus-lg me-1"></i> 상품 등록하기
+                    </a>
+                </div>
             </div>
+        </form>
+    </div>
 
-            <div class="d-flex align-items-center">
-                <label class="me-2 text-nowrap">정렬:</label>
-                <select class="form-select form-select-sm" id="sortOption" style="width: auto;">
-                    <option value="latest">최신순</option>
-                    <option value="priceAsc">가격 낮은순</option>
-                    <option value="priceDesc">가격 높은순</option>
-                    <option value="popular">인기순</option>
-                </select>
-            </div>
+    <!-- 뷰 전환 및 정렬 옵션 -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="view-toggle">
+            <button type="button" class="view-toggle-btn active" id="gridViewBtn" title="그리드 보기">
+                <i class="bi bi-grid-3x3-gap-fill"></i>
+            </button>
+            <button type="button" class="view-toggle-btn" id="tableViewBtn" title="테이블 보기">
+                <i class="bi bi-list-ul"></i>
+            </button>
         </div>
 
-        <!-- 그리드 뷰 (기본) -->
-        <div class="grid-view">
-            <div class="row" id="product-grid">
-                <!-- 상품 카드가 여기에 동적으로 추가됩니다 -->
-            </div>
-        </div>
-
-        <!-- 테이블 뷰 (토글) -->
-        <div class="table-view">
-            <div class="table-responsive">
-                <table class="custom-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 5%;">번호</th>
-                            <th style="width: 10%;">상태</th>
-                            <th style="width: 10%;">카테고리</th>
-                            <th style="width: 30%;">상품명</th>
-                            <th style="width: 15%;">가격</th>
-                            <th style="width: 10%;">수량</th>
-                            <th style="width: 10%;">작성자</th>
-                            <th style="width: 10%;">작성일</th>
-                        </tr>
-                    </thead>
-                    <tbody id="product-table-body">
-                        <!-- 상품 행이 여기에 동적으로 추가됩니다 -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- 빈 상태 메시지 -->
-        <div id="empty-state" class="empty-state" style="display: none;">
-            <i class="bi bi-shop empty-state-icon"></i>
-            <h4>상품이 없습니다</h4>
-            <p class="empty-state-text">검색 조건을 변경하거나 새로운 상품을 등록해보세요.</p>
-            <a href="add" class="btn btn-primary">
-                <i class="bi bi-plus-lg me-1"></i> 상품 등록하기
-            </a>
-        </div>
-
-        <!-- 페이지네이션 -->
-        <div class="pagination-container" id="pagination">
-            <!-- 페이지 버튼이 여기에 동적으로 추가됩니다 -->
+        <div class="d-flex align-items-center">
+            <label class="me-2 text-nowrap">정렬:</label>
+            <select class="form-select form-select-sm" id="sortOption" style="width: auto;">
+                <option value="latest">최신순</option>
+                <option value="priceAsc">가격 낮은순</option>
+                <option value="priceDesc">가격 높은순</option>
+                <option value="popular">인기순</option>
+            </select>
         </div>
     </div>
 
-    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    <!-- 그리드 뷰 (기본) -->
+    <div class="grid-view">
+        <div class="row" id="product-grid">
+            <!-- 상품 카드가 여기에 동적으로 추가됩니다 -->
+        </div>
+    </div>
 
-    <script>
-        let currentCategory = "";
-        let currentStatus = "";
-        let currentMinPrice = "";
-        let currentMaxPrice = "";
-        let currentChoice = "";
-        let currentKeyword = "";
-        let currentSort = "latest";
-        let currentView = "grid"; // 기본 뷰 타입
+    <!-- 테이블 뷰 (토글) -->
+    <div class="table-view">
+        <div class="table-responsive">
+            <table class="custom-table">
+                <thead>
+                <tr>
+                    <th style="width: 5%;">번호</th>
+                    <th style="width: 10%;">상태</th>
+                    <th style="width: 10%;">카테고리</th>
+                    <th style="width: 30%;">상품명</th>
+                    <th style="width: 15%;">가격</th>
+                    <th style="width: 10%;">수량</th>
+                    <th style="width: 10%;">작성자</th>
+                    <th style="width: 10%;">작성일</th>
+                </tr>
+                </thead>
+                <tbody id="product-table-body">
+                <!-- 상품 행이 여기에 동적으로 추가됩니다 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-        // 상품 데이터 가져오기
-        function fetchProducts(page = 1) {
-            $.ajax({
-                url: "/AptCommunity/product/search",
-                method: "GET",
-                data: {
-                    category: currentCategory,
-                    status: currentStatus,
-                    minPrice: currentMinPrice,
-                    maxPrice: currentMaxPrice,
-                    choice: currentChoice,
-                    keyword: currentKeyword,
-                    sort: currentSort,
-                    page: page
-                },
-                success: function(res) {
-                    const products = res.products;
-                    const wishlistedIds = res.wishlistedIds || [];
+    <!-- 빈 상태 메시지 -->
+    <div id="empty-state" class="empty-state" style="display: none;">
+        <i class="bi bi-shop empty-state-icon"></i>
+        <h4>상품이 없습니다</h4>
+        <p class="empty-state-text">검색 조건을 변경하거나 새로운 상품을 등록해보세요.</p>
+        <a href="add" class="btn btn-primary">
+            <i class="bi bi-plus-lg me-1"></i> 상품 등록하기
+        </a>
+    </div>
 
-                    renderGridView(products, wishlistedIds);
+    <!-- 페이지네이션 -->
+    <div class="pagination-container" id="pagination">
+        <!-- 페이지 버튼이 여기에 동적으로 추가됩니다 -->
+    </div>
+</div>
 
-                    const currentPage = res.currentPage;
-                    const totalPages = res.totalPages;
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-                    // 빈 상태 처리
-                    if (products.length === 0) {
-                        $("#empty-state").show();
-                        $(".grid-view").hide();
+<script>
+    let currentCategory = "";
+    let currentStatus = "";
+    let currentMinPrice = "";
+    let currentMaxPrice = "";
+    let currentChoice = "";
+    let currentKeyword = "";
+    let currentSort = "latest";
+    let currentView = "grid"; // 기본 뷰 타입
+
+    // 상품 데이터 가져오기
+    function fetchProducts(page = 1) {
+        $.ajax({
+            url: "/AptCommunity/product/search",
+            method: "GET",
+            data: {
+                category: currentCategory,
+                status: currentStatus,
+                minPrice: currentMinPrice,
+                maxPrice: currentMaxPrice,
+                choice: currentChoice,
+                keyword: currentKeyword,
+                sort: currentSort,
+                page: page
+            },
+            success: function (res) {
+                const products = res.products;
+                const wishlistedIds = res.wishlistedIds || [];
+
+                renderGridView(products, wishlistedIds);
+
+                const currentPage = res.currentPage;
+                const totalPages = res.totalPages;
+
+                // 빈 상태 처리
+                if (products.length === 0) {
+                    $("#empty-state").show();
+                    $(".grid-view").hide();
+                    $(".table-view").hide();
+                } else {
+                    $("#empty-state").hide();
+
+                    if (currentView === "grid") {
+                        $(".grid-view").show();
                         $(".table-view").hide();
+                        renderGridView(products, wishlistedIds);
                     } else {
-                        $("#empty-state").hide();
-
-                        if (currentView === "grid") {
-                            $(".grid-view").show();
-                            $(".table-view").hide();
-                            renderGridView(products, wishlistedIds);
-                        } else {
-                            $(".grid-view").hide();
-                            $(".table-view").show();
-                            renderTableView(products);
-                        }
+                        $(".grid-view").hide();
+                        $(".table-view").show();
+                        renderTableView(products);
                     }
-
-                    // 페이지네이션 렌더링
-                    renderPagination(currentPage, totalPages);
-                },
-                error: function() {
-                    alert("상품 목록을 불러오는데 실패했습니다.");
-                }
-            });
-        }
-
-     // 그리드 뷰 렌더링
-        function renderGridView(products, wishlistedIds) { 	
-
-            const grid = $("#product-grid");
-            grid.empty();
-
-            products.forEach(product => {
-
-
-                // 상태에 따른 배지 클래스
-                let statusClass = "";
-                if (product.status === "새상품") {
-                    statusClass = "status-new";
-                } else if (product.status === "중고") {
-                    statusClass = "status-used";
-                } else if (product.status === "나눔") {
-                    statusClass = "status-free";
                 }
 
-                // 가격 포맷팅
-                const formattedPrice = product.price.toLocaleString() + "원";
+                // 페이지네이션 렌더링
+                renderPagination(currentPage, totalPages);
+            },
+            error: function () {
+                alert("상품 목록을 불러오는데 실패했습니다.");
+            }
+        });
+    }
 
-                // 날짜 포맷팅
-                const date = new Date(product.createdAt);
-                const formattedDate = `\${date.getFullYear()}-\${String(date.getMonth() + 1).padStart(2, '0')}-\${String(date.getDate()).padStart(2, '0')}`;
+    // 그리드 뷰 렌더링
+    function renderGridView(products, wishlistedIds) {
 
-                // 찜 상태에 따른 하트 아이콘 클래스
-                const isWishlisted = wishlistedIds && wishlistedIds.includes(product.id);
-                const wishClass = isWishlisted ? "bi-heart-fill text-danger" : "bi-heart";
+        const grid = $("#product-grid");
+        grid.empty();
 
-                // 상품 카드 생성
-                const card = `
+        products.forEach(product => {
+
+
+            // 상태에 따른 배지 클래스
+            let statusClass = "";
+            if (product.status === "새상품") {
+                statusClass = "status-new";
+            } else if (product.status === "중고") {
+                statusClass = "status-used";
+            } else if (product.status === "나눔") {
+                statusClass = "status-free";
+            }
+
+            // 가격 포맷팅
+            const formattedPrice = product.price.toLocaleString() + "원";
+
+            // 날짜 포맷팅
+            const date = new Date(product.createdAt);
+            const formattedDate = `\${date.getFullYear()}-\${String(date.getMonth() + 1).padStart(2, '0')}-\${String(date.getDate()).padStart(2, '0')}`;
+
+            // 찜 상태에 따른 하트 아이콘 클래스
+            const isWishlisted = wishlistedIds && wishlistedIds.includes(product.id);
+            const wishClass = isWishlisted ? "bi-heart-fill text-danger" : "bi-heart";
+
+            // 상품 카드 생성
+            const card = `
                   <div class="col-lg-3 col-md-4 col-sm-6 mb-4 position-relative">
                   	<a href="/AptCommunity/product/detail?id=\${product.id}" class="text-decoration-none text-dark">
 	                	<div class="product-card">
@@ -682,27 +685,27 @@
 
                 `;
 
-                grid.append(card);
-            });
-        }
+            grid.append(card);
+        });
+    }
 
 
-        // 테이블 뷰 렌더링
-        function renderTableView(products) {
+    // 테이블 뷰 렌더링
+    function renderTableView(products) {
 
-            const tbody = $("#product-table-body");
-            tbody.empty();
+        const tbody = $("#product-table-body");
+        tbody.empty();
 
-            products.forEach(product => {
-                // 날짜 포맷팅
-                const date = new Date(product.createdAt);
-                const formattedDate = `\${date.getFullYear()}-\${String(date.getMonth() + 1).padStart(2, '0')}-\${String(date.getDate()).padStart(2, '0')}`;
+        products.forEach(product => {
+            // 날짜 포맷팅
+            const date = new Date(product.createdAt);
+            const formattedDate = `\${date.getFullYear()}-\${String(date.getMonth() + 1).padStart(2, '0')}-\${String(date.getDate()).padStart(2, '0')}`;
 
-                // 가격 포맷팅
-                const formattedPrice = product.price.toLocaleString() + "원";
+            // 가격 포맷팅
+            const formattedPrice = product.price.toLocaleString() + "원";
 
-                // 테이블 행 생성
-                const row = `
+            // 테이블 행 생성
+            const row = `
                     <tr>
                         <td>\${product.id}</td>
                         <td>\${product.status}</td>
@@ -719,152 +722,152 @@
                     </tr>
                 `;
 
-                tbody.append(row);
-            });
-        }
+            tbody.append(row);
+        });
+    }
 
-        // 페이지네이션 렌더링
-        function renderPagination(currentPage, totalPages) {
-            const pagination = $("#pagination");
-            pagination.empty();
+    // 페이지네이션 렌더링
+    function renderPagination(currentPage, totalPages) {
+        const pagination = $("#pagination");
+        pagination.empty();
 
-            // 이전 페이지 버튼 (항상 표시)
-            const prevDisabled = currentPage == 1 ? 'disabled' : '';
-            const prevOnClick = currentPage == 1 ? '' : 'onclick="fetchProducts(' + (currentPage - 1) + ')"';
+        // 이전 페이지 버튼 (항상 표시)
+        const prevDisabled = currentPage == 1 ? 'disabled' : '';
+        const prevOnClick = currentPage == 1 ? '' : 'onclick="fetchProducts(' + (currentPage - 1) + ')"';
 
-            pagination.append(`
+        pagination.append(`
                 <button type="button" class="btn btn-outline-primary page-btn \${prevDisabled}" \${prevDisabled ? 'disabled' : ''} \${prevOnClick}>
                     <i class="bi bi-chevron-left"></i>
                 </button>
             `);
 
-            // 페이지 번호 버튼
-            for (let i = 1; i <= totalPages; i++) {
-                const isActive = i == Number(currentPage);
-                const btnClass = isActive ? "btn-primary" : "btn-outline-primary";
+        // 페이지 번호 버튼
+        for (let i = 1; i <= totalPages; i++) {
+            const isActive = i == Number(currentPage);
+            const btnClass = isActive ? "btn-primary" : "btn-outline-primary";
 
-                pagination.append(`
+            pagination.append(`
                     <button type="button" class="btn \${btnClass} page-btn" onclick="fetchProducts(\${i})">
                         \${i}
                     </button>
                 `);
-            }
+        }
 
-            // 다음 페이지 버튼 (항상 표시)
-            const nextDisabled = currentPage == totalPages ? 'disabled' : '';
-            const nextOnClick = currentPage == totalPages ? '' : 'onclick="fetchProducts(' + (Number(currentPage) + 1) + ')"';
+        // 다음 페이지 버튼 (항상 표시)
+        const nextDisabled = currentPage == totalPages ? 'disabled' : '';
+        const nextOnClick = currentPage == totalPages ? '' : 'onclick="fetchProducts(' + (Number(currentPage) + 1) + ')"';
 
-            pagination.append(`
+        pagination.append(`
                 <button type="button" class="btn btn-outline-primary page-btn \${nextDisabled}" \${nextDisabled ? 'disabled' : ''} \${nextOnClick}>
                     <i class="bi bi-chevron-right"></i>
                 </button>
             `);
+    }
+
+    // 찜하기 토글
+    function toggleWishlist(productId, element) {
+        const icon = element.querySelector("i");
+
+        $.ajax({
+            url: "/AptCommunity/wishlist/toggle-ajax",
+            method: "POST",
+            contentType: 'application/json',
+            data: JSON.stringify({productId: productId}),
+            success: function (res) {
+                console.log("서버 응답 : ", res)
+                if (res === "added") {
+                    icon.classList.remove("bi-heart");
+                    icon.classList.add("bi-heart-fill", "text-danger");
+                } else if (res === "removed") {
+                    icon.classList.remove("bi-heart-fill", "text-danger");
+                    icon.classList.add("bi-heart");
+                } else if (res === "unauthorized") {
+                    alert("로그인이 필요합니다.");
+                }
+            },
+            error: function () {
+                alert("요청 실패");
+            }
+        });
+    }
+
+
+    // 검색 버튼 클릭 이벤트
+    $("#search").click(function (e) {
+        e.preventDefault();
+        currentCategory = $("[name='category']").val();
+        currentStatus = $("[name='status']").val();
+        currentMinPrice = $("[name='minPrice']").val();
+        currentMaxPrice = $("[name='maxPrice']").val();
+        currentChoice = $("[name='choice']").val();
+        currentKeyword = $("[name='keyword']").val();
+        fetchProducts(1);
+    });
+
+    // 정렬 옵션 변경 이벤트
+    $("#sortOption").change(function () {
+        currentSort = $(this).val();
+        fetchProducts(1);
+    });
+
+    // 뷰 전환 버튼 이벤트
+    $("#gridViewBtn").click(function () {
+        currentView = "grid";
+        $(this).addClass("active");
+        $("#tableViewBtn").removeClass("active");
+        $(".grid-view").show();
+        $(".table-view").hide();
+        fetchProducts(page = 1)
+    });
+
+    $("#tableViewBtn").click(function () {
+        currentView = "table";
+        $(this).addClass("active");
+        $("#gridViewBtn").removeClass("active");
+        $(".grid-view").hide();
+        $(".table-view").show();
+        fetchProducts(page = 1)
+    });
+
+    // 페이지 로드 시 상품 목록 가져오기
+    $(document).ready(function () {
+        fetchProducts(1);
+
+        // URL 파라미터에서 필터 값 가져오기
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // 필터 값 설정
+        if (urlParams.has('category')) {
+            currentCategory = urlParams.get('category');
+            $("[name='category']").val(currentCategory);
         }
 
-        // 찜하기 토글
-        function toggleWishlist(productId, element) {
-		    const icon = element.querySelector("i");
+        if (urlParams.has('status')) {
+            currentStatus = urlParams.get('status');
+            $("[name='status']").val(currentStatus);
+        }
 
-		    $.ajax({
-		        url: "/AptCommunity/wishlist/toggle-ajax",
-		        method: "POST",
-		        contentType: 'application/json',
-		        data: JSON.stringify({ productId: productId }),
-		        success: function (res) {
-		        	console.log("서버 응답 : ", res)
-		            if (res === "added") {
-		                icon.classList.remove("bi-heart");
-		                icon.classList.add("bi-heart-fill", "text-danger");
-		            } else if (res === "removed") {
-		                icon.classList.remove("bi-heart-fill", "text-danger");
-		                icon.classList.add("bi-heart");
-		            } else if (res === "unauthorized") {
-		                alert("로그인이 필요합니다.");
-		            }
-		        },
-		        error: function () {
-		            alert("요청 실패");
-		        }
-		    });
-		}
+        if (urlParams.has('minPrice')) {
+            currentMinPrice = urlParams.get('minPrice');
+            $("[name='minPrice']").val(currentMinPrice);
+        }
 
+        if (urlParams.has('maxPrice')) {
+            currentMaxPrice = urlParams.get('maxPrice');
+            $("[name='maxPrice']").val(currentMaxPrice);
+        }
 
-        // 검색 버튼 클릭 이벤트
-        $("#search").click(function(e) {
-            e.preventDefault();
-            currentCategory = $("[name='category']").val();
-            currentStatus = $("[name='status']").val();
-            currentMinPrice = $("[name='minPrice']").val();
-            currentMaxPrice = $("[name='maxPrice']").val();
-            currentChoice = $("[name='choice']").val();
-            currentKeyword = $("[name='keyword']").val();
-            fetchProducts(1);
-        });
+        if (urlParams.has('choice')) {
+            currentChoice = urlParams.get('choice');
+            $("[name='choice']").val(currentChoice);
+        }
 
-        // 정렬 옵션 변경 이벤트
-        $("#sortOption").change(function() {
-            currentSort = $(this).val();
-            fetchProducts(1);
-        });
+        if (urlParams.has('keyword')) {
+            currentKeyword = urlParams.get('keyword');
+            $("[name='keyword']").val(currentKeyword);
+        }
+    });
 
-        // 뷰 전환 버튼 이벤트
-        $("#gridViewBtn").click(function() {
-            currentView = "grid";
-            $(this).addClass("active");
-            $("#tableViewBtn").removeClass("active");
-            $(".grid-view").show();
-            $(".table-view").hide();
-            fetchProducts(page = 1)
-        });
-
-        $("#tableViewBtn").click(function() {
-            currentView = "table";
-            $(this).addClass("active");
-            $("#gridViewBtn").removeClass("active");
-            $(".grid-view").hide();
-            $(".table-view").show();
-            fetchProducts(page = 1)
-        });
-
-        // 페이지 로드 시 상품 목록 가져오기
-        $(document).ready(function() {
-            fetchProducts(1);
-
-            // URL 파라미터에서 필터 값 가져오기
-            const urlParams = new URLSearchParams(window.location.search);
-
-            // 필터 값 설정
-            if(urlParams.has('category')) {
-                currentCategory = urlParams.get('category');
-                $("[name='category']").val(currentCategory);
-            }
-
-            if(urlParams.has('status')) {
-                currentStatus = urlParams.get('status');
-                $("[name='status']").val(currentStatus);
-            }
-
-            if(urlParams.has('minPrice')) {
-                currentMinPrice = urlParams.get('minPrice');
-                $("[name='minPrice']").val(currentMinPrice);
-            }
-
-            if(urlParams.has('maxPrice')) {
-                currentMaxPrice = urlParams.get('maxPrice');
-                $("[name='maxPrice']").val(currentMaxPrice);
-            }
-
-            if(urlParams.has('choice')) {
-                currentChoice = urlParams.get('choice');
-                $("[name='choice']").val(currentChoice);
-            }
-
-            if(urlParams.has('keyword')) {
-                currentKeyword = urlParams.get('keyword');
-                $("[name='keyword']").val(currentKeyword);
-            }
-        });
-
-    </script>
+</script>
 </body>
 </html>

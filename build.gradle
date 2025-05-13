@@ -86,4 +86,3 @@ war {
         into 'META-INF/resources'
     }
 }
-

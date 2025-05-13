@@ -1,23 +1,27 @@
 package com.springmvc.controller;
 
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-
+import com.springmvc.domain.Comment;
+import com.springmvc.domain.Image;
+import com.springmvc.domain.Member;
+import com.springmvc.domain.Product;
+import com.springmvc.service.CommentService;
+import com.springmvc.service.ImageService;
+import com.springmvc.service.ProductService;
+import com.springmvc.service.wishlistService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.springmvc.domain.*;
-import com.springmvc.service.*;
-
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 
 

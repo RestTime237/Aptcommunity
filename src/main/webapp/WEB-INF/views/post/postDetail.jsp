@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 
@@ -9,14 +9,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시글 상세보기 - 아파트 커뮤니티</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css/post/postDetail.css" />
+    <link rel="stylesheet" href="/AptCommunity/resources/css/post/postDetail.css"/>
 
     <script src="/AptCommunity/resources/js/post/postDetail.js" defer></script>
 
@@ -24,7 +24,7 @@
 
 <body>
 
-<jsp:include page="/WEB-INF/views/common/header.jsp" />
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 <div class="container my-5">
     <!-- 페이지 타이틀 -->
@@ -54,7 +54,7 @@
                 <div class="post-info-item">
                     <i class="bi bi-calendar3 post-info-icon"></i>
                     <span>
-                            <fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd HH:mm" />
+                            <fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd HH:mm"/>
                         </span>
                 </div>
                 <div class="post-info-item">
@@ -78,7 +78,7 @@
                              data-img-src="/AptCommunity/resources/images/${image.fileName}">
                             <img src="/AptCommunity/resources/images/${image.fileName}" class="img-fluid"
                                  style="width: 200px; height: 150px; object-fit: cover;"
-                                 alt="첨부 이미지 ${status.index + 1}" />
+                                 alt="첨부 이미지 ${status.index + 1}"/>
                         </div>
                     </c:forEach>
                 </div>
@@ -92,7 +92,7 @@
             <!-- 버튼 영역 -->
             <div class="d-flex justify-content-between align-items-center mt-5">
 
-                <input type="hidden" id="postId" value="${post.id}" />
+                <input type="hidden" id="postId" value="${post.id}"/>
 
                 <!-- 왼쪽 여백: 목록 버튼 -->
                 <div style="min-width: 150px;">
@@ -134,9 +134,9 @@
             <!-- 댓글 작성 폼 -->
             <div class="comment-form">
                 <form action="${pageContext.request.contextPath}/comment/add" method="post">
-                    <input type="hidden" name="refId" value="${post.id}" />
-                    <input type="hidden" name="refType" value="post" />
-                    <input type="hidden" name="userId" value="${mb.userId}" />
+                    <input type="hidden" name="refId" value="${post.id}"/>
+                    <input type="hidden" name="refType" value="post"/>
+                    <input type="hidden" name="userId" value="${mb.userId}"/>
                     <div class="mb-3">
                         <label for="commentContent" class="form-label fw-medium">댓글 작성</label>
                         <textarea name="content" id="commentContent" class="form-control" rows="3"
@@ -160,7 +160,7 @@
                                 <i class="bi bi-person-circle me-1"></i> ${comment.userId}
                             </div>
                             <div class="comment-date">
-                                <fmt:formatDate value="${comment.createdAt}" pattern="yyyy-MM-dd HH:mm" />
+                                <fmt:formatDate value="${comment.createdAt}" pattern="yyyy-MM-dd HH:mm"/>
                             </div>
                         </div>
                         <div class="comment-content">
@@ -194,9 +194,9 @@
 
                         <!-- 대댓글 입력창 -->
                         <div class="reply-form mt-3" id="replyForm-${comment.id}" style="display: none;">
-                            <input type="hidden" name="refId" value="${post.id}" />
-                            <input type="hidden" name="refType" value="post" />
-                            <input type="hidden" name="userId" value="${mb.userId}" />
+                            <input type="hidden" name="refId" value="${post.id}"/>
+                            <input type="hidden" name="refType" value="post"/>
+                            <input type="hidden" name="userId" value="${mb.userId}"/>
                             <textarea class="form-control mb-2 reply-content" name="content" rows="2"
                                       placeholder="답글을 입력하세요"></textarea>
                             <div class="text-end">
@@ -217,7 +217,7 @@
                                             </div>
                                             <div class="comment-date">
                                                 <fmt:formatDate value="${reply.createdAt}"
-                                                                pattern="yyyy-MM-dd HH:mm" />
+                                                                pattern="yyyy-MM-dd HH:mm"/>
                                             </div>
                                         </div>
                                         <div class="comment-content">
@@ -271,7 +271,7 @@
     </div>
 </div>
 
-<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
 </body>
 

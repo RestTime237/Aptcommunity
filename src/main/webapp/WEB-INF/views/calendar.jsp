@@ -10,10 +10,10 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-  
+
   <!-- FullCalendar & jQuery -->
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -30,7 +30,7 @@
       --light-color: #f8f9fa;
       --dark-color: #343a40;
     }
-    
+
     body {
       background-color: #f8f9fa;
       font-family: 'Noto Sans KR', sans-serif;
@@ -50,7 +50,7 @@
       overflow: hidden;
       margin-bottom: 2rem;
     }
-    
+
     .calendar-header {
       background: linear-gradient(135deg, #0d6efd, #0a58ca);
       color: white;
@@ -58,7 +58,7 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     .calendar-header::before {
       content: '';
       position: absolute;
@@ -70,18 +70,18 @@
       background-size: cover;
       opacity: 0.1;
     }
-    
+
     .calendar-header-content {
       position: relative;
       z-index: 1;
     }
-    
+
     .calendar-title {
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
     }
-    
+
     .calendar-subtitle {
       font-size: 1.1rem;
       opacity: 0.9;
@@ -90,53 +90,53 @@
     #calendar {
       padding: 2rem;
     }
-    
+
     /* FullCalendar Customization */
     .fc-theme-standard .fc-scrollgrid {
       border: none;
     }
-    
+
     .fc .fc-toolbar-title {
       font-size: 1.5rem;
       font-weight: 600;
     }
-    
+
     .fc .fc-button-primary {
       background-color: var(--primary-color);
       border-color: var(--primary-color);
       box-shadow: none;
       transition: all 0.2s ease;
     }
-    
+
     .fc .fc-button-primary:hover {
       background-color: #0b5ed7;
       border-color: #0a58ca;
     }
-    
+
     .fc .fc-daygrid-day-top {
       justify-content: center;
       padding-top: 0.5rem;
     }
-    
+
     .fc .fc-daygrid-day-number {
       font-size: 1rem;
       font-weight: 500;
       color: #495057;
     }
-    
+
     .fc .fc-col-header-cell-cushion {
       font-weight: 600;
       color: #495057;
       padding: 0.75rem 0;
     }
-    
+
     .fc-day-today .fc-daygrid-day-number {
 	  color: #007bff;
 	  font-weight: bold;
 	  padding-bottom: 2px;
 	}
 
-    
+
     .fc-event {
       border-radius: 4px;
       padding: 3px 5px;
@@ -144,7 +144,7 @@
       border: none;
       transition: transform 0.2s ease;
     }
-    
+
     .fc-event:hover {
       transform: translateY(-2px);
     }
@@ -167,7 +167,7 @@
       border-left: 4px solid #0a58ca !important;
       color: white !important;
     }
-    
+
     /* Category Legend */
     .category-legend {
       display: flex;
@@ -176,32 +176,32 @@
       margin-bottom: 1.5rem;
       padding: 0 2rem;
     }
-    
+
     .legend-item {
       display: flex;
       align-items: center;
       font-size: 0.9rem;
     }
-    
+
     .legend-color {
       width: 16px;
       height: 16px;
       border-radius: 4px;
       margin-right: 0.5rem;
     }
-    
+
     .legend-color.환경 {
       background-color: #28a745;
     }
-    
+
     .legend-color.소독 {
       background-color: #dc3545;
     }
-    
+
     .legend-color.회의 {
       background-color: #0d6efd;
     }
-    
+
     /* Add Event Button */
     .add-event-btn {
       position: fixed;
@@ -220,101 +220,101 @@
       transition: all 0.3s ease;
       z-index: 1000;
     }
-    
+
     .add-event-btn:hover {
       transform: scale(1.1);
       background-color: #0b5ed7;
       color: white;
     }
-    
+
     /* Modal Customization */
     .modal-content {
       border: none;
       border-radius: 1rem;
       overflow: hidden;
     }
-    
+
     .modal-header {
       padding: 1.5rem;
       border-bottom: none;
     }
-    
+
     .modal-body {
       padding: 1.5rem;
     }
-    
+
     .modal-footer {
       padding: 1.5rem;
       border-top: 1px solid rgba(0,0,0,0.05);
     }
-    
+
     .form-label {
       font-weight: 500;
       margin-bottom: 0.5rem;
     }
-    
+
     .form-control, .form-select {
       padding: 0.75rem 1rem;
       border-radius: 0.5rem;
       border: 1px solid rgba(0,0,0,0.1);
       transition: all 0.2s ease;
     }
-    
+
     .form-control:focus, .form-select:focus {
       border-color: var(--primary-color);
       box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
     }
-    
+
     .btn {
       padding: 0.75rem 1.5rem;
       border-radius: 0.5rem;
       font-weight: 500;
       transition: all 0.2s ease;
     }
-    
+
     .btn-primary {
       background-color: var(--primary-color);
       border-color: var(--primary-color);
     }
-    
+
     .btn-primary:hover {
       background-color: #0b5ed7;
       border-color: #0a58ca;
     }
-    
+
     .btn-danger {
       background-color: var(--danger-color);
       border-color: var(--danger-color);
     }
-    
+
     .btn-danger:hover {
       background-color: #c82333;
       border-color: #bd2130;
     }
-    
+
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       .calendar-header {
         padding: 1.5rem;
       }
-      
+
       .calendar-title {
         font-size: 1.5rem;
       }
-      
+
       .calendar-subtitle {
         font-size: 1rem;
       }
-      
+
       #calendar {
         padding: 1rem;
       }
-      
+
       .fc .fc-toolbar {
         flex-direction: column;
         gap: 1rem;
       }
-      
+
       .fc .fc-toolbar-title {
         font-size: 1.2rem;
       }
@@ -332,7 +332,7 @@
           <p class="calendar-subtitle">아파트 주요 행사와 일정을 확인하고 관리하세요</p>
         </div>
       </div>
-      
+
       <div class="category-legend">
         <div class="legend-item">
           <div class="legend-color 환경"></div>
@@ -347,10 +347,10 @@
           <span>회의</span>
         </div>
       </div>
-      
+
       <div id='calendar'></div>
     </div>
-    
+
     <div class="row">
       <div class="col-md-6 mb-4">
         <div class="card h-100 shadow-sm">
@@ -379,7 +379,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="col-md-6 mb-4">
         <div class="card h-100 shadow-sm">
           <div class="card-header bg-warning text-dark">
@@ -399,7 +399,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- 모달 -->
   <div class="modal fade" id="scheduleModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
@@ -469,12 +469,12 @@
       </div>
     </div>
   </div>
-  
+
   <!-- 플로팅 버튼 -->
   <a href="#" class="add-event-btn" id="quickAddEvent">
     <i class="bi bi-plus-lg"></i>
   </a>
-  
+
   <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
   <script>
@@ -519,7 +519,7 @@
           }
         });
       },
-      
+
       editable: true,
 
       dateClick: function(info) {
@@ -528,7 +528,7 @@
           start: info.dateStr
         });
       },
-      
+
       eventClick: function(info) {
         openScheduleModal({
           mode: 'edit',
@@ -543,7 +543,7 @@
 
         console.log("📌 클릭한 이벤트 ID:", info.event.id);
       },
-      
+
       eventDrop: function(info) {
         const id = info.event.id;
         const newStart = info.event.startStr;
@@ -571,7 +571,7 @@
           }
         });
       },
-      
+
       eventResize: function(info) {
         const id = info.event.id;
         const newEnd = adjustEndDateBack(info.event.end);
@@ -595,15 +595,15 @@
           }
         });
       },
-      
+
       eventClassNames: function(arg) {
         console.log("📌 클래스 적용 확인:", arg.event.extendedProps.category);
-        return [ `category-\${arg.event.extendedProps.category}` ]; 
+        return [ `category-\${arg.event.extendedProps.category}` ];
       },
     });
-    
+
     calendar.render();
-    
+
     // 플로팅 버튼 클릭 시 오늘 날짜로 일정 추가 모달 열기
     document.getElementById('quickAddEvent').addEventListener('click', function(e) {
       e.preventDefault();
@@ -614,13 +614,13 @@
       });
     });
   });
-  
+
   // 다가오는 일정 업데이트
   function updateUpcomingEvents(events) {
     const upcomingEventsEl = document.getElementById('upcomingEvents');
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    
+
     // 오늘 이후의 이벤트만 필터링하고 날짜순으로 정렬
     const futureEvents = events
       .filter(event => {
@@ -629,7 +629,7 @@
       })
       .sort((a, b) => new Date(a.start) - new Date(b.start))
       .slice(0, 5); // 최대 5개만 표시
-    
+
     if (futureEvents.length === 0) {
       upcomingEventsEl.innerHTML = `
         <div class="text-center text-muted py-4">
@@ -639,13 +639,13 @@
       `;
       return;
     }
-    
+
     let html = '<ul class="list-group list-group-flush">';
-    
+
     futureEvents.forEach(event => {
       const eventDate = new Date(event.start);
       const formattedDate = `\${eventDate.getFullYear()}-\${String(eventDate.getMonth() + 1).padStart(2, '0')}-\${String(eventDate.getDate()).padStart(2, '0')}`;
-      
+
       let badgeClass = '';
       console.log('카테고리 내용물 : ',event.extendedProps.category);
       switch(event.extendedProps.category) {
@@ -654,7 +654,7 @@
         case '회의': badgeClass = 'bg-primary'; break;
         default: badgeClass = 'bg-secondary';
       }
-      
+
       html += `
         <li class="list-group-item d-flex align-items-center">
           <div class="me-3 text-center">
@@ -670,15 +670,15 @@
         </li>
       `;
     });
-    
+
     html += '</ul>';
     upcomingEventsEl.innerHTML = html;
   }
-  
+
   // 샘플 다가오는 일정 표시 (API 호출 실패 시)
   function displaySampleUpcomingEvents() {
     const upcomingEventsEl = document.getElementById('upcomingEvents');
-    
+
     upcomingEventsEl.innerHTML = `
       <ul class="list-group list-group-flush">
         <li class="list-group-item d-flex align-items-center">
@@ -734,20 +734,20 @@
     form.publicFlag.value = data.publicFlag === false ? 'false' : 'true';
 
     document.querySelector('#modalTitle').textContent = (data.mode === 'add') ? '일정 등록' : '일정 수정';
-    
+
     // 삭제 버튼은 수정 모드에서만 표시
     document.querySelector('#deleteButton').style.display = (data.mode === 'add') ? 'none' : 'inline-block';
 
     const modal = new bootstrap.Modal(document.getElementById('scheduleModal'));
     modal.show();
   }
-  
+
   $('#scheduleForm').submit(function (e) {
     e.preventDefault();
 
     const formData = new FormData(this);
     const raw = Object.fromEntries(formData.entries());
-    
+
     console.log("raw.id =", raw.id, "→ parsed =", parseInt(raw.id));
 
     const json = {
@@ -759,7 +759,7 @@
       category: raw.category,
       publicFlag: raw.publicFlag === "true"
     };
-    
+
     $.ajax({
       url: `/AptCommunity/schedule/\${raw.mode}`,
       method: "POST",
@@ -778,14 +778,14 @@
 
   $("#deleteButton").click(function() {
     const id = document.querySelector('input[name="id"]').value;
-    
+
     if(!id) {
       showToast('삭제할 일정의 ID가 없습니다.', 'danger');
       return;
     }
-    
+
     if(!confirm("정말 삭제하시겠습니까?")) return;
-    
+
     $.ajax({
       url: '/AptCommunity/schedule/delete',
       method: 'POST',
@@ -801,21 +801,21 @@
       }
     });
   });
-  
+
   function adjustEndDate(end) {
     if (!end) return null;
-  
+
     const date = new Date(end); // Date 객체 생성 (브라우저 시간 기준)
     date.setDate(date.getDate() - 1); // 하루 빼기
-  
+
     // 로컬 날짜로 문자열 반환 (UTC X)
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
-  
+
     return `\${year}-\${month}-\${day}`;
   }
-  
+
   function adjustEndDateBack(endDateObj) {
     if (!endDateObj) return null;
 
@@ -828,7 +828,7 @@
 
     return `\${year}-\${month}-\${day}`;
   }
-  
+
   // 토스트 알림 표시 함수
   function showToast(message, type = 'primary') {
     // 기존 토스트가 있으면 제거
@@ -836,12 +836,12 @@
     if (existingToast) {
       existingToast.remove();
     }
-    
+
     // 토스트 컨테이너 생성
     const toastContainer = document.createElement('div');
     toastContainer.className = 'toast-container position-fixed bottom-0 end-0 p-3';
     toastContainer.style.zIndex = '1050';
-    
+
     // 토스트 HTML 생성
     toastContainer.innerHTML = `
       <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
@@ -854,10 +854,10 @@
         </div>
       </div>
     `;
-    
+
     // 문서에 추가
     document.body.appendChild(toastContainer);
-    
+
     // 5초 후 자동으로 사라지게 설정
     setTimeout(() => {
       const toast = document.querySelector('.toast');

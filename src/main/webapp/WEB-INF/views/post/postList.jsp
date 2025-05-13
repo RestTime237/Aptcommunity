@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib uri="jakarta.tags.core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <!DOCTYPE html>
 <html>
@@ -7,20 +7,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시글 목록 - 아파트 커뮤니티</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css/post/postList.css" />
+    <link rel="stylesheet" href="/AptCommunity/resources/css/post/postList.css"/>
 
     <script src="/AptCommunity/resources/js/post/postList.js" defer></script>
 
 </head>
 <body>
 
-<jsp:include page="/WEB-INF/views/common/header.jsp" />
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 <div class="container my-5">
     <!-- 페이지 타이틀 -->
@@ -96,10 +96,10 @@
                                 <c:choose>
                                     <c:when test="${not empty thumbnailMap[post.id]}">
                                         <img src="/AptCommunity/resources/images/${thumbnailMap[post.id]}"
-                                             alt="인기 게시글" />
+                                             alt="인기 게시글"/>
                                     </c:when>
                                     <c:otherwise>
-                                        <img src="/AptCommunity/resources/images/default-image.png" alt="인기 게시글" />
+                                        <img src="/AptCommunity/resources/images/default-image.png" alt="인기 게시글"/>
                                     </c:otherwise>
                                 </c:choose>
 
@@ -110,7 +110,7 @@
                                 <div class="popular-post-meta">
                                     <span><i class="bi bi-person me-1"></i> ${nicknameMap[post.userId]}</span>
                                     <span><i class="bi bi-calendar3 me-1"></i>
-                                            <fmt:formatDate value="${post.createdAt}" pattern="yyyy.MM.dd" />
+                                            <fmt:formatDate value="${post.createdAt}" pattern="yyyy.MM.dd"/>
                                         </span>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@
                 <div class="col-md-4">
                     <label class="form-label fw-medium">검색어</label>
                     <input type="text" name="keyword" value="${param.keyword}" class="form-control"
-                           placeholder="검색어를 입력하세요" />
+                           placeholder="검색어를 입력하세요"/>
                 </div>
                 <div class="col-md-2">
                     <button type="button" id="search" class="btn btn-search w-100">
@@ -274,7 +274,7 @@
     </div>
 </div>
 
-<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
 </body>
 

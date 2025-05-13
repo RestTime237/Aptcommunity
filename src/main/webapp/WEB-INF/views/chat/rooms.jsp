@@ -10,16 +10,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>채팅방 목록 - 아파트 커뮤니티</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css/chat/rooms.css" />
+    <link rel="stylesheet" href="/AptCommunity/resources/css/chat/rooms.css"/>
 
     <script src="/AptCommunity/resources/js/chat/rooms.js" defer></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             initChatCreate("${sessionScope.userId}");
         });
     </script>
@@ -28,7 +28,7 @@
 
 <body>
 
-<jsp:include page="/WEB-INF/views/common/header.jsp" />
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 <div class="container my-5">
     <!-- 페이지 타이틀 -->
@@ -51,7 +51,7 @@
 
         <form id="createRoomForm" class="new-chat-form">
             <div class="form-floating">
-                <input type="text" id="targetUserId" class="form-control" placeholder="상대방 ID 입력" required />
+                <input type="text" id="targetUserId" class="form-control" placeholder="상대방 ID 입력" required/>
                 <label for="targetUserId">상대방 ID 입력</label>
             </div>
             <button type="submit" class="btn btn-create">
@@ -82,10 +82,10 @@
                             <div class="chat-room-body">
                                 <c:choose>
                                     <c:when test="${room.user1 eq sessionScope.userId}">
-                                        <c:set var="opponent" value="${members[room.id]}" />
+                                        <c:set var="opponent" value="${members[room.id]}"/>
                                     </c:when>
                                     <c:otherwise>
-                                        <c:set var="opponent" value="${members[room.id]}" />
+                                        <c:set var="opponent" value="${members[room.id]}"/>
                                     </c:otherwise>
                                 </c:choose>
 
@@ -108,7 +108,7 @@
                                     </div>
                                     <div class="last-activity">
                                         <i class="bi bi-clock me-1"></i> 마지막 활동:
-                                        <fmt:formatDate value="${room.updatedAt}" pattern="yyyy-MM-dd HH:mm" />
+                                        <fmt:formatDate value="${room.updatedAt}" pattern="yyyy-MM-dd HH:mm"/>
                                     </div>
                                 </div>
 
@@ -125,7 +125,7 @@
     </div>
 </div>
 
-<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
 </body>
 

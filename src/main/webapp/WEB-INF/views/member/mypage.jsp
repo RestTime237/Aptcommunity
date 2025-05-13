@@ -11,19 +11,19 @@
     <title>마이페이지 - 아파트 커뮤니티</title>
 
     <!-- Bootstrap & jQuery -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="/AptCommunity/resources/css//member/mypage.css" />
+    <link rel="stylesheet" href="/AptCommunity/resources/css//member/mypage.css"/>
 
     <script src="/AptCommunity/resources/js/member/mypage.js"></script>
 
 </head>
 
 <body>
-<jsp:include page="/WEB-INF/views/common/header.jsp" />
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 <div class="container my-5">
     <!-- 페이지 타이틀 -->
@@ -54,7 +54,7 @@
                 <h3 class="profile-name mt-3">${mb.userId}</h3>
                 <div class="profile-info">
                     <p class="mb-0">가입일:
-                        <fmt:formatDate value="${mb.createdAt}" pattern="yyyy년 MM월 dd일" />
+                        <fmt:formatDate value="${mb.createdAt}" pattern="yyyy년 MM월 dd일"/>
                     </p>
                 </div>
 
@@ -79,10 +79,10 @@
                         </div>
                         <div class="modal-body text-center">
                             <input type="file" name="profileImage" accept="image/*" class="form-control mb-3"
-                                   required />
+                                   required/>
                             <img id="previewProfile"
                                  src="/AptCommunity/resources/images/${empty mb.profileImage ? 'default-profile.png' : mb.profileImage}"
-                                 class="img-fluid rounded-circle border" style="width: 100px; height: 100px;" />
+                                 class="img-fluid rounded-circle border" style="width: 100px; height: 100px;"/>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">저장</button>
@@ -92,7 +92,6 @@
                 </div>
             </div>
         </div>
-
 
 
         <!-- 통계 카드 -->
@@ -212,7 +211,7 @@
                                         </c:if>
                                     </td>
                                     <td>
-                                        <fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd" />
+                                        <fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd"/>
                                     </td>
                                     <td>
                                         <a href="/AptCommunity/post/detail?id=${post.id}"
@@ -274,7 +273,7 @@
                                     <td>
                                                 <span class="fw-medium">
                                                     <fmt:formatNumber value="${product.price}" type="number"
-                                                                      pattern="#,###" />원
+                                                                      pattern="#,###"/>원
                                                 </span>
                                     </td>
                                     <td>
@@ -341,7 +340,7 @@
     </div>
 </div>
 
-<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
 <script src="/AptCommunity/resources/js/mypage.js" defer></script>
 </body>
