@@ -18,20 +18,7 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    // 댓글 목록 조회
-    @GetMapping("/list")
-    public String list(@RequestParam String refType, @RequestParam Long refId, Model model, HttpSession session) {
-        List<Comment> comments = commentService.getComments(refType, refId);
-        System.out.println("댓글리스트 : " + comments);
-
-        model.addAttribute("comments", comments);
-        model.addAttribute("refType", refType);
-        model.addAttribute("refId", refId);
-        model.addAttribute("mb", session.getAttribute("mb"));
-        return "comment/list"; // AJAX or include 용 뷰
-    }
-
-    // 댓글 등록
+    // CREATE
     @PostMapping("/add")
     public String addComment(@ModelAttribute Comment comment, HttpSession session) {
         System.out.println("코멘트 에드 컨트롤러 입장");
@@ -62,8 +49,20 @@ public class CommentController {
         return "success";
     }
 
+    // READ
+    @GetMapping("/list")
+    public String list(@RequestParam String refType, @RequestParam Long refId, Model model, HttpSession session) {
+        List<Comment> comments = commentService.getComments(refType, refId);
+        System.out.println("댓글리스트 : " + comments);
 
-    // 댓글 수정
+        model.addAttribute("comments", comments);
+        model.addAttribute("refType", refType);
+        model.addAttribute("refId", refId);
+        model.addAttribute("mb", session.getAttribute("mb"));
+        return "comment/list"; // AJAX or include 용 뷰
+    }
+
+    // UPDATE
     @PostMapping("/update")
     @ResponseBody
     public String updateComment(@ModelAttribute Comment comment, @RequestParam String refType, @RequestParam Long refId, HttpSession session) {
@@ -78,7 +77,7 @@ public class CommentController {
         return "success";
     }
 
-    // 댓글 삭제
+    // DELETE
     @PostMapping("/delete")
     @ResponseBody
     public String deleteComment(@RequestParam Long id, @RequestParam String refType, @RequestParam Long refId, HttpSession session) {

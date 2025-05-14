@@ -15,6 +15,7 @@ public class WishlistController {
     @Autowired
     private wishlistService wishlistService;
 
+    // UPDATE
     @PostMapping("/toggle")
     public String toggleWishlist(@RequestParam("productId") Long productId, HttpSession session) {
         String userId = (String) session.getAttribute("userId");

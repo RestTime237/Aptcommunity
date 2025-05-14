@@ -21,6 +21,18 @@ public class ScheduleController {
     @Autowired
     private ScheduleService scheduleService;
 
+    // CREATE
+    @PostMapping("/add")
+    @ResponseBody
+    public String addEvent(@RequestBody Schedule schedule, HttpSession session) {
+        Member mb = (Member) session.getAttribute("mb");
+        schedule.setApartmentCode(mb.getApartmentCode());
+
+        scheduleService.addEvent(schedule);
+        return "success";
+    }
+
+    // READ
     @GetMapping("/list")
     @ResponseBody
     public List<Map<String, Object>> getEventList(HttpSession session) {
@@ -45,36 +57,21 @@ public class ScheduleController {
         return result;
     }
 
-    @PostMapping("/add")
-    @ResponseBody
-    public String addEvent(@RequestBody Schedule schedule, HttpSession session) {
-
-        Member mb = (Member) session.getAttribute("mb");
-        schedule.setApartmentCode(mb.getApartmentCode());
-
-        scheduleService.addEvent(schedule);
-        return "success";
+    @GetMapping("/calendar")
+    public String viewCalendarPage() {
+        return "calendar";
     }
 
+    // UPDATE
     @PostMapping("/edit")
     @ResponseBody
     public String updateEvent(@RequestBody Schedule schedule, HttpSession session) {
-
         Member mb = (Member) session.getAttribute("mb");
         schedule.setApartmentCode(mb.getApartmentCode());
 
         System.out.println("컨트롤러에서 전달받은 id 값 : " + schedule.getId());
 
-
         scheduleService.updateEvent(schedule);
-        return "success";
-    }
-
-    @PostMapping("/delete")
-    @ResponseBody
-    public String deleteEvent(@RequestBody Map<String, Object> data) {
-        Long id = ((Number) data.get("id")).longValue();
-        scheduleService.deleteEvent(id);
         return "success";
     }
 
@@ -95,9 +92,12 @@ public class ScheduleController {
         return "success";
     }
 
-
-    @GetMapping("/calendar")
-    public String viewCalendarPage() {
-        return "calendar";
+    // DELETE
+    @PostMapping("/delete")
+    @ResponseBody
+    public String deleteEvent(@RequestBody Map<String, Object> data) {
+        Long id = ((Number) data.get("id")).longValue();
+        scheduleService.deleteEvent(id);
+        return "success";
     }
 }

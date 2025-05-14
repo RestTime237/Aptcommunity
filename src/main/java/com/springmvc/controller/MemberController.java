@@ -42,7 +42,7 @@ public class MemberController {
     private wishlistService wishlistService;
 
 
-    //CREATE
+    // CREATE
 
     @GetMapping("/register")
     public String addMemberForm(@ModelAttribute("NewMember") Member member) {
@@ -127,7 +127,7 @@ public class MemberController {
     }
 
 
-    //UPDATE
+    // UPDATE
 
     @GetMapping("/update")
     public String updateMemberForm(HttpSession session, Model model) {
@@ -177,7 +177,7 @@ public class MemberController {
         return name;
     }
 
-    //DELETE
+    // DELETE
 
     @GetMapping("/delete")
     public String deleteMember(HttpSession session) {
@@ -206,7 +206,7 @@ public class MemberController {
         ((Member) session.getAttribute("mb")).setProfileImage(null);        // 세션 갱신
     }
 
-    //READ
+    // READ
 
     @GetMapping("/read")
     public String readMember(Model model) {
@@ -258,7 +258,7 @@ public class MemberController {
         return "redirect:/";
     }
 
-    //Utility
+    // UTILITY
 
     @GetMapping("/mypage")
     public String myPage(HttpSession session, Model model) {

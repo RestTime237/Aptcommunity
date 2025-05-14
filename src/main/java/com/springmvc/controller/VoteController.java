@@ -19,7 +19,24 @@ public class VoteController {
     @Autowired
     private VoteService voteService;
 
-    // 투표 목록 보기
+    // CREATE
+    @GetMapping("/add")
+    public String showAddForm(Model model) {
+        model.addAttribute("vote", new Vote());
+        return "vote/voteForm";
+    }
+
+    @PostMapping("/add")
+    public String addVote(@ModelAttribute Vote vote, @RequestParam("optionTexts") List<String> optionTexts,
+                          HttpSession session) {
+        Member loginUser = (Member) session.getAttribute("mb");
+        vote.setCreatorId(loginUser.getUserId());
+        vote.setApartmentCode(loginUser.getApartmentCode());
+        voteService.addVoteWithOptions(vote, optionTexts);
+        return "redirect:/vote/list";
+    }
+
+    // READ
     @GetMapping("/list")
     public String listVotes(@RequestParam(defaultValue = "1") int page, Model model, HttpSession session) {
         Member mb = (Member) session.getAttribute("mb");
@@ -40,29 +57,8 @@ public class VoteController {
         return "vote/voteList";
     }
 
-    // 투표 생성 폼
-    @GetMapping("/add")
-    public String showAddForm(Model model) {
-        model.addAttribute("vote", new Vote());
-        return "vote/voteForm";
-    }
-
-    // 투표 등록
-    @PostMapping("/add")
-    public String addVote(@ModelAttribute Vote vote, @RequestParam("optionTexts") List<String> optionTexts,
-                          HttpSession session) {
-        Member loginUser = (Member) session.getAttribute("mb");
-        vote.setCreatorId(loginUser.getUserId());
-        vote.setApartmentCode(loginUser.getApartmentCode());
-        voteService.addVoteWithOptions(vote, optionTexts);
-        return "redirect:/vote/list";
-    }
-
-    // 투표 상세
     @GetMapping("/detail")
     public String viewVote(@RequestParam("voteId") int voteId, Model model, HttpSession session) {
-
-
         // 투표 정보 조회
         Vote vote = voteService.getVoteById(voteId);
 
@@ -70,7 +66,6 @@ public class VoteController {
         List<VoteOption> options = voteService.getOptionsByVoteId(voteId);
         System.out.println("voteId: " + voteId);
         System.out.println("옵션 개수: " + options.size());
-
 
         // 전체 투표수
         int totalVoteCount = voteService.getTotalVoteCount(voteId);
@@ -101,7 +96,7 @@ public class VoteController {
         return "vote/voteDetail";
     }
 
-    // 투표하기
+    // UPDATE
     @PostMapping("/submit")
     public String submitVote(@RequestParam("voteId") int voteId,
                              @RequestParam("optionId") int optionId,

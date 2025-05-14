@@ -15,6 +15,7 @@ public class RecommendController {
     @Autowired
     private RecommendService recommendService;
 
+    // UPDATE
     @PostMapping("/recommend")
     @ResponseBody
     public String recommend(@RequestParam String refType, @RequestParam Long refId, HttpSession session) {

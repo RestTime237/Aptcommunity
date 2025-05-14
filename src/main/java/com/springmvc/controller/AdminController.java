@@ -24,6 +24,7 @@ public class AdminController {
     @Autowired
     private ProductService productService;
 
+    // READ
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
         model.addAttribute("memberCount", memberService.countAll());
@@ -67,6 +68,7 @@ public class AdminController {
         return member;
     }
 
+    // UPDATE
     @PutMapping("/members/{userId}")
     @ResponseBody
     public String updateMember(@PathVariable String userId, @RequestBody Member member) {
@@ -78,22 +80,21 @@ public class AdminController {
         return "success";
     }
 
+    @PostMapping("/updateRole")
+    @ResponseBody
+    public String updateRole(@RequestParam int role, @RequestParam String userId) {
+        memberService.updateRole(role, userId);
+        return "success";
+    }
 
+    // DELETE
     @DeleteMapping("/members/{userId}")
     @ResponseBody
     public String deleteMember(@PathVariable String userId) {
         System.out.println("멤버 삭제 컨트롤러 입장");
         System.out.println("삭제 대상 : " + userId);
 
-
         memberService.deleteByUserId(userId);
-        return "success";
-    }
-
-    @PostMapping("/updateRole")
-    @ResponseBody
-    public String updateRole(@RequestParam int role, @RequestParam String userId) {
-        memberService.updateRole(role, userId);
         return "success";
     }
 }

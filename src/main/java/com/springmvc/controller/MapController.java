@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MapController {
 
+    // READ
     @GetMapping("/map")
     public String showMapPage(HttpSession session, Model model) {
         Member mb = (Member) session.getAttribute("mb");

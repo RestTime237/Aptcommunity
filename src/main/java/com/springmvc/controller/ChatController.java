@@ -28,6 +28,33 @@ public class ChatController {
     @Autowired
     private MemberService memberService;
 
+    // CREATE
+    @PostMapping("/createRoom")
+    @ResponseBody
+    public ResponseEntity<Long> createRoom(@RequestParam String user1, @RequestParam String user2) {
+        Long roomId = chatService.createRoom(user1, user2);
+        return ResponseEntity.ok(roomId);
+    }
+
+    @PostMapping("/send")
+    @ResponseBody
+    public void sendMessage(@RequestBody ChatMessage message) {
+        chatService.sendMessage(message);
+    }
+
+    @PostMapping("/start")
+    @ResponseBody
+    public Long startChatAjax(@RequestParam String opponentId, HttpSession session) {
+        System.out.println("채팅시작 컨트롤러 입장 opponentId : " + opponentId);
+
+        Member mb = (Member) session.getAttribute("mb");
+        Long roomId = chatService.getOrCreateChatRoom(mb.getUserId(), opponentId);
+        System.out.println("방번호 : " + roomId);
+
+        return roomId;
+    }
+
+    // READ
     @GetMapping("/rooms")
     public String getChatRooms(HttpSession session, Model model) {
         String userId = (String) session.getAttribute("userId");
@@ -70,32 +97,4 @@ public class ChatController {
         model.addAttribute("opponent", opponent);
         return "chat/room";
     }
-
-    @PostMapping("/createRoom")
-    @ResponseBody
-    public ResponseEntity<Long> createRoom(@RequestParam String user1, @RequestParam String user2) {
-        Long roomId = chatService.createRoom(user1, user2);
-        return ResponseEntity.ok(roomId);
-    }
-
-    @PostMapping("/send")
-    @ResponseBody
-    public void sendMessage(@RequestBody ChatMessage message) {
-
-        chatService.sendMessage(message);
-    }
-
-    @PostMapping("/start")
-    @ResponseBody
-    public Long startChatAjax(@RequestParam String opponentId, HttpSession session) {
-        System.out.println("채팅시작 컨트롤러 입장 opponentId : " + opponentId);
-
-        Member mb = (Member) session.getAttribute("mb");
-        Long roomId = chatService.getOrCreateChatRoom(mb.getUserId(), opponentId);
-        System.out.println("방번호 : " + roomId);
-
-        return roomId;
-    }
-
 }
-

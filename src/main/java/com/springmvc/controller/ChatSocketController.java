@@ -18,6 +18,7 @@ public class ChatSocketController {
     @Autowired
     private SimpMessagingTemplate messageTemplate;
 
+    // CREATE
     @MessageMapping("/chat.sendMessage")
     public void sendMessage(@Payload ChatMessage message) {
 

@@ -29,6 +29,7 @@ import java.util.Map;
 @Controller
 public class DustController {
 
+    // READ
     @GetMapping("/dust")
     @ResponseBody
     public Map<String, Object> getDustByLocation(@RequestParam double tmX, @RequestParam double tmY) throws IOException {
