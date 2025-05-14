@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 샘플 데이터
-    const postData = Array.from({ length: 30 }, () => Math.floor(Math.random() * 10) + 1);
-    const productData = Array.from({ length: 30 }, () => Math.floor(Math.random() * 8) + 1);
-    const memberData = Array.from({ length: 30 }, () => Math.floor(Math.random() * 5) + 1);
+    const postData = Array.from({length: 30}, () => Math.floor(Math.random() * 10) + 1);
+    const productData = Array.from({length: 30}, () => Math.floor(Math.random() * 8) + 1);
+    const memberData = Array.from({length: 30}, () => Math.floor(Math.random() * 5) + 1);
 
     const activityChart = new Chart(activityCtx, {
         type: 'line',

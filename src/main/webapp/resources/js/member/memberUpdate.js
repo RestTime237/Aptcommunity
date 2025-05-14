@@ -1,6 +1,6 @@
 function execDaumPostcode() {
     new daum.Postcode({
-        oncomplete: function(data) {
+        oncomplete: function (data) {
             document.getElementById('postcode').value = data.zonecode;
             document.getElementById('roadAddress').value = data.roadAddress;
             document.getElementById('jibunAddress').value = data.jibunAddress;

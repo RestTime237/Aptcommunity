@@ -30,7 +30,6 @@ $(document).ready(function () {
     });
 
 
-
     // 🧩 게시글 보기 버튼 클릭 시 탭 이동 + 스크롤
     $("#watchPost").on("click", function (e) {
         e.preventDefault();
@@ -159,7 +158,7 @@ function removeWishlist(productId) {
         $.ajax({
             url: getContextPath() + '/product/removeWishlist',
             type: 'POST',
-            data: { productId: productId },
+            data: {productId: productId},
             success: function (response) {
                 alert('찜 목록에서 삭제되었습니다.');
                 location.reload();
@@ -185,13 +184,12 @@ $("#wishlist-tab").click(function () {
 });
 
 
-
 // 게시글
 function fetchMyPosts(page) {
     $.ajax({
         url: getContextPath() + '/member/mypage/posts',
         method: 'GET',
-        data: { page: page },
+        data: {page: page},
         success: function (res) {
             renderMyPosts(res.posts);
             renderPagination(res.currentPage, res.totalPages, fetchMyPosts, "postPagination");
@@ -228,7 +226,7 @@ function fetchMyProducts(page) {
     $.ajax({
         url: getContextPath() + '/member/mypage/products',
         method: 'GET',
-        data: { page: page },
+        data: {page: page},
         success: function (res) {
             renderMyProducts(res.products);
             renderPagination(res.currentPage, res.totalPages, fetchMyProducts, "productPagination");
@@ -265,7 +263,7 @@ function fetchMyWishlist(page) {
     $.ajax({
         url: getContextPath() + '/member/mypage/wishlist',
         method: 'GET',
-        data: { page: page },
+        data: {page: page},
         success: function (res) {
             console.log('응답 결과: ', res);
             renderMyWishlist(res.wishlist);
@@ -356,7 +354,7 @@ function renderPagination(currentPage, totalPages, callbackFn, containerId) {
 // 날짜 처리 함수
 function formatDate(dateStr) {
     const date = new Date(dateStr);
-    return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 }
 
 // 상태 뱃지 렌더링 함수
@@ -401,7 +399,7 @@ function toggleWishlist(event, productId, buttonEl) {
         url: getContextPath() + "/wishlist/toggle-ajax",
         type: "POST",
         contentType: 'application/json',
-        data: JSON.stringify({ productId }),
+        data: JSON.stringify({productId}),
         success: function (res) {
             const icon = buttonEl.querySelector("i");
 

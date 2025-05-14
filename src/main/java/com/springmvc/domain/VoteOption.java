@@ -32,20 +32,20 @@ public class VoteOption {
         this.optionText = optionText;
     }
 
-	
+
     public int getVoteCount() {
-		return voteCount;
-	}
+        return voteCount;
+    }
 
-	public void setVoteCount(int voteCount) {
-		this.voteCount = voteCount;
-	}
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
+    }
 
-	public int getPercentage() {
-		return percentage;
-	}
+    public int getPercentage() {
+        return percentage;
+    }
 
-	public void setPercentage(int percentage) {
-		this.percentage = percentage;
-	}
+    public void setPercentage(int percentage) {
+        this.percentage = percentage;
+    }
 }

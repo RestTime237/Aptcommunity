@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const postId = document.querySelector("#postId").value;
 
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 $.ajax({
                     url: "/AptCommunity/post/delete",
                     method: "GET",
-                    data: { id: postId },
+                    data: {id: postId},
                     success: function (res) {
                         alert("삭제되었습니다.");
                         window.location.href = "/AptCommunity/post/list";
@@ -271,7 +270,7 @@ document.querySelectorAll(".toggle-replies-btn").forEach(button => {
 });
 
 function toggleRecommend(refType, refId) {
-    $.post("/AptCommunity/recommend", { refType, refId }, function (response) {
+    $.post("/AptCommunity/recommend", {refType, refId}, function (response) {
         if (response == "liked") {
             // 좋아요 표시
         } else if (response == "unliked") {

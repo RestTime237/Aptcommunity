@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class RecommendController {
-	
-	@Autowired
-	private RecommendService recommendService;
 
-	@PostMapping("/recommend")
-	@ResponseBody
-	public String recommend(@RequestParam String refType, @RequestParam Long refId, HttpSession session) {
-		Member mb = (Member) session.getAttribute("mb");
-		System.out.println("추천 요청 사용자 : " +mb.getUserId());
+    @Autowired
+    private RecommendService recommendService;
 
-	    boolean liked = recommendService.toggleRecommend(mb.getUserId(), refType, refId);
-	    System.out.println("추천 결과: " + (liked ? "liked" : "unliked"));
+    @PostMapping("/recommend")
+    @ResponseBody
+    public String recommend(@RequestParam String refType, @RequestParam Long refId, HttpSession session) {
+        Member mb = (Member) session.getAttribute("mb");
+        System.out.println("추천 요청 사용자 : " + mb.getUserId());
 
-	    return liked ? "liked" : "unliked";
-	}
+        boolean liked = recommendService.toggleRecommend(mb.getUserId(), refType, refId);
+        System.out.println("추천 결과: " + (liked ? "liked" : "unliked"));
+
+        return liked ? "liked" : "unliked";
+    }
 }

@@ -10,7 +10,8 @@ public class Image {
     private Date uploadedAt;
 
     // 기본 생성자
-    public Image() {}
+    public Image() {
+    }
 
     // 전체 생성자
     public Image(Long id, String refType, Long refId, String fileName, String uploadName, Date uploadedAt) {
@@ -25,6 +26,7 @@ public class Image {
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -32,6 +34,7 @@ public class Image {
     public String getRefType() {
         return refType;
     }
+
     public void setRefType(String refType) {
         this.refType = refType;
     }
@@ -39,6 +42,7 @@ public class Image {
     public Long getRefId() {
         return refId;
     }
+
     public void setRefId(Long refId) {
         this.refId = refId;
     }
@@ -46,16 +50,17 @@ public class Image {
     public String getFileName() {
         return fileName;
     }
+
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
-	public Date getUploadDate() {
-		return uploadedAt;
-	}
+    public Date getUploadDate() {
+        return uploadedAt;
+    }
 
-	public void setUploadDate(Date uploadDate) {
-		this.uploadedAt = uploadDate;
-	}
+    public void setUploadDate(Date uploadDate) {
+        this.uploadedAt = uploadDate;
+    }
 
 }

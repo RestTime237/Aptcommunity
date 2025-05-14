@@ -65,7 +65,7 @@ function removeOption(button) {
 }
 
 // 폼 제출 전 유효성 검사
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('voteForm').addEventListener('submit', function (event) {
         const title = document.getElementById('title').value.trim();
         const deadline = document.getElementById('deadline').value;

@@ -9,7 +9,8 @@ public class ChatRoom {
     private Timestamp updatedAt;
 
     // 생성자
-    public ChatRoom() {}
+    public ChatRoom() {
+    }
 
     public ChatRoom(String user1, String user2, Timestamp updatedAt) {
         this.user1 = user1;
@@ -42,11 +43,11 @@ public class ChatRoom {
         this.user2 = user2;
     }
 
-	public Timestamp getUpdatedAt() {
-		return updatedAt;
-	}
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
 
-	public void setUpdatedAt(Timestamp updatedAt) {
-		this.updatedAt = updatedAt;
-	}
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

@@ -14,34 +14,34 @@ import java.io.File;
 
 @Controller
 public class UploadController {
-	
-	@Autowired
-	private ImageService imageService;
 
-	@PostMapping("/uploadImage")
-	@ResponseBody
-	public String uploadImage(@RequestParam("uploadImage") MultipartFile file, @RequestParam("refType") String refType, HttpServletRequest req) {
-		System.out.println("이미지 업로드 입장 / refType = " + refType);
+    @Autowired
+    private ImageService imageService;
 
-	    String path = req.getServletContext().getRealPath("resources/images");
-	    String originalName = file.getOriginalFilename();
-	    String[] format = originalName.split("\\.");
-	    String newName = System.currentTimeMillis() + "." + format[1];
+    @PostMapping("/uploadImage")
+    @ResponseBody
+    public String uploadImage(@RequestParam("uploadImage") MultipartFile file, @RequestParam("refType") String refType, HttpServletRequest req) {
+        System.out.println("이미지 업로드 입장 / refType = " + refType);
 
-	    try {
-	        File saveFile = new File(path, newName);
-	        file.transferTo(saveFile);
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	    
-	    Image img = new Image();
-	    img.setRefId(null);
-	    img.setFileName(newName);
-	    img.setRefType(refType);
-	    
-	    imageService.saveImage(img);
+        String path = req.getServletContext().getRealPath("resources/images");
+        String originalName = file.getOriginalFilename();
+        String[] format = originalName.split("\\.");
+        String newName = System.currentTimeMillis() + "." + format[1];
 
-	    return "/AptCommunity/resources/images/" + newName;
-	}
+        try {
+            File saveFile = new File(path, newName);
+            file.transferTo(saveFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Image img = new Image();
+        img.setRefId(null);
+        img.setFileName(newName);
+        img.setRefType(refType);
+
+        imageService.saveImage(img);
+
+        return "/AptCommunity/resources/images/" + newName;
+    }
 }

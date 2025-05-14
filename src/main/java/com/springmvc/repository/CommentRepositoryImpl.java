@@ -1,30 +1,29 @@
 package com.springmvc.repository;
 
-import java.util.List;
-
+import com.springmvc.domain.Comment;
+import com.springmvc.rowmapper.CommentRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.springmvc.domain.Comment;
-import com.springmvc.rowmapper.CommentRowMapper;
+import java.util.List;
 
 @Repository
-public class CommentRepositoryImpl implements CommentRepository{
-	
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
+public class CommentRepositoryImpl implements CommentRepository {
 
-	@Override
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @Override
     public void save(Comment comment) {
         String sql = "INSERT INTO comment (refType, refId, parentId, userId, content) " +
-                     "VALUES (?, ?, ?, ?, ?)";
+                "VALUES (?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql,
-            comment.getRefType(),
-            comment.getRefId(),
-            comment.getParentId(),
-            comment.getUserId(),
-            comment.getContent()
+                comment.getRefType(),
+                comment.getRefId(),
+                comment.getParentId(),
+                comment.getUserId(),
+                comment.getContent()
         );
     }
 

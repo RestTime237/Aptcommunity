@@ -1,11 +1,10 @@
 package com.springmvc.rowmapper;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
+import com.springmvc.domain.ChatRoom;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.springmvc.domain.ChatRoom;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ChatRoomRowMapper implements RowMapper<ChatRoom> {
     @Override

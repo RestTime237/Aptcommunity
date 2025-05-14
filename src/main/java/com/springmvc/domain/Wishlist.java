@@ -3,55 +3,55 @@ package com.springmvc.domain;
 import java.sql.Timestamp;
 
 public class Wishlist {
-	private Long id;
+    private Long id;
     private String userId;
     private Long productId;
     private Timestamp createdAt;
-    
-	public Wishlist() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	public Wishlist(Long id, String userId, Long productId, Timestamp createdAt) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.productId = productId;
-		this.createdAt = createdAt;
-	}
+    public Wishlist() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Wishlist(Long id, String userId, Long productId, Timestamp createdAt) {
+        super();
+        this.id = id;
+        this.userId = userId;
+        this.productId = productId;
+        this.createdAt = createdAt;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getUserId() {
-		return userId;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+    public String getUserId() {
+        return userId;
+    }
 
-	public Long getProductId() {
-		return productId;
-	}
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-	public void setProductId(Long productId) {
-		this.productId = productId;
-	}
+    public Long getProductId() {
+        return productId;
+    }
 
-	public Timestamp getCreatedAt() {
-		return createdAt;
-	}
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
 
-	public void setCreatedAt(Timestamp createdAt) {
-		this.createdAt = createdAt;
-	}
-    
-    
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+
 }

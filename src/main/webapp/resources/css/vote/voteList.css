@@ -123,20 +123,38 @@ body {
 }
 
 /* 페이지네이션 스타일 */
-.pagination {
-    margin-top: 1.5rem;
+.pagination-container {
+    display: flex;
     justify-content: center;
+    margin-top: 2rem;
 }
 
-.page-link {
-    color: #0d6efd;
-    border-radius: 0.25rem;
+.page-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 0.25rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
 }
 
-.page-item.active .page-link {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
+.page-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-btn.disabled,
+.page-btn[disabled] {
+    opacity: 0.65;
+    pointer-events: none;
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #6c757d;
+    box-shadow: none;
+    transform: none;
 }
 
 /* 필터 스타일 */

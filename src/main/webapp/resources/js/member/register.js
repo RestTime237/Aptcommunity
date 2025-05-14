@@ -1,4 +1,4 @@
- function openDaumPopup() {
+function openDaumPopup() {
     window.open(
         "/AptCommunity/daumPostPopup.jsp",
         "주소찾기",

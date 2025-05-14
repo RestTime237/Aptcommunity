@@ -1,21 +1,20 @@
 package com.springmvc.service;
 
-import java.util.List;
-
+import com.springmvc.domain.Comment;
+import com.springmvc.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springmvc.domain.Comment;
-import com.springmvc.repository.CommentRepository;
+import java.util.List;
 
 @Service
-public class CommentServiceImpl implements CommentService{
-	
-	@Autowired
-	private CommentRepository commentRepository;
+public class CommentServiceImpl implements CommentService {
+
+    @Autowired
+    private CommentRepository commentRepository;
 
 
-	@Override
+    @Override
     public void addComment(Comment comment) {
         commentRepository.save(comment);
     }

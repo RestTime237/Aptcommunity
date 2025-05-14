@@ -1,4 +1,3 @@
-
 // 전역 변수로 현재 선택된 회원 ID 저장
 let currentUserId = null;
 
@@ -26,8 +25,6 @@ window.viewMember = function (userId) {
         }
     })
 }
-
-
 
 
 // 회원 정보 수정
@@ -93,7 +90,6 @@ $('#memberEditForm').on('submit', function (e) {
 });
 
 
-
 // 회원 삭제
 let deleteTargetUserId = null;
 
@@ -118,8 +114,6 @@ function confirmDelete() {
         }
     });
 }
-
-
 
 
 document.addEventListener('DOMContentLoaded', function () {

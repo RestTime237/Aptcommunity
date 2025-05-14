@@ -8,14 +8,14 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-	
-	@ExceptionHandler
-	public String handleException(Exception e, Model model) {
-		model.addAttribute("errorMessage", e.getMessage());
-		return "error/commonError";
-	}
-	
-	@ExceptionHandler(NoHandlerFoundException.class)
+
+    @ExceptionHandler
+    public String handleException(Exception e, Model model) {
+        model.addAttribute("errorMessage", e.getMessage());
+        return "error/commonError";
+    }
+
+    @ExceptionHandler(NoHandlerFoundException.class)
     public String handle404(NoHandlerFoundException e) {
         return "error/404";
     }

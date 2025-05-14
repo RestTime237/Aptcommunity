@@ -1,4 +1,3 @@
-
 // Summernote 에디터 초기화
 $(document).ready(function () {
     $('#summernote').summernote({
@@ -53,7 +52,7 @@ $(document).ready(function () {
             $.ajax({
                 url: "/AptCommunity/post/delete",
                 method: "GET",
-                data: { id: postId },
+                data: {id: postId},
                 success: function (res) {
                     alert("게시글이 삭제되었습니다.");
                     window.location.href = "/AptCommunity/post/list";

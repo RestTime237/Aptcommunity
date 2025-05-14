@@ -1,11 +1,10 @@
 package com.springmvc.rowmapper;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
+import com.springmvc.domain.VoteOption;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.springmvc.domain.VoteOption;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class VoteOptionRowMapper implements RowMapper<VoteOption> {
     @Override

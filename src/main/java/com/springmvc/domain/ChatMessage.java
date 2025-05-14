@@ -14,7 +14,8 @@ public class ChatMessage {
     private LocalDateTime readAt;
 
     // 생성자
-    public ChatMessage() {}
+    public ChatMessage() {
+    }
 
     // 게터/세터
     public Long getId() {
@@ -65,19 +66,19 @@ public class ChatMessage {
         this.isRead = isRead;
     }
 
-	public LocalDateTime getReadAt() {
-		return readAt;
-	}
+    public LocalDateTime getReadAt() {
+        return readAt;
+    }
 
-	public void setReadAt(LocalDateTime readAt) {
-		this.readAt = readAt;
-	}
+    public void setReadAt(LocalDateTime readAt) {
+        this.readAt = readAt;
+    }
 
-	public String getReceiverId() {
-		return receiverId;
-	}
+    public String getReceiverId() {
+        return receiverId;
+    }
 
-	public void setReceiverId(String receiverId) {
-		this.receiverId = receiverId;
-	}
+    public void setReceiverId(String receiverId) {
+        this.receiverId = receiverId;
+    }
 }

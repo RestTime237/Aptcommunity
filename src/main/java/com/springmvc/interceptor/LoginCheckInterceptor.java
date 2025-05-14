@@ -12,10 +12,10 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession();
         Object loginMember = session.getAttribute("mb");
 
-        if(loginMember == null) {
+        if (loginMember == null) {
             String requestURI = request.getRequestURI().substring(request.getContextPath().length());
             String queryString = request.getQueryString();
-            if(queryString != null) {
+            if (queryString != null) {
                 requestURI += "?" + queryString;
             }
 

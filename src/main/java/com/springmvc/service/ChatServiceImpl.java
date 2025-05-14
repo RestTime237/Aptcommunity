@@ -1,14 +1,13 @@
 package com.springmvc.service;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.springmvc.domain.ChatMessage;
 import com.springmvc.domain.ChatRoom;
 import com.springmvc.repository.ChatRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class ChatServiceImpl implements ChatService {
@@ -16,7 +15,7 @@ public class ChatServiceImpl implements ChatService {
     @Autowired
     private ChatRepository chatRepository;
 
-    
+
     @Override
     public List<ChatRoom> getChatRooms(String userId) {
         return chatRepository.findRoomsByUserId(userId);
@@ -46,23 +45,23 @@ public class ChatServiceImpl implements ChatService {
         return chatRepository.createRoom(userA, userB);
     }
 
-	
-    @Override
-	public Long getOrCreateChatRoom(String userId, String opponentId) {
-		Long roomId =  chatRepository.getOrCreateChatRoom(userId, opponentId);
-		if(roomId != null) return roomId;
-		return chatRepository.createRoom(userId, opponentId);
-	}
 
-	
     @Override
-	public void markMessagesAsRead(Long roomId, String userId) {
-		List<ChatMessage> unreadMessages = chatRepository.findUnreadMessages(roomId, userId);
-		
-		for(ChatMessage msg : unreadMessages) {
-			msg.setIsRead(true);
-			msg.setReadAt(LocalDateTime.now());
-		}
-		chatRepository.updateMessages(unreadMessages);
-	}
+    public Long getOrCreateChatRoom(String userId, String opponentId) {
+        Long roomId = chatRepository.getOrCreateChatRoom(userId, opponentId);
+        if (roomId != null) return roomId;
+        return chatRepository.createRoom(userId, opponentId);
+    }
+
+
+    @Override
+    public void markMessagesAsRead(Long roomId, String userId) {
+        List<ChatMessage> unreadMessages = chatRepository.findUnreadMessages(roomId, userId);
+
+        for (ChatMessage msg : unreadMessages) {
+            msg.setIsRead(true);
+            msg.setReadAt(LocalDateTime.now());
+        }
+        chatRepository.updateMessages(unreadMessages);
+    }
 }

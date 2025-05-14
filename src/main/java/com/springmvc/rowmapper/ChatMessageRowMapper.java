@@ -1,12 +1,11 @@
 package com.springmvc.rowmapper;
 
+import com.springmvc.domain.ChatMessage;
+import org.springframework.jdbc.core.RowMapper;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-
-import org.springframework.jdbc.core.RowMapper;
-
-import com.springmvc.domain.ChatMessage;
 
 public class ChatMessageRowMapper implements RowMapper<ChatMessage> {
     @Override
@@ -19,7 +18,7 @@ public class ChatMessageRowMapper implements RowMapper<ChatMessage> {
         msg.setContent(rs.getString("content"));
         msg.setSentAt(rs.getTimestamp("sentAt"));
         msg.setIsRead(rs.getBoolean("isRead"));
-        
+
         Timestamp ts = rs.getTimestamp("readAt");
         msg.setReadAt(ts != null ? ts.toLocalDateTime() : null);
 

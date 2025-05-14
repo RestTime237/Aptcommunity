@@ -15,23 +15,23 @@ const EmojiPicker = {
     },
 
     // 초기화 함수
-    init: function() {
+    init: function () {
         this.emojiButton = document.getElementById('emoji-button');
         this.emojiPicker = document.getElementById('emoji-picker');
         this.emojiPickerClose = document.getElementById('emoji-picker-close');
         this.emojiGrid = document.getElementById('emoji-grid');
         this.messageInput = document.getElementById('messageContent');
-        
+
         if (!this.emojiButton || !this.emojiPicker || !this.emojiPickerClose || !this.emojiGrid || !this.messageInput) {
             console.error('이모지 선택기 요소를 찾을 수 없습니다.');
             return;
         }
-        
+
         this.bindEvents();
     },
-    
+
     // 이벤트 바인딩
-    bindEvents: function() {
+    bindEvents: function () {
         // 이모지 버튼 클릭 이벤트
         this.emojiButton.addEventListener('click', () => {
             this.emojiPicker.classList.toggle('active');
@@ -39,12 +39,12 @@ const EmojiPicker = {
                 this.loadEmojis('smileys');
             }
         });
-        
+
         // 이모지 선택기 닫기 버튼 클릭 이벤트
         this.emojiPickerClose.addEventListener('click', () => {
             this.emojiPicker.classList.remove('active');
         });
-        
+
         // 카테고리 버튼 클릭 이벤트
         document.querySelectorAll('.emoji-category').forEach(button => {
             button.addEventListener('click', (e) => {
@@ -55,23 +55,23 @@ const EmojiPicker = {
                 this.loadEmojis(e.currentTarget.dataset.category);
             });
         });
-        
+
         // 문서 클릭 이벤트 (이모지 선택기 외부 클릭 시 닫기)
         document.addEventListener('click', (event) => {
-            if (!this.emojiPicker.contains(event.target) && 
-                !this.emojiButton.contains(event.target) && 
+            if (!this.emojiPicker.contains(event.target) &&
+                !this.emojiButton.contains(event.target) &&
                 this.emojiPicker.classList.contains('active')) {
                 this.emojiPicker.classList.remove('active');
             }
         });
     },
-    
+
     // 이모지 카테고리별 이모지 로드 함수
-    loadEmojis: function(category) {
+    loadEmojis: function (category) {
         this.emojiGrid.innerHTML = '';
-        
+
         const emojis = this.getEmojisByCategory(category);
-        
+
         emojis.forEach(emoji => {
             const emojiItem = document.createElement('div');
             emojiItem.className = 'emoji-item';
@@ -82,34 +82,34 @@ const EmojiPicker = {
             this.emojiGrid.appendChild(emojiItem);
         });
     },
-    
+
     // 이모지를 입력창에 삽입하는 함수
-    insertEmoji: function(emoji) {
+    insertEmoji: function (emoji) {
         const cursorPos = this.messageInput.selectionStart;
         const textBefore = this.messageInput.value.substring(0, cursorPos);
         const textAfter = this.messageInput.value.substring(cursorPos);
-        
+
         this.messageInput.value = textBefore + emoji + textAfter;
-        
+
         // 커서 위치 조정
         this.messageInput.selectionStart = cursorPos + emoji.length;
         this.messageInput.selectionEnd = cursorPos + emoji.length;
-        
+
         // 입력창에 포커스
         this.messageInput.focus();
-        
+
         // 입력 이벤트 트리거 (전송 버튼 활성화 등을 위해)
         $(this.messageInput).trigger('input');
     },
-    
+
     // 카테고리별 이모지 목록 반환 함수
-    getEmojisByCategory: function(category) {
+    getEmojisByCategory: function (category) {
         return this.emojiMap[category] || [];
     }
 };
 
 // 문서 로드 완료 시
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // 이모지 선택기 초기화
     EmojiPicker.init();
 });

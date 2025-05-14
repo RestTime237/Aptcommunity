@@ -6,6 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="totalPages" content="${totalPages}">
+    <meta name="currentPage" content="${currentPage}">
     <title>투표 목록 - 아파트 커뮤니티</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -94,29 +96,9 @@
                 </div>
 
                 <!-- 페이지네이션 -->
-                <c:if test="${totalPages > 1}">
-                    <nav aria-label="Page navigation" class="mt-4">
-                        <ul class="pagination">
-                            <li class="page-item ${currentPage == 1 ? 'disabled' : ''}">
-                                <a class="page-link" href="?page=${currentPage - 1}" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-
-                            <c:forEach begin="1" end="${totalPages}" var="i">
-                                <li class="page-item ${currentPage == i ? 'active' : ''}">
-                                    <a class="page-link" href="?page=${i}">${i}</a>
-                                </li>
-                            </c:forEach>
-
-                            <li class="page-item ${currentPage == totalPages ? 'disabled' : ''}">
-                                <a class="page-link" href="?page=${currentPage + 1}" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </c:if>
+                <div class="pagination-container" id="pagination">
+                    <!-- 페이지네이션이 JavaScript로 로드됩니다 -->
+                </div>
             </c:when>
             <c:otherwise>
                 <!-- 투표가 없을 때 표시할 내용 -->
@@ -180,5 +162,6 @@
 
 <!-- JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/vote/voteList.js"></script>
 </body>
 </html>

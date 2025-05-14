@@ -383,7 +383,7 @@
       <div class="col-md-6 mb-4">
         <div class="card h-100 shadow-sm">
           <div class="card-header bg-warning text-dark">
-            <h5 class="mb-0"><i class="bi bi-calendar-event me-2"></i> 다가오는 주요 일정</h5>
+            <h5 class="mb-0"><i class="bi bi-calendar-event me-2"></i> 다가오는 주요 일정 (7일 이내)</h5>
           </div>
           <div class="card-body">
             <div class="upcoming-events" id="upcomingEvents">
@@ -621,11 +621,15 @@
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    // 오늘 이후의 이벤트만 필터링하고 날짜순으로 정렬
+    // 일주일 후 날짜 계산
+    const oneWeekLater = new Date(today);
+    oneWeekLater.setDate(today.getDate() + 7);
+
+    // 오늘 이후 일주일 이내의 이벤트만 필터링하고 날짜순으로 정렬
     const futureEvents = events
       .filter(event => {
         const eventDate = new Date(event.start);
-        return eventDate >= today;
+        return eventDate >= today && eventDate <= oneWeekLater;
       })
       .sort((a, b) => new Date(a.start) - new Date(b.start))
       .slice(0, 5); // 최대 5개만 표시

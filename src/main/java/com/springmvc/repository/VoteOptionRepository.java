@@ -1,10 +1,11 @@
 package com.springmvc.repository;
 
-import java.util.List;
-
 import com.springmvc.domain.VoteOption;
 
+import java.util.List;
+
 public interface VoteOptionRepository {
-	void addOption(VoteOption option);
-	List<VoteOption> getOptionsByVoteId(int voteId);
+    void addOption(VoteOption option);
+
+    List<VoteOption> getOptionsByVoteId(int voteId);
 }

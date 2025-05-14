@@ -1,17 +1,17 @@
 package com.springmvc.service;
 
-import java.util.List;
-
 import com.springmvc.domain.Vote;
 import com.springmvc.domain.VoteOption;
 
+import java.util.List;
+
 public interface VoteService {
 
-	// 전체 투표 목록
+    // 전체 투표 목록
     List<Vote> getAllVotes();
-    
+
     int getTotalVoteCount();
-    
+
     List<Vote> getPaginationVotes(int offset, int limit);
 
     // 투표 등록 (옵션 포함)
@@ -25,7 +25,7 @@ public interface VoteService {
 
     // 투표 제출
     void submitVote(int voteId, int optionId, String memberId);
-    
+
     int getTotalVoteCount(int voteId);
 
     int getVoteCountByOptionId(int optionId);

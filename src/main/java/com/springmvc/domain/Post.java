@@ -1,13 +1,13 @@
 package com.springmvc.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.web.multipart.MultipartFile;
-
 
 public class Post {
-	private Long id;
+    private Long id;
     private String title;
     private String content;
     private String category;
@@ -19,131 +19,131 @@ public class Post {
     private List<MultipartFile> images;
     private int views;
     private int likeCount;
-    
+
     public Post() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	public Post(Long id, String title, String content, String category, String userId, String apartmentCode,
-			String dong, Date createdAt, String fileName, int views, int likeCount) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.content = content;
-		this.category = category;
-		this.userId = userId;
-		this.apartmentCode = apartmentCode;
-		this.dong = dong;
-		this.createdAt = createdAt;
-		this.fileName = fileName;
-		this.images = images;
-		this.views = views;
-		this.likeCount = likeCount;
-	}
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Post(Long id, String title, String content, String category, String userId, String apartmentCode,
+                String dong, Date createdAt, String fileName, int views, int likeCount) {
+        super();
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.userId = userId;
+        this.apartmentCode = apartmentCode;
+        this.dong = dong;
+        this.createdAt = createdAt;
+        this.fileName = fileName;
+        this.images = images;
+        this.views = views;
+        this.likeCount = likeCount;
+    }
 
-	public void setId(Long postId) {
-		this.id = postId;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setId(Long postId) {
+        this.id = postId;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public String getCategory() {
-		return category;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public void setCategory(String category) {
-		this.category = category;
-	}
+    public String getCategory() {
+        return category;
+    }
 
-	public String getUserId() {
-		return userId;
-	}
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+    public String getUserId() {
+        return userId;
+    }
 
-	public String getApartmentCode() {
-		return apartmentCode;
-	}
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-	public void setApartmentCode(String apartmentCode) {
-		this.apartmentCode = apartmentCode;
-	}
+    public String getApartmentCode() {
+        return apartmentCode;
+    }
 
-	public String getDong() {
-		return dong;
-	}
+    public void setApartmentCode(String apartmentCode) {
+        this.apartmentCode = apartmentCode;
+    }
 
-	public void setDong(String dong) {
-		this.dong = dong;
-	}
+    public String getDong() {
+        return dong;
+    }
 
-	public Date getCreatedAt() {
-		return createdAt;
-	}
+    public void setDong(String dong) {
+        this.dong = dong;
+    }
 
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
+    public Date getCreatedAt() {
+        return createdAt;
+    }
 
-	public String getFileName() {
-		return fileName;
-	}
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
+    public String getFileName() {
+        return fileName;
+    }
 
-	@Override
-	public String toString() {
-		return "Post [id=" + id + ", title=" + title + ", content=" + content + ", category=" + category + ", userId="
-				+ userId + ", apartmentCode=" + apartmentCode + ", dong=" + dong + ", createdAt=" + createdAt
-				+ ", fileName=" + fileName + "]";
-	}
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 
-	public List<MultipartFile> getImages() {
-		return images;
-	}
+    @Override
+    public String toString() {
+        return "Post [id=" + id + ", title=" + title + ", content=" + content + ", category=" + category + ", userId="
+                + userId + ", apartmentCode=" + apartmentCode + ", dong=" + dong + ", createdAt=" + createdAt
+                + ", fileName=" + fileName + "]";
+    }
 
-	public void setImages(List<MultipartFile> images) {
-		this.images = images;
-	}
+    public List<MultipartFile> getImages() {
+        return images;
+    }
 
-	public int getViews() {
-		return views;
-	}
+    public void setImages(List<MultipartFile> images) {
+        this.images = images;
+    }
 
-	public void setViews(int views) {
-		this.views = views;
-	}
+    public int getViews() {
+        return views;
+    }
 
-	public int getLikeCount() {
-		return likeCount;
-	}
+    public void setViews(int views) {
+        this.views = views;
+    }
 
-	public void setLikeCount(int likeCount) {
-		this.likeCount = likeCount;
-	}
-    
-    
+    public int getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
+    }
+
+
 }

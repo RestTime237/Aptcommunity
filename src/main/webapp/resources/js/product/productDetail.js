@@ -8,7 +8,7 @@ $("#chat").click(function () {
     $.ajax({
         url: '/AptCommunity/chat/start',
         method: 'post',
-        data: { opponentId: opponentId },
+        data: {opponentId: opponentId},
         success: function (res) {
             window.location.href = '/AptCommunity/chat/room/' + res;
         },
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 $.ajax({
                     url: "/AptCommunity/product/delete",
                     method: "GET",
-                    data: { id: productId },
+                    data: {id: productId},
                     success: function (res) {
                         alert("삭제되었습니다.");
                         window.location.href = "/AptCommunity/product/list";
@@ -84,7 +84,7 @@ $("#wishlistBtn").click(function () {
         url: "/AptCommunity/wishlist/toggle-ajax",
         method: "POST",
         contentType: "application/json",
-        data: JSON.stringify({ productId: productId }),
+        data: JSON.stringify({productId: productId}),
         success: function (res) {
             if (res == 'added') {
                 self.classList.add("active");
