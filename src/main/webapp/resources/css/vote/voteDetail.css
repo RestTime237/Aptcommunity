@@ -101,6 +101,13 @@ body {
     margin-right: 0.75rem;
 }
 
+/* Make labels in vote detail take up one line each in block format */
+.form-check-label {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
 /* 결과 그래프 스타일 */
 .result-bar-container {
     height: 25px;

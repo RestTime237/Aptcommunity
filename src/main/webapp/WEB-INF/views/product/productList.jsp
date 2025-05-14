@@ -20,7 +20,7 @@
         // Set the context path for the JS file
         var contextPath = "${pageContext.request.contextPath}";
     </script>
-    <script src="${pageContext.request.contextPath}/resources/js/product/productList.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/product/productList.js" defer></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>

@@ -93,15 +93,15 @@
                     <input type="hidden" name="voteId" value="${vote.voteId}"/>
 
                     <c:forEach var="option" items="${vote.voteOptions}" varStatus="status">
-                        <div class="option-item">
-                            <div class="form-check">
-                                <input class="form-check-input option-radio" type="radio" name="optionId"
-                                       id="option${status.index}" value="${option.id}" required>
-                                <label class="form-check-label" for="option${status.index}">
-                                        ${option.optionText}
-                                </label>
+                        <label class="form-check-label" for="option${status.index}">
+                            <div class="option-item">
+                                <div class="form-check">
+                                    <input class="form-check-input option-radio" type="radio" name="optionId"
+                                           id="option${status.index}" value="${option.id}" required>
+                                            ${option.optionText}
+                                </div>
                             </div>
-                        </div>
+                        </label>
                     </c:forEach>
 
                     <div class="mt-4">
