@@ -5,6 +5,7 @@ primary_region = "hkg"
 DB_URL = "jdbc:mysql://my-mysql-db-billowing-frog-9310.internal:3306/aptcommunitydb"
 DB_USERNAME = "root"
 DB_PASSWORD = "1234"
+PORT = "8080"
 
 [[vm]]
 memory = "512mb"
