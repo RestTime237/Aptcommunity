@@ -1,15 +1,15 @@
-app = 'my-mysql-db-billowing-frog-9310'
-primary_region = 'hkg'
+app = "aptlast"
+primary_region = "hkg"
 
 [env]
-  MYSQL_ROOT_PASSWORD = "1234"
-  MYSQL_DATABASE = "aptcommunitydb"
+DB_URL = "jdbc:mysql://my-mysql-db-billowing-frog-9310.internal:3306/aptcommunitydb"
+DB_USERNAME = "root"
+DB_PASSWORD = "1234"
 
-[[mounts]]
-  source = "mysql_data"
-  destination = "/var/lib/mysql"
+[build]
+builder = "paketobuildpacks/builder:base"
 
 [[vm]]
-  memory = "1gb"
-  cpu_kind = "shared"
-  cpus = 1
+memory = "512mb"
+cpu_kind = "shared"
+cpus = 1
