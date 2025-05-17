@@ -71,7 +71,6 @@ dependencies {
 
     // JDBC 템플릿을 위한 의존성
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'  // JDBC 템플릿 사용
-    implementation 'org.postgresql:postgresql:42.6.0'
 }
 
 bootJar {
