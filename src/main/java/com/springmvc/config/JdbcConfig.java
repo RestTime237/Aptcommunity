@@ -13,13 +13,14 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class JdbcConfig {
 
-    @Value("${DB_URL}")
+    // application.properties 의 spring.datasource.url 키 사용
+    @Value("${spring.datasource.url}")
     private String dbUrl;
 
-    @Value("${DB_USERNAME}")
+    @Value("${spring.datasource.username}")
     private String dbUsername;
 
-    @Value("${DB_PASSWORD}")
+    @Value("${spring.datasource.password}")
     private String dbPassword;
 
     @Bean
