@@ -35,7 +35,7 @@
                         <div class="d-flex align-items-center justify-content-center mb-3">
                             <div class="bg-white bg-opacity-25 rounded-circle p-2 me-3">
                                 <c:if test="${mb.profileImage != null || !mb.profileImage == ''}">
-                                    <img src="${pageContext.request.contextPath}/resources/images/${mb.profileImage}"
+                                    <img src="${pageContext.request.contextPath}/uploads/${mb.profileImage}"
                                          class="chat-profile-img">
                                 </c:if>
                                 <c:if test="${mb.profileImage == null || mb.profileImage == ''}">
@@ -94,11 +94,11 @@
                             <div class="popular-post-img">
                                 <c:choose>
                                     <c:when test="${not empty thumbnailMap[post.id]}">
-                                        <img src="${pageContext.request.contextPath}/resources/images/${thumbnailMap[post.id]}"
+                                        <img src="${pageContext.request.contextPath}/uploads/${thumbnailMap[post.id]}"
                                              alt="인기 게시글"/>
                                     </c:when>
                                     <c:otherwise>
-                                        <img src="${pageContext.request.contextPath}/resources/images/default-image.png" alt="인기 게시글"/>
+                                        <img src="${pageContext.request.contextPath}/uploads/default-image.png" alt="인기 게시글"/>
                                     </c:otherwise>
                                 </c:choose>
 

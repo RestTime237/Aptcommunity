@@ -37,7 +37,7 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String home(Model model, HttpServletRequest req) {
-		System.out.println("경로 : "+ req.getServletContext().getRealPath("resources/images"));
+		System.out.println("경로 : /home/admin/uploads");
 
 		List<Post> recentPosts = postService.getPagedPosts(0, 5);
 		List<Post> popularPosts = postService.getPopularPosts();

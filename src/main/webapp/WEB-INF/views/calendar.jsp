@@ -66,7 +66,7 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background: url('\${pageContext.request.contextPath}/resources/images/pattern.svg');
+      background: url('\${pageContext.request.contextPath}/uploads/pattern.svg');
       background-size: cover;
       opacity: 0.1;
     }

@@ -114,7 +114,7 @@ $(document).ready(function () {
             contentType: false,
             success: function (filename) {
                 const timestamp = new Date().getTime();
-                const imageUrl = getContextPath() + '/resources/images/' + filename + "?t=" + timestamp;
+                const imageUrl = getContextPath() + '/uploads/' + filename + "?t=" + timestamp;
                 console.log('이미지 url : ', imageUrl);
                 $(".profile-image").attr("src", imageUrl);
                 $("#previewProfile").attr("src", imageUrl);
@@ -137,10 +137,10 @@ $("#deleteProfileImage").click(function () {
         type: "POST",
         success: function () {
             // 프리뷰 이미지 변경
-            $("#previewProfile").attr("src", getContextPath() + "/resources/images/default-profile.png");
+            $("#previewProfile").attr("src", getContextPath() + "/uploads/default-profile.png");
 
             // 메인 프로필 이미지도 변경
-            $(".profile-image").attr("src", getContextPath() + "/resources/images/default-profile.png");
+            $(".profile-image").attr("src", getContextPath() + "/uploads/default-profile.png");
 
             // 모달 닫기
             bootstrap.Modal.getInstance(document.getElementById("profileImageModal")).hide();
@@ -296,7 +296,7 @@ function renderMyWishlist(products) {
 	        	  <a href="${getContextPath()}/product/detail?id=${product.id}" class="text-decoration-none text-dark">
 	        	    <div class="card h-100 border-0 shadow-sm">
 	        	      <div class="position-relative">
-	        	        <img src="${product.image ? product.image + '?height=180&width=300' : getContextPath() + '/resources/images/default-image.png'}" class="card-img-top  card-img" alt="${product.name}" style="height: 180px; object-fit: cover;">
+	        	        <img src="${product.image ? product.image + '?height=180&width=300' : getContextPath() + '/uploads/default-image.png'}" class="card-img-top  card-img" alt="${product.name}" style="height: 180px; object-fit: cover;">
 
 	        	        <!-- 하트 토글버튼 -->
 		        	    <div class="wishlist-heart position-absolute top-5 end-30" onclick="toggleWishlist(event, ${product.id}, this)">
@@ -382,7 +382,7 @@ $("#profileImageForm").submit(function (e) {
         processData: false,
         contentType: false,
         success: function (res) {
-            $("#profileImagePreview").attr("src", `${getContextPath()}/resources/images/${res}?t=${new Date().getTime()}`);
+            $("#profileImagePreview").attr("src", `${getContextPath()}/uploads/${res}?t=${new Date().getTime()}`);
             bootstrap.Modal.getInstance(document.getElementById('profileImageModal')).hide();
         },
         error: function (err) {

@@ -315,7 +315,7 @@
                                                  class="w-100 h-100 object-fit-cover"/>
                                         </c:when>
                                         <c:otherwise>
-                                            <img src="${pageContext.request.contextPath}/resources/images/default-image.png" alt="${p.name}"
+                                            <img src="${pageContext.request.contextPath}/uploads/default-image.png" alt="${p.name}"
                                                  class="w-100 h-100 object-fit-cover"/>
                                         </c:otherwise>
                                     </c:choose>
@@ -415,7 +415,7 @@
                                              class="w-100 object-fit-cover"/>
                                     </c:when>
                                     <c:otherwise>
-                                        <img src="${pageContext.request.contextPath}/resources/images/default-image.png" alt="${p.name}"
+                                        <img src="${pageContext.request.contextPath}/uploads/default-image.png" alt="${p.name}"
                                              class="w-100 object-fit-cover"/>
                                     </c:otherwise>
                                 </c:choose>

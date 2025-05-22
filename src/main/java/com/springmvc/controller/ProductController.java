@@ -103,7 +103,7 @@ public class ProductController {
     @GetMapping("/delete")
     @ResponseBody
     public String deleteProduct(@RequestParam("id") Long id, HttpServletRequest req) {
-        String path = req.getServletContext().getRealPath("resources/images");        // 이미지 저장 주소
+        String path = "/home/admin/uploads";      // 이미지 저장 주소
         productService.deleteProduct(id);        // 판매글 삭제 실행
         imageService.deleteImage("product", id, path);        // 이미지 삭제 실행
         return "success";

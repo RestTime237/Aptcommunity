@@ -96,7 +96,7 @@ public class PostController {
     @GetMapping("/delete")
     @ResponseBody
     public String deletePost(@RequestParam("id") Long id, HttpServletRequest req) {
-        String path = req.getServletContext().getRealPath("resources/images");
+        String path = "/home/admin/uploads";
         postService.deletePost(id);
         imageService.deleteImage("post", id, path);
         return "success";

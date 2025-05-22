@@ -24,7 +24,7 @@ public class UploadController {
 		System.out.println("이미지 업로드 입장 / refType = " + refType);
 		String contextPath = req.getServletContext().getContextPath();
 
-	    String path = req.getServletContext().getRealPath("resources/images");
+	    String path = "/home/admin/uploads";
 	    String originalName = file.getOriginalFilename();
 	    String[] format = originalName.split("\\.");
 	    String newName = System.currentTimeMillis() + "." + format[1];
@@ -43,6 +43,6 @@ public class UploadController {
 	    
 	    imageService.saveImage(img);
 
-	    return contextPath + "/resources/images/" + newName;
+	    return contextPath + "/uploads/" + newName;
 	}
 }

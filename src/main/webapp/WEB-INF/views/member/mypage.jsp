@@ -42,7 +42,7 @@
             <div class="profile-card text-center">
                 <div id="profileImageArea" class="position-relative d-inline-block profile-img-wrapper"
                      style="cursor: pointer;">
-                    <img src="${pageContext.request.contextPath}/resources/images/${empty mb.profileImage ? 'default-profile.png' : mb.profileImage}"
+                    <img src="${pageContext.request.contextPath}/uploads/${empty mb.profileImage ? 'default-profile.png' : mb.profileImage}"
                          id="profileImagePreview" class="profile-image rounded-circle border border-3"
                          style="width: 120px; height: 120px; object-fit: cover; cursor: pointer;"
                          data-bs-toggle="modal" data-bs-target="#profileImageModal">
@@ -81,7 +81,7 @@
                             <input type="file" name="profileImage" accept="image/*" class="form-control mb-3"
                                    required/>
                             <img id="previewProfile"
-                                 src="${pageContext.request.contextPath}/resources/images/${empty mb.profileImage ? 'default-profile.png' : mb.profileImage}"
+                                 src="${pageContext.request.contextPath}/uploads/${empty mb.profileImage ? 'default-profile.png' : mb.profileImage}"
                                  class="img-fluid rounded-circle border" style="width: 100px; height: 100px;"/>
                         </div>
                         <div class="modal-footer">

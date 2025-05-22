@@ -75,8 +75,8 @@
                 <div class="image-gallery mb-4">
                     <c:forEach var="image" items="${images}" varStatus="status">
                         <div class="image-item" data-bs-toggle="modal" data-bs-target="#imageModal"
-                             data-img-src="${pageContext.request.contextPath}/resources/images/${image.fileName}">
-                            <img src="${pageContext.request.contextPath}/resources/images/${image.fileName}" class="img-fluid"
+                             data-img-src="${pageContext.request.contextPath}/uploads/${image.fileName}">
+                            <img src="${pageContext.request.contextPath}/uploads/${image.fileName}" class="img-fluid"
                                  style="width: 200px; height: 150px; object-fit: cover;"
                                  alt="첨부 이미지 ${status.index + 1}"/>
                         </div>

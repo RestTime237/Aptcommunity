@@ -93,7 +93,7 @@
                                 <div class="user-avatar">
                                     <c:choose>
                                         <c:when test="${not empty opponent.profileImage}">
-                                            <img src="${pageContext.request.contextPath}/resources/images/${opponent.profileImage}"
+                                            <img src="${pageContext.request.contextPath}/uploads/${opponent.profileImage}"
                                                  alt="Profile">
                                         </c:when>
                                         <c:otherwise>

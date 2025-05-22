@@ -49,8 +49,6 @@ public class PostController {
 	@PostMapping("/add")
 	public String addPost(@ModelAttribute("NewPost") Post post, HttpSession session) {
 	    Member member = (Member)session.getAttribute("mb");
-	    
-	    if(member == null) return "redirect:/member/login";
 
 	    post.setUserId(member.getUserId());
 	    post.setApartmentCode(member.getApartmentCode());
@@ -98,7 +96,7 @@ public class PostController {
 	@GetMapping("/delete")
 	@ResponseBody
 	public String deletePost(@RequestParam("id") Long id, HttpServletRequest req) {
-		String path = req.getServletContext().getRealPath("resources/images");
+		String path = "/home/admin/uploads";
 		postService.deletePost(id);
 		imageService.deleteImage("post", id, path);
 		return "success";
@@ -205,9 +203,7 @@ public class PostController {
 	}
 
 	// UTILITY
-	
-	
-	
+
 	private List<Image> extractImageObjects(String content) {
 	    List<Image> images = new ArrayList<>();
 	    if (content == null) return images;

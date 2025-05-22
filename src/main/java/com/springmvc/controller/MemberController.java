@@ -160,7 +160,7 @@ public class MemberController {
 
         deleteProfileImage(session, req);        // 이미 등록된 프로필 이미지를 삭제
 
-        String path = req.getServletContext().getRealPath("resources/images");        // 이미지 경로 지정
+        String path = "/home/admin/uploads";        // 이미지 경로 지정
         String name = System.currentTimeMillis() + "." + profileImage.getOriginalFilename().split("\\.")[1];        // 동적 네이밍
 
         System.out.println(profileImage.getOriginalFilename());
@@ -194,7 +194,7 @@ public class MemberController {
 
         String filename = memberService.getProfileImage(userId);        // 저장된 프로필이미지 이름 가져오기
         if (filename != null && !filename.equals("default-profile.png")) {        // 이름이 존재하면 실행
-            String path = req.getServletContext().getRealPath("resources/images");        // 이미지 경로 파악
+            String path = "/home/admin/uploads";        // 이미지 경로 파악
             File file = new File(path, filename);        // path 경로에 filename 파일 생성
             if (file.exists()) {        // 파일이 존재할 경우
                 file.delete();        // 파일 삭제

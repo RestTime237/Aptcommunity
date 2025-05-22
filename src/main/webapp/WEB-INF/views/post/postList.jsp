@@ -95,11 +95,11 @@
                             <div class="popular-post-img">
                                 <c:choose>
                                     <c:when test="${not empty thumbnailMap[post.id]}">
-                                        <img src="${pageContext.request.contextPath}/resources/images/${thumbnailMap[post.id]}"
+                                        <img src="${pageContext.request.contextPath}/uploads/${thumbnailMap[post.id]}"
                                              alt="인기 게시글"/>
                                     </c:when>
                                     <c:otherwise>
-                                        <img src="${pageContext.request.contextPath}/resources/images/default-image.png" alt="인기 게시글"/>
+                                        <img src="${pageContext.request.contextPath}/uploads/default-image.png" alt="인기 게시글"/>
                                     </c:otherwise>
                                 </c:choose>
 

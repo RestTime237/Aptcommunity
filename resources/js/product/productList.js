@@ -108,7 +108,7 @@ function renderGridView(products, wishlistedIds) {
           <div class="product-card">
             <div class="product-img-container">
               <img
-                src="${product.image ? product.image + "?height=200&width=300" : "/resources/images/default-image.png"}"
+                src="${product.image ? product.image + "?height=200&width=300" : "/uploads/default-image.png"}"
                 class="product-img"
                 alt="${product.name}">
               <span class="product-status ${statusClass}">${product.status}</span>

@@ -52,7 +52,7 @@
                         <c:when test="${chatRoom.user1 eq userId}">
                             <c:if test="${not empty opponent.profileImage}">
                                 <img class="partner-avatar"
-                                     src="${pageContext.request.contextPath}/resources/images/${opponent.profileImage}">
+                                     src="${pageContext.request.contextPath}/uploads/${opponent.profileImage}">
                             </c:if>
 
                             <c:if test="${empty opponent.profileImage}">
