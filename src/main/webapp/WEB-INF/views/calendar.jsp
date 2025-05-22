@@ -66,7 +66,7 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background: url('${pageContext.request.contextPath}/resources/images/pattern.svg');
+      background: url('\${pageContext.request.contextPath}/resources/images/pattern.svg');
       background-size: cover;
       opacity: 0.1;
     }
@@ -131,10 +131,10 @@
     }
 
     .fc-day-today .fc-daygrid-day-number {
-	  color: #007bff;
-	  font-weight: bold;
-	  padding-bottom: 2px;
-	}
+      color: #007bff;
+      font-weight: bold;
+      padding-bottom: 2px;
+    }
 
 
     .fc-event {
@@ -322,76 +322,75 @@
   </style>
 </head>
 <body>
-  <jsp:include page="/WEB-INF/views/common/header.jsp" />
+<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-  <div class="page-container">
-    <div class="calendar-container">
-      <div class="calendar-header">
-        <div class="calendar-header-content">
-          <h1 class="calendar-title">우리 아파트 일정</h1>
-          <p class="calendar-subtitle">아파트 주요 행사와 일정을 확인하고 관리하세요</p>
-        </div>
+<div class="page-container">
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <div class="calendar-header-content">
+        <h1 class="calendar-title">우리 아파트 일정</h1>
+        <p class="calendar-subtitle">아파트 주요 행사와 일정을 확인하고 관리하세요</p>
       </div>
-
-      <div class="category-legend">
-        <div class="legend-item">
-          <div class="legend-color 환경"></div>
-          <span>환경</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-color 소독"></div>
-          <span>소독</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-color 회의"></div>
-          <span>회의</span>
-        </div>
-      </div>
-
-      <div id='calendar'></div>
     </div>
 
-    <div class="row">
-      <div class="col-md-6 mb-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-header bg-primary text-white">
-            <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i> 일정 안내</h5>
-          </div>
-          <div class="card-body">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item d-flex align-items-center">
-                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                날짜를 클릭하여 새로운 일정을 추가할 수 있습니다.
-              </li>
-              <li class="list-group-item d-flex align-items-center">
-                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                기존 일정을 클릭하여 수정하거나 삭제할 수 있습니다.
-              </li>
-              <li class="list-group-item d-flex align-items-center">
-                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                일정을 드래그하여 날짜를 변경할 수 있습니다.
-              </li>
-              <li class="list-group-item d-flex align-items-center">
-                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                일정의 끝을 드래그하여 기간을 조정할 수 있습니다.
-              </li>
-            </ul>
-          </div>
+    <div class="category-legend">
+      <div class="legend-item">
+        <div class="legend-color 환경"></div>
+        <span>환경</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color 소독"></div>
+        <span>소독</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color 회의"></div>
+        <span>회의</span>
+      </div>
+    </div>
+
+    <div id='calendar'></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i> 일정 안내</h5>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+              날짜를 클릭하여 새로운 일정을 추가할 수 있습니다.
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+              기존 일정을 클릭하여 수정하거나 삭제할 수 있습니다.
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+              일정을 드래그하여 날짜를 변경할 수 있습니다.
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+              일정의 끝을 드래그하여 기간을 조정할 수 있습니다.
+            </li>
+          </ul>
         </div>
       </div>
+    </div>
 
-      <div class="col-md-6 mb-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-header bg-warning text-dark">
-            <h5 class="mb-0"><i class="bi bi-calendar-event me-2"></i> 다가오는 주요 일정 (7일 이내)</h5>
-          </div>
-          <div class="card-body">
-            <div class="upcoming-events" id="upcomingEvents">
-              <div class="d-flex align-items-center justify-content-center h-100">
-                <div class="text-center text-muted">
-                  <i class="bi bi-calendar-check fs-1"></i>
-                  <p class="mt-2">다가오는 일정을 불러오는 중...</p>
-                </div>
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-header bg-warning text-dark">
+          <h5 class="mb-0"><i class="bi bi-calendar-event me-2"></i> 다가오는 주요 일정 (7일 이내)</h5>
+        </div>
+        <div class="card-body">
+          <div class="upcoming-events" id="upcomingEvents">
+            <div class="d-flex align-items-center justify-content-center h-100">
+              <div class="text-center text-muted">
+                <i class="bi bi-calendar-check fs-1"></i>
+                <p class="mt-2">다가오는 일정을 불러오는 중...</p>
               </div>
             </div>
           </div>
@@ -399,85 +398,86 @@
       </div>
     </div>
   </div>
+</div>
 
-  <!-- 모달 -->
-  <div class="modal fade" id="scheduleModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <form id="scheduleForm">
-          <div class="modal-header bg-primary text-white">
-            <h5 class="modal-title" id="modalTitle">일정</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+<!-- 모달 -->
+<div class="modal fade" id="scheduleModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="scheduleForm">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="modalTitle">일정</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="scheduleId" name="id" />
+          <input type="hidden" id="scheduleMode" name="mode" />
+
+          <div class="mb-3">
+            <label class="form-label">제목</label>
+            <input type="text" name="title" class="form-control" required />
           </div>
-          <div class="modal-body">
-            <input type="hidden" name="id" />
-            <input type="hidden" name="mode" />
 
-            <div class="mb-3">
-              <label class="form-label">제목</label>
-              <input type="text" name="title" class="form-control" required />
+          <div class="mb-3">
+            <label class="form-label">설명</label>
+            <textarea name="description" class="form-control" rows="3"></textarea>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">시작일</label>
+              <input type="date" name="start" class="form-control" required />
             </div>
 
-            <div class="mb-3">
-              <label class="form-label">설명</label>
-              <textarea name="description" class="form-control" rows="3"></textarea>
-            </div>
-
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label class="form-label">시작일</label>
-                <input type="date" name="start" class="form-control" required />
-              </div>
-
-              <div class="col-md-6 mb-3">
-                <label class="form-label">종료일</label>
-                <input type="date" name="end" class="form-control" required />
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label class="form-label">카테고리</label>
-                <select name="category" class="form-select">
-                  <option value="환경">환경</option>
-                  <option value="소독">소독</option>
-                  <option value="회의">회의</option>
-                </select>
-              </div>
-
-              <div class="col-md-6 mb-3">
-                <label class="form-label">공개여부</label>
-                <select name="publicFlag" class="form-select">
-                  <option value="true">공개</option>
-                  <option value="false">비공개</option>
-                </select>
-              </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">종료일</label>
+              <input type="date" name="end" class="form-control" required />
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-              <i class="bi bi-x-lg me-1"></i> 닫기
-            </button>
-            <button type="submit" class="btn btn-primary">
-              <i class="bi bi-save me-1"></i> 저장
-            </button>
-            <button type="button" class="btn btn-danger" id="deleteButton">
-              <i class="bi bi-trash me-1"></i> 삭제
-            </button>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">카테고리</label>
+              <select name="category" class="form-select">
+                <option value="환경">환경</option>
+                <option value="소독">소독</option>
+                <option value="회의">회의</option>
+              </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label">공개여부</label>
+              <select name="publicFlag" class="form-select">
+                <option value="true">공개</option>
+                <option value="false">비공개</option>
+              </select>
+            </div>
           </div>
-        </form>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <i class="bi bi-x-lg me-1"></i> 닫기
+          </button>
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-save me-1"></i> 저장
+          </button>
+          <button type="button" class="btn btn-danger" id="deleteButton">
+            <i class="bi bi-trash me-1"></i> 삭제
+          </button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 
-  <!-- 플로팅 버튼 -->
-  <a href="#" class="add-event-btn" id="quickAddEvent">
-    <i class="bi bi-plus-lg"></i>
-  </a>
+<!-- 플로팅 버튼 -->
+<a href="#" class="add-event-btn" id="quickAddEvent">
+  <i class="bi bi-plus-lg"></i>
+</a>
 
-  <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-  <script>
+<script>
   let calendar;
   document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar');
@@ -508,14 +508,68 @@
             end: info.endStr
           },
           success: function (data) {
-            // data는 [{ id, title, start, end, ... }] 형태의 배열이어야 함
-            successCallback(data);
-            updateUpcomingEvents(data);
+            // 서버에서 받은 데이터 처리
+            const events = Array.isArray(data) ? data : [];
+
+            // 이벤트 데이터 형식 확인 및 변환
+            const formattedEvents = events.map(event => {
+              // 카테고리가 없는 경우 기본값 설정
+              if (!event.extendedProps) {
+                event.extendedProps = {};
+              }
+              if (!event.extendedProps.category) {
+                event.extendedProps.category = '환경';
+              }
+              return event;
+            });
+
+            successCallback(formattedEvents);
+            updateUpcomingEvents(formattedEvents);
           },
-          error: function () {
+          error: function (xhr, status, error) {
+            console.error("일정 로드 실패:", error);
             failureCallback();
             // 에러 시 샘플 데이터로 대체
             displaySampleUpcomingEvents();
+
+            // 샘플 이벤트 데이터 (테스트용)
+            const sampleEvents = [
+              {
+                id: '1',
+                title: '단지 내 조경 관리',
+                start: '2025-04-25',
+                end: '2025-04-26',
+                extendedProps: {
+                  description: '아파트 정원 및 조경 관리 작업',
+                  category: '환경',
+                  publicFlag: true
+                }
+              },
+              {
+                id: '2',
+                title: '정기 방역 소독',
+                start: '2025-04-28',
+                end: '2025-04-29',
+                extendedProps: {
+                  description: '전체 단지 방역 소독 실시',
+                  category: '소독',
+                  publicFlag: true
+                }
+              },
+              {
+                id: '3',
+                title: '입주자 대표 회의',
+                start: '2025-05-01',
+                end: '2025-05-02',
+                extendedProps: {
+                  description: '관리비 인상 안건 논의',
+                  category: '회의',
+                  publicFlag: true
+                }
+              }
+            ];
+
+            successCallback(sampleEvents);
           }
         });
       },
@@ -530,24 +584,39 @@
       },
 
       eventClick: function(info) {
+        // 이벤트 데이터 확인 및 기본값 설정
+        const category = info.event.extendedProps && info.event.extendedProps.category
+                ? info.event.extendedProps.category
+                : '환경';
+
+        const description = info.event.extendedProps && info.event.extendedProps.description
+                ? info.event.extendedProps.description
+                : '';
+
+        const publicFlag = info.event.extendedProps && info.event.extendedProps.publicFlag !== undefined
+                ? info.event.extendedProps.publicFlag
+                : true;
+
+        // 날짜 형식 처리
+        let startDate = info.event.start ? formatDate(info.event.start) : '';
+        let endDate = info.event.end ? formatDate(new Date(info.event.end.getTime() - 86400000)) : startDate;
+
         openScheduleModal({
           mode: 'edit',
           id: info.event.id,
           title: info.event.title,
-          description: info.event.extendedProps.description,
-          start: info.event.startStr,
-          end: adjustEndDate(info.event.end),
-          category: info.event.extendedProps.category,
-          publicFlag: info.event.extendedProps.publicFlag
+          description: description,
+          start: startDate,
+          end: endDate,
+          category: category,
+          publicFlag: publicFlag
         });
-
-        console.log("📌 클릭한 이벤트 ID:", info.event.id);
       },
 
       eventDrop: function(info) {
         const id = info.event.id;
-        const newStart = info.event.startStr;
-        const newEnd = adjustEndDateBack(info.event.end);
+        const newStart = formatDate(info.event.start);
+        const newEnd = info.event.end ? formatDate(new Date(info.event.end.getTime() - 86400000)) : newStart;
 
         // 끝일 없을 경우 보정
         const payload = {
@@ -566,6 +635,7 @@
             showToast('일정이 이동되었습니다.', 'success');
           },
           error: function(err) {
+            console.error("일정 이동 실패:", err);
             showToast('이동 실패', 'danger');
             info.revert();
           }
@@ -574,7 +644,13 @@
 
       eventResize: function(info) {
         const id = info.event.id;
-        const newEnd = adjustEndDateBack(info.event.end);
+        const newEnd = info.event.end ? formatDate(new Date(info.event.end.getTime() - 86400000)) : '';
+
+        if (!newEnd) {
+          showToast('종료일 설정 오류', 'danger');
+          info.revert();
+          return;
+        }
 
         const payload = {
           id: parseInt(id),
@@ -590,6 +666,7 @@
             showToast('일정 기간이 변경되었습니다.', 'success');
           },
           error: function(err) {
+            console.error("일정 기간 변경 실패:", err);
             showToast('종료일 변경 실패', 'danger');
             info.revert();
           }
@@ -597,8 +674,12 @@
       },
 
       eventClassNames: function(arg) {
-        console.log("📌 클래스 적용 확인:", arg.event.extendedProps.category);
-        return [ `category-\${arg.event.extendedProps.category}` ];
+        // 카테고리가 없는 경우 기본값 설정
+        const category = arg.event.extendedProps && arg.event.extendedProps.category
+                ? arg.event.extendedProps.category
+                : '환경';
+
+        return [`category-\${category}`];
       },
     });
 
@@ -615,6 +696,18 @@
     });
   });
 
+  // 날짜 포맷 함수
+  function formatDate(date) {
+    if (!date) return '';
+
+    const d = new Date(date);
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+
+    return `\${year}-\${month}-\${day}`;
+  }
+
   // 다가오는 일정 업데이트
   function updateUpcomingEvents(events) {
     const upcomingEventsEl = document.getElementById('upcomingEvents');
@@ -627,12 +720,12 @@
 
     // 오늘 이후 일주일 이내의 이벤트만 필터링하고 날짜순으로 정렬
     const futureEvents = events
-      .filter(event => {
-        const eventDate = new Date(event.start);
-        return eventDate >= today && eventDate <= oneWeekLater;
-      })
-      .sort((a, b) => new Date(a.start) - new Date(b.start))
-      .slice(0, 5); // 최대 5개만 표시
+            .filter(event => {
+              const eventDate = new Date(event.start);
+              return eventDate >= today && eventDate <= oneWeekLater;
+            })
+            .sort((a, b) => new Date(a.start) - new Date(b.start))
+            .slice(0, 5); // 최대 5개만 표시
 
     if (futureEvents.length === 0) {
       upcomingEventsEl.innerHTML = `
@@ -648,11 +741,19 @@
 
     futureEvents.forEach(event => {
       const eventDate = new Date(event.start);
-      const formattedDate = `\${eventDate.getFullYear()}-\${String(eventDate.getMonth() + 1).padStart(2, '0')}-\${String(eventDate.getDate()).padStart(2, '0')}`;
+      const formattedDate = formatDate(eventDate);
+
+      // 카테고리 확인 및 기본값 설정
+      const category = event.extendedProps && event.extendedProps.category
+              ? event.extendedProps.category
+              : '환경';
+
+      const description = event.extendedProps && event.extendedProps.description
+              ? event.extendedProps.description
+              : '';
 
       let badgeClass = '';
-      console.log('카테고리 내용물 : ',event.extendedProps.category);
-      switch(event.extendedProps.category) {
+      switch(category) {
         case '환경': badgeClass = 'bg-success'; break;
         case '소독': badgeClass = 'bg-danger'; break;
         case '회의': badgeClass = 'bg-primary'; break;
@@ -666,10 +767,10 @@
           </div>
           <div class="flex-grow-1">
             <div class="d-flex align-items-center">
-              <span class="badge \${badgeClass} me-2">\${event.extendedProps.category}</span>
+              <span class="badge \${badgeClass} me-2">\${category}</span>
               <h6 class="mb-0">\${event.title}</h6>
             </div>
-            \${event.extendedProps.description ? `<small class="text-muted">\${event.extendedProps.description}</small>` : ''}
+            \${description ? `<small class="text-muted">\${description}</small>` : ''}
           </div>
         </li>
       `;
@@ -728,14 +829,29 @@
   function openScheduleModal(data) {
     const form = document.querySelector('#scheduleForm');
 
-    form.mode.value = data.mode;
-    form.id.value = data.id || '';
-    form.title.value = data.title || '';
-    form.description.value = data.description || '';
-    form.start.value = data.start || '';
-    form.end.value = data.end || data.start || '';
-    form.category.value = data.category || '환경';
-    form.publicFlag.value = data.publicFlag === false ? 'false' : 'true';
+    // ID 속성으로 접근하여 값 설정
+    document.getElementById('scheduleMode').value = data.mode;
+    document.getElementById('scheduleId').value = data.id || '';
+
+    // name 속성으로 접근하여 값 설정
+    form.querySelector('input[name="title"]').value = data.title || '';
+    form.querySelector('textarea[name="description"]').value = data.description || '';
+    form.querySelector('input[name="start"]').value = data.start || '';
+    form.querySelector('input[name="end"]').value = data.end || data.start || '';
+
+    // select 요소는 value로 설정
+    const categorySelect = form.querySelector('select[name="category"]');
+    if (categorySelect) {
+      // 유효한 카테고리 값인지 확인
+      const validCategories = ['환경', '소독', '회의'];
+      const category = data.category && validCategories.includes(data.category) ? data.category : '환경';
+      categorySelect.value = category;
+    }
+
+    const publicFlagSelect = form.querySelector('select[name="publicFlag"]');
+    if (publicFlagSelect) {
+      publicFlagSelect.value = data.publicFlag === false ? 'false' : 'true';
+    }
 
     document.querySelector('#modalTitle').textContent = (data.mode === 'add') ? '일정 등록' : '일정 수정';
 
@@ -752,10 +868,15 @@
     const formData = new FormData(this);
     const raw = Object.fromEntries(formData.entries());
 
-    console.log("raw.id =", raw.id, "→ parsed =", parseInt(raw.id));
+    // ID 값이 비어있거나 숫자가 아닌 경우 처리
+    const id = raw.id ? parseInt(raw.id) : null;
+    if (raw.id && isNaN(id)) {
+      showToast('유효하지 않은 ID 값입니다.', 'danger');
+      return;
+    }
 
     const json = {
-      id: raw.id ? parseInt(raw.id) : null,
+      id: id,
       title: raw.title,
       description: raw.description,
       startDate: raw.start,
@@ -774,8 +895,9 @@
         bootstrap.Modal.getInstance(document.getElementById('scheduleModal')).hide();
         calendar.refetchEvents();
       },
-      error: function(err) {
-        showToast('저장 실패', 'danger');
+      error: function(xhr, status, err) {
+        console.error("일정 저장 실패:", err);
+        showToast(`저장 실패: \${xhr.responseText || err}`, 'danger');
       }
     });
   });
@@ -790,48 +912,28 @@
 
     if(!confirm("정말 삭제하시겠습니까?")) return;
 
+    const parsedId = parseInt(id);
+    if (isNaN(parsedId)) {
+      showToast('유효하지 않은 ID 값입니다.', 'danger');
+      return;
+    }
+
     $.ajax({
       url: '/schedule/delete',
       method: 'POST',
       contentType: 'application/json',
-      data: JSON.stringify({ id: parseInt(id) }),
+      data: JSON.stringify({ id: parsedId }),
       success: function(res) {
         showToast('일정이 삭제되었습니다.', 'success');
         bootstrap.Modal.getInstance(document.getElementById('scheduleModal')).hide();
         calendar.refetchEvents();
       },
-      error: function(err) {
-        showToast('삭제 실패', 'danger');
+      error: function(xhr, status, err) {
+        console.error("일정 삭제 실패:", err);
+        showToast(`삭제 실패: \${xhr.responseText || err}`, 'danger');
       }
     });
   });
-
-  function adjustEndDate(end) {
-    if (!end) return null;
-
-    const date = new Date(end); // Date 객체 생성 (브라우저 시간 기준)
-    date.setDate(date.getDate() - 1); // 하루 빼기
-
-    // 로컬 날짜로 문자열 반환 (UTC X)
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-
-    return `\${year}-\${month}-\${day}`;
-  }
-
-  function adjustEndDateBack(endDateObj) {
-    if (!endDateObj) return null;
-
-    const date = new Date(endDateObj);
-    date.setDate(date.getDate() - 1);
-
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-
-    return `\${year}-\${month}-\${day}`;
-  }
 
   // 토스트 알림 표시 함수
   function showToast(message, type = 'primary') {
@@ -871,6 +973,6 @@
       }
     }, 5000);
   }
-  </script>
+</script>
 </body>
 </html>
