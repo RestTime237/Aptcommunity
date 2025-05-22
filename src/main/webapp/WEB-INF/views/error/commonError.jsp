@@ -13,7 +13,7 @@
 <div class="container py-5 text-center">
     <h2 class="text-danger"><i class="bi bi-exclamation-triangle-fill me-2"></i> 오류가 발생했습니다</h2>
     <p class="mt-3 text-muted">${errorMessage}</p>
-    <a href="${pageContext.request.contextPath}" class="btn btn-outline-primary mt-4">홈으로 돌아가기</a>
+    <a href="${pageContext.request.contextPath}/" class="btn btn-outline-primary mt-4">홈으로 돌아가기</a>
 </div>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

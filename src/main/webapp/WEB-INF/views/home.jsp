@@ -50,13 +50,13 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center gap-2">
-                            <a href="/AptCommunity/member/mypage" class="btn btn-sm btn-outline-light">
+                            <a href="${pageContext.request.contextPath}/member/mypage" class="btn btn-sm btn-outline-light">
                                 <i class="bi bi-building me-1"></i> 마이페이지
                             </a>
-                            <a href="/AptCommunity/chat/rooms" class="btn btn-sm btn-outline-light">
+                            <a href="${pageContext.request.contextPath}/chat/rooms" class="btn btn-sm btn-outline-light">
                                 <i class="ri-chat-1-line me-1"></i> 내 채팅
                             </a>
-                            <a href="/AptCommunity/member/logout" class="btn btn-sm btn-outline-light">
+                            <a href="${pageContext.request.contextPath}/member/logout" class="btn btn-sm btn-outline-light">
                                 <i class="bi bi-box-arrow-right me-1"></i> 로그아웃
                             </a>
                         </div>
@@ -67,11 +67,11 @@
                 <c:if test="${empty mb}">
                     <div class="animate-fade-in" style="animation-delay: 0.4s;">
                         <p class="text-white-50 mb-3">아파트 커뮤니티 서비스를 이용하시려면</p>
-                        <a href="/AptCommunity/member/login"
+                        <a href="${pageContext.request.contextPath}/member/login"
                            class="btn btn-light text-primary fw-semibold px-4 py-2 me-2 shadow-sm">
                             <i class="bi bi-box-arrow-in-right me-1"></i> 로그인
                         </a>
-                        <a href="/AptCommunity/member/register" class="btn btn-outline-light px-4 py-2">
+                        <a href="${pageContext.request.contextPath}/member/register" class="btn btn-outline-light px-4 py-2">
                             <i class="bi bi-person-plus me-1"></i> 회원가입
                         </a>
                     </div>
@@ -89,16 +89,16 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-4">
             <c:forEach var="post" items="${popularPosts}">
                 <div class="col">
-                    <a href="/AptCommunity/post/detail?id=${post.id}" class="text-decoration-none text-dark">
+                    <a href="${pageContext.request.contextPath}/post/detail?id=${post.id}" class="text-decoration-none text-dark">
                         <div class="popular-post-card">
                             <div class="popular-post-img">
                                 <c:choose>
                                     <c:when test="${not empty thumbnailMap[post.id]}">
-                                        <img src="/AptCommunity/resources/images/${thumbnailMap[post.id]}"
+                                        <img src="${pageContext.request.contextPath}/resources/images/${thumbnailMap[post.id]}"
                                              alt="인기 게시글"/>
                                     </c:when>
                                     <c:otherwise>
-                                        <img src="/AptCommunity/resources/images/default-image.png" alt="인기 게시글"/>
+                                        <img src="${pageContext.request.contextPath}/resources/images/default-image.png" alt="인기 게시글"/>
                                     </c:otherwise>
                                 </c:choose>
 
@@ -197,7 +197,7 @@
         </h4>
         <div class="row row-cols-2 row-cols-sm-3 row-cols-md-6 g-4">
             <div class="col">
-                <a href="/AptCommunity/post/list" class="service-card card h-100 text-center">
+                <a href="${pageContext.request.contextPath}/post/list" class="service-card card h-100 text-center">
                     <div class="card-body p-3">
                         <div class="service-icon">
                             <i class="bi bi-file-text"></i>
@@ -207,7 +207,7 @@
                 </a>
             </div>
             <div class="col">
-                <a href="/AptCommunity/product/list" class="service-card card h-100 text-center">
+                <a href="${pageContext.request.contextPath}/product/list" class="service-card card h-100 text-center">
                     <div class="card-body p-3">
                         <div class="service-icon">
                             <i class="bi bi-bag"></i>
@@ -217,7 +217,7 @@
                 </a>
             </div>
             <div class="col">
-                <a href="/AptCommunity/schedule/calendar" class="service-card card h-100 text-center">
+                <a href="${pageContext.request.contextPath}/schedule/calendar" class="service-card card h-100 text-center">
                     <div class="card-body p-3">
                         <div class="service-icon">
                             <i class="bi bi-calendar-event"></i>
@@ -227,7 +227,7 @@
                 </a>
             </div>
             <div class="col">
-                <a href="/AptCommunity/map" class="service-card card h-100 text-center">
+                <a href="${pageContext.request.contextPath}/map" class="service-card card h-100 text-center">
                     <div class="card-body p-3">
                         <div class="service-icon">
                             <i class="ri-map-pin-2-line"></i>
@@ -237,7 +237,7 @@
                 </a>
             </div>
             <div class="col">
-                <a href="/AptCommunity/vote/list" class="service-card card h-100 text-center">
+                <a href="${pageContext.request.contextPath}/vote/list" class="service-card card h-100 text-center">
                     <div class="card-body p-3">
                         <div class="service-icon">
                             <i class="ri-checkbox-circle-line"></i>
@@ -247,7 +247,7 @@
                 </a>
             </div>
             <div class="col">
-                <a href="/AptCommunity/member/mypage" class="service-card card h-100 text-center">
+                <a href="${pageContext.request.contextPath}/member/mypage" class="service-card card h-100 text-center">
                     <div class="card-body p-3">
                         <div class="service-icon">
                             <i class="bi bi-person"></i>
@@ -268,13 +268,13 @@
                     <h5 class="mb-0 d-flex align-items-center">
                         <i class="bi bi-file-text me-2"></i> 최신 게시글
                     </h5>
-                    <a href="/AptCommunity/post/list" class="btn btn-sm btn-outline-primary rounded-pill">
+                    <a href="${pageContext.request.contextPath}/post/list" class="btn btn-sm btn-outline-primary rounded-pill">
                         <i class="bi bi-arrow-right me-1"></i> 전체보기
                     </a>
                 </div>
                 <div class="list-group list-group-flush">
                     <c:forEach var="post" items="${recentPosts}">
-                        <a href="/AptCommunity/post/detail?id=${post.id}"
+                        <a href="${pageContext.request.contextPath}/post/detail?id=${post.id}"
                            class="list-group-item list-group-item-action post-link">
                             <div class="d-flex w-100 justify-content-between">
                                 <h6 class="mb-1 text-truncate">
@@ -355,13 +355,13 @@
                     <h5 class="mb-0 d-flex align-items-center">
                         <i class="bi bi-bag me-2"></i> 최신 판매글
                     </h5>
-                    <a href="/AptCommunity/product/list" class="btn btn-sm btn-outline-success rounded-pill">
+                    <a href="${pageContext.request.contextPath}/product/list" class="btn btn-sm btn-outline-success rounded-pill">
                         <i class="bi bi-arrow-right me-1"></i> 전체보기
                     </a>
                 </div>
                 <div class="list-group list-group-flush">
                     <c:forEach var="product" items="${recentProducts}">
-                        <a href="/AptCommunity/product/detail?id=${product.id}"
+                        <a href="${pageContext.request.contextPath}/product/detail?id=${product.id}"
                            class="list-group-item list-group-item-action product-link">
                             <div class="d-flex w-100 justify-content-between">
                                 <h6 class="mb-1 text-truncate">${product.name}</h6>
@@ -522,8 +522,8 @@
 
                     const [tmX, tmY] = proj4('EPSG:4326', 'EPSG:5179', [lon, lat]);
 
-                    const weatherURL = `/AptCommunity/weather?lat=\${lat}&lon=\${lon}`;
-                    const dustURL = `/AptCommunity/dust?tmX=\${tmX}&tmY=\${tmY}`;
+                    const weatherURL = `${pageContext.request.contextPath}/weather?lat=\${lat}&lon=\${lon}`;
+                    const dustURL = `${pageContext.request.contextPath}/dust?tmX=\${tmX}&tmY=\${tmY}`;
 
                     // 날씨 데이터 가져오기
                     fetch(weatherURL)
@@ -581,7 +581,7 @@
         // 동 기반 날씨 및 미세먼지 로드
         function loadWeatherByDong() {
             // 날씨 데이터 가져오기
-            fetch('/AptCommunity/weatherByDong')
+            fetch('${pageContext.request.contextPath}/weatherByDong')
                 .then(res => res.json())
                 .then(data => {
                     updateWeatherUI(data);
@@ -599,7 +599,7 @@
                 });
 
             // 미세먼지 데이터 가져오기
-            fetch('/AptCommunity/dustByDong')
+            fetch('${pageContext.request.contextPath}/dustByDong')
                 .then(res => res.json())
                 .then(data => {
                     updateDustUI(data);

@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
 
     <!-- 이모지 선택기 스타일 -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/emoji-picker.css">
+    <link rel="stylesheet" href="/resources/css/emoji-picker.css">
 
     <!-- 이모지 선택기 스크립트 -->
     <script src="${pageContext.request.contextPath}/resources/js/emoji-picker.js"></script>
