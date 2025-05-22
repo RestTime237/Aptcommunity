@@ -22,6 +22,7 @@ public class UploadController {
 	@ResponseBody
 	public String uploadImage(@RequestParam("uploadImage") MultipartFile file, @RequestParam("refType") String refType, HttpServletRequest req) {
 		System.out.println("이미지 업로드 입장 / refType = " + refType);
+		String contextPath = req.getServletContext().getContextPath();
 
 	    String path = req.getServletContext().getRealPath("resources/images");
 	    String originalName = file.getOriginalFilename();
@@ -42,6 +43,6 @@ public class UploadController {
 	    
 	    imageService.saveImage(img);
 
-	    return "/AptCommunity/resources/images/" + newName;
+	    return contextPath + "/resources/images/" + newName;
 	}
 }

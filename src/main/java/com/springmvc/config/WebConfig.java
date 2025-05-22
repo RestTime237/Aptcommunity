@@ -16,7 +16,7 @@ public class WebConfig implements WebMvcConfigurer {
                         "/post/add",
                         "/product/add",
                         "/vote/add",
-                        "/comment/add",
+                        "/comment/**",
                         "/member/mypage",
                         "/chat/**"
                 );

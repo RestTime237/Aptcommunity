@@ -60,9 +60,6 @@ public class CommentController {
     @ResponseBody
     public String addReplyAjax(@RequestBody Comment comment, HttpSession session) {
         Member mb = (Member) session.getAttribute("mb");
-        if (mb == null) {
-            return "unauthorized";
-        }
 
         comment.setUserId(mb.getUserId());
 
@@ -78,9 +75,6 @@ public class CommentController {
     public String updateComment(@ModelAttribute Comment comment, @RequestParam String refType, @RequestParam Long refId, HttpSession session) {
     	
     	Member mb = (Member) session.getAttribute("mb");
-        if (mb == null) {
-            return "unauthorized";
-        }
         comment.setRefType(refType);
         comment.setRefId(refId);
         commentService.updateComment(comment);
@@ -91,10 +85,7 @@ public class CommentController {
     @PostMapping("/delete")
     @ResponseBody
     public String deleteComment(@RequestParam Long id, @RequestParam String refType, @RequestParam Long refId, HttpSession session) {
-    	 Member mb = (Member) session.getAttribute("mb");
-    	    if (mb == null) {
-    	    	return "/AptCommunity/member/login";
-    	    }
+        Member mb = (Member) session.getAttribute("mb");
         commentService.deleteComment(id, refType, refId);
         return "success";
     }

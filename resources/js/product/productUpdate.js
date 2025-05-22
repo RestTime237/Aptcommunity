@@ -50,7 +50,7 @@ $(document).ready(function () {
         data.append("refType", "product");
 
         $.ajax({
-            url: '/AptCommunity/uploadImage',
+            url: '/uploadImage',
             type: 'POST',
             data: data,
             contentType: false,

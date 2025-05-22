@@ -7,7 +7,7 @@ window.viewMember = function (userId) {
     currentUserId = userId;
 
     $.ajax({
-        url: `/AptCommunity/admin/members/${userId}`,
+        url: `/admin/members/${userId}`,
         method: 'get',
         dataType: 'json',
         success: function (res) {
@@ -35,7 +35,7 @@ window.loadEditModal = function (userId) {
     currentUserId = userId
 
     $.ajax({
-        url: `/AptCommunity/admin/members/${userId}`,
+        url: `/admin/members/${userId}`,
         method: 'GET',
         dataType: 'json',
         success: function (res) {
@@ -77,7 +77,7 @@ $('#memberEditForm').on('submit', function (e) {
     member.password = currentPassword;
 
     $.ajax({
-        url: `/AptCommunity/admin/members/${currentUserId}`,
+        url: `/admin/members/${currentUserId}`,
         method: 'PUT',
         contentType: 'application/json',
         data: JSON.stringify(member),
@@ -106,7 +106,7 @@ function confirmDelete() {
     if (!deleteTargetUserId) return;
 
     $.ajax({
-        url: `/AptCommunity/admin/members/${deleteTargetUserId}`,
+        url: `/admin/members/${deleteTargetUserId}`,
         method: 'DELETE',
         success: function () {
             alert('회원이 삭제되었습니다.');

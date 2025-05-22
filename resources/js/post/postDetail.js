@@ -7,12 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
         deleteBtn.addEventListener("click", function () {
             if (confirm("게시글을 삭제하시겠습니까?")) {
                 $.ajax({
-                    url: "/AptCommunity/post/delete",
+                    url: "/post/delete",
                     method: "GET",
                     data: { id: postId },
                     success: function (res) {
                         alert("삭제되었습니다.");
-                        window.location.href = "/AptCommunity/post/list";
+                        window.location.href = "/post/list";
                     },
                     error: function (err) {
                         alert("삭제에 실패했습니다.");
@@ -52,7 +52,7 @@ document.querySelectorAll(".deleteReply").forEach(btn => {
 
         if (confirm("답글을 삭제하시겠습니까?")) {
             $.ajax({
-                url: "/AptCommunity/comment/delete",
+                url: "/comment/delete",
                 method: "POST",
                 data: {
                     id: replyId,
@@ -103,7 +103,7 @@ $(document).on('click', '.edit-comment-btn', function () {
         const refType = "post";
         const refId = $("input[name='refId']").val();
 
-        $.post("/AptCommunity/comment/update", {
+        $.post("/comment/update", {
             id: id,
             content: newContent,
             refType: refType,
@@ -136,7 +136,7 @@ document.querySelectorAll(".deleteComment").forEach(btn => {
 
         if (confirm("댓글을 삭제하시겠습니까?")) {
             $.ajax({
-                url: "/AptCommunity/comment/delete",
+                url: "/comment/delete",
                 method: "POST",
                 data: {
                     id: commentId,
@@ -187,7 +187,7 @@ $(document).on('click', '.edit-reply-btn', function () {
             return;
         }
 
-        $.post("/AptCommunity/comment/update", {
+        $.post("/comment/update", {
             id: id,
             content: newContent,
             refType: refType,
@@ -234,7 +234,7 @@ document.querySelectorAll(".submit-reply").forEach(button => {
             parentId: parentId
         };
 
-        fetch("/AptCommunity/comment/add-ajax", {
+        fetch("/comment/add-ajax", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -271,7 +271,7 @@ document.querySelectorAll(".toggle-replies-btn").forEach(button => {
 });
 
 function toggleRecommend(refType, refId) {
-    $.post("/AptCommunity/recommend", { refType, refId }, function (response) {
+    $.post("/recommend", { refType, refId }, function (response) {
         if (response == "liked") {
             // 좋아요 표시
         } else if (response == "unliked") {

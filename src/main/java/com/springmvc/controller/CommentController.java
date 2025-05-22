@@ -82,9 +82,6 @@ public class CommentController {
     @ResponseBody
     public String deleteComment(@RequestParam Long id, @RequestParam String refType, @RequestParam Long refId, HttpSession session) {
         Member mb = (Member) session.getAttribute("mb");
-        if (mb == null) {
-            return "/AptCommunity/member/login";
-        }
         commentService.deleteComment(id, refType, refId);
         return "success";
     }

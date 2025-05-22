@@ -101,14 +101,14 @@ $(document).ready(function () {
         e.preventDefault();
         const formData = new FormData(this);
         $.ajax({
-            url: "/AptCommunity/member/uploadProfileImage",
+            url: "/member/uploadProfileImage",
             method: "POST",
             data: formData,
             processData: false,
             contentType: false,
             success: function (filename) {
                 const timestamp = new Date().getTime();
-                const imageUrl = '/AptCommunity/resources/images/' + filename + "?t=" + timestamp;
+                const imageUrl = '/resources/images/' + filename + "?t=" + timestamp;
                 console.log('이미지 url : ', imageUrl);
                 $(".profile-image").attr("src", imageUrl);
                 $("#previewProfile").attr("src", imageUrl);
@@ -127,14 +127,14 @@ $("#deleteProfileImage").click(function () {
     if (!confirm("정말 프로필 사진을 삭제하시겠습니까?")) return;
 
     $.ajax({
-        url: "/AptCommunity/member/deleteProfileImage",
+        url: "/member/deleteProfileImage",
         type: "POST",
         success: function () {
             // 프리뷰 이미지 변경
-            $("#previewProfile").attr("src", "/AptCommunity/resources/images/default-profile.png");
+            $("#previewProfile").attr("src", "/resources/images/default-profile.png");
 
             // 메인 프로필 이미지도 변경
-            $(".profile-image").attr("src", "/AptCommunity/resources/images/default-profile.png");
+            $(".profile-image").attr("src", "/resources/images/default-profile.png");
 
             // 모달 닫기
             bootstrap.Modal.getInstance(document.getElementById("profileImageModal")).hide();
@@ -150,7 +150,7 @@ $("#deleteProfileImage").click(function () {
 function removeWishlist(productId) {
     if (confirm('찜 목록에서 삭제하시겠습니까?')) {
         $.ajax({
-            url: '/AptCommunity/product/removeWishlist',
+            url: '/product/removeWishlist',
             type: 'POST',
             data: { productId: productId },
             success: function (response) {
@@ -182,7 +182,7 @@ $("#wishlist-tab").click(function () {
 // 게시글
 function fetchMyPosts(page) {
     $.ajax({
-        url: '/AptCommunity/member/mypage/posts',
+        url: '/member/mypage/posts',
         method: 'GET',
         data: { page: page },
         success: function (res) {
@@ -206,7 +206,7 @@ function renderMyPosts(posts) {
       	        <td>${post.category}</td>
       	        <td>${formatDate(post.createdAt)}</td>
       	        <td>
-      	          <a href="/AptCommunity/post/detail?id=${post.id}" class="btn btn-sm btn-outline-primary">
+      	          <a href="/post/detail?id=${post.id}" class="btn btn-sm btn-outline-primary">
       	            <i class="bi bi-eye"></i>
       	          </a>
       	        </td>
@@ -219,7 +219,7 @@ function renderMyPosts(posts) {
 // 판매글
 function fetchMyProducts(page) {
     $.ajax({
-        url: '/AptCommunity/member/mypage/products',
+        url: '/member/mypage/products',
         method: 'GET',
         data: { page: page },
         success: function (res) {
@@ -243,7 +243,7 @@ function renderMyProducts(products) {
       	        <td>${product.price}</td>
       	        <td>${product.status}</td>
       	        <td>
-      	          <a href="/AptCommunity/product/detail?id=${product.id}" class="btn btn-sm btn-outline-primary">
+      	          <a href="/product/detail?id=${product.id}" class="btn btn-sm btn-outline-primary">
       	            <i class="bi bi-eye"></i>
       	          </a>
       	        </td>
@@ -256,7 +256,7 @@ function renderMyProducts(products) {
 // 위시리스트
 function fetchMyWishlist(page) {
     $.ajax({
-        url: '/AptCommunity/member/mypage/wishlist',
+        url: '/member/mypage/wishlist',
         method: 'GET',
         data: { page: page },
         success: function (res) {
@@ -288,10 +288,10 @@ function renderMyWishlist(products) {
 
         const card = `
 	        	  <div class="col-md-6 col-lg-4 mb-4">
-	        	  <a href="/AptCommunity/product/detail?id=${product.id}" class="text-decoration-none text-dark">
+	        	  <a href="/product/detail?id=${product.id}" class="text-decoration-none text-dark">
 	        	    <div class="card h-100 border-0 shadow-sm">
 	        	      <div class="position-relative">
-	        	        <img src="${product.image ? product.image + '?height=180&width=300' : '/AptCommunity/resources/images/default-image.png'}" class="card-img-top  card-img" alt="${product.name}" style="height: 180px; object-fit: cover;">
+	        	        <img src="${product.image ? product.image + '?height=180&width=300' : '/resources/images/default-image.png'}" class="card-img-top  card-img" alt="${product.name}" style="height: 180px; object-fit: cover;">
 	        	        
 	        	        <!-- 하트 토글버튼 -->
 		        	    <div class="wishlist-heart position-absolute top-5 end-30" onclick="toggleWishlist(event, ${product.id}, this)">
@@ -371,13 +371,13 @@ $("#profileImageForm").submit(function (e) {
     const formData = new FormData(this);
 
     $.ajax({
-        url: '/AptCommunity/member/uploadProfileImage',
+        url: '/member/uploadProfileImage',
         type: 'post',
         data: formData,
         processData: false,
         contentType: false,
         success: function (res) {
-            $("#profileImagePreview").attr("src", `/AptCommunity/resources/images/${res}?t=${new Date().getTime()}`);
+            $("#profileImagePreview").attr("src", `/resources/images/${res}?t=${new Date().getTime()}`);
             bootstrap.Modal.getInstance(document.getElementById('profileImageModal')).hide();
         },
         error: function (err) {
@@ -391,7 +391,7 @@ function toggleWishlist(event, productId, buttonEl) {
     event.preventDefault();
 
     $.ajax({
-        url: "/AptCommunity/wishlist/toggle-ajax",
+        url: "/wishlist/toggle-ajax",
         type: "POST",
         contentType: 'application/json',
         data: JSON.stringify({ productId }),

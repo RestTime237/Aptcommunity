@@ -25,14 +25,14 @@ function initChatCreate(userId) {
             submitBtn.prop('disabled', true);
 
             $.ajax({
-                url: '/AptCommunity/chat/createRoom',
+                url: '/chat/createRoom',
                 method: 'post',
                 data: {
                     user1: sender,
                     user2: receiver
                 },
                 success: function (roomId) {
-                    window.location.href = '/AptCommunity/chat/room/' + roomId;
+                    window.location.href = '/chat/room/' + roomId;
                 },
                 error: function (xhr) {
                     // 버튼 상태 복원

@@ -6,11 +6,11 @@ $("#chat").click(function () {
     console.log('상대방 ID : ', opponentId);
 
     $.ajax({
-        url: '/AptCommunity/chat/start',
+        url: '/chat/start',
         method: 'post',
         data: { opponentId: opponentId },
         success: function (res) {
-            window.location.href = '/AptCommunity/chat/room/' + res;
+            window.location.href = '/chat/room/' + res;
         },
         error: function (err) {
             alert('채팅방 생성에 실패했습니다.');
@@ -27,12 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
         deleteBtn.addEventListener("click", function () {
             if (confirm("상품을 삭제하시겠습니까?")) {
                 $.ajax({
-                    url: "/AptCommunity/product/delete",
+                    url: "/product/delete",
                     method: "GET",
                     data: { id: productId },
                     success: function (res) {
                         alert("삭제되었습니다.");
-                        window.location.href = "/AptCommunity/product/list";
+                        window.location.href = "/product/list";
                     },
                     error: function (err) {
                         alert("삭제에 실패했습니다.");
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 여기에 신고 처리 AJAX 추가
         $.ajax({
-            url: "/AptCommunity/report/add",
+            url: "/report/add",
             method: "POST",
             data: form.serialize(),
             success: function (res) {
@@ -81,7 +81,7 @@ $("#wishlistBtn").click(function () {
     const self = this;
 
     $.ajax({
-        url: "/AptCommunity/wishlist/toggle-ajax",
+        url: "/wishlist/toggle-ajax",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify({ productId: productId }),
@@ -115,7 +115,7 @@ document.querySelectorAll(".deleteComment").forEach(btn => {
 
         if (confirm("댓글을 삭제하시겠습니까?")) {
             $.ajax({
-                url: "/AptCommunity/comment/delete",
+                url: "/comment/delete",
                 method: "POST",
                 data: {
                     id: commentId,
@@ -165,7 +165,7 @@ $(document).on('click', '.edit-comment-btn', function () {
             return;
         }
 
-        $.post("/AptCommunity/comment/update", {
+        $.post("/comment/update", {
             id: id,
             content: newContent,
             refType: refType,
@@ -208,7 +208,7 @@ document.querySelectorAll(".submit-reply").forEach(button => {
         const content = button.closest('.reply-form').querySelector('textarea').value;
 
         $.ajax({
-            url: '/AptCommunity/comment/add-ajax',
+            url: '/comment/add-ajax',
             method: 'post',
             contentType: 'application/json',
             data: JSON.stringify({
@@ -234,7 +234,7 @@ $("#replyDeleteBtn").click(function () {
 
     if (confirm('이 답글을 삭제하시겠습니까?')) {
         $.ajax({
-            url: '/AptCommunity/comment/delete',
+            url: '/comment/delete',
             method: 'post',
             data: {
                 id: id,
@@ -281,7 +281,7 @@ $("#replyEditBtn").click(function () {
         const refType = $('input[name="refType"]').val();
         const refId = $('input[name="refId"]').val();
 
-        $.post("/AptCommunity/comment/update", {
+        $.post("/comment/update", {
             id: id,
             content: newContent,
             refType: refType,

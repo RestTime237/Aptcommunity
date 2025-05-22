@@ -28,7 +28,7 @@ $(document).ready(function () {
         data.append("refType", "post");
 
         $.ajax({
-            url: '/AptCommunity/uploadImage',
+            url: '/uploadImage',
             type: 'POST',
             data: data,
             contentType: false,

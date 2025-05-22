@@ -501,7 +501,7 @@
 
       events: function (info, successCallback, failureCallback) {
         $.ajax({
-          url: '/AptCommunity/schedule/list',
+          url: '/schedule/list',
           method: 'GET',
           data: {
             start: info.startStr,
@@ -557,7 +557,7 @@
         };
 
         $.ajax({
-          url: '/AptCommunity/schedule/move',
+          url: '/schedule/move',
           method: 'POST',
           contentType: 'application/json',
           data: JSON.stringify(payload),
@@ -582,7 +582,7 @@
         };
 
         $.ajax({
-          url: '/AptCommunity/schedule/resize',
+          url: '/schedule/resize',
           method: 'POST',
           contentType: 'application/json',
           data: JSON.stringify(payload),
@@ -765,7 +765,7 @@
     };
 
     $.ajax({
-      url: `/AptCommunity/schedule/\${raw.mode}`,
+      url: `/schedule/\${raw.mode}`,
       method: "POST",
       contentType: "application/json",
       data: JSON.stringify(json),
@@ -791,7 +791,7 @@
     if(!confirm("정말 삭제하시겠습니까?")) return;
 
     $.ajax({
-      url: '/AptCommunity/schedule/delete',
+      url: '/schedule/delete',
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({ id: parseInt(id) }),

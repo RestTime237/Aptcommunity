@@ -56,7 +56,7 @@ function fetchPosts(page = 1) {
         `);
 
     $.ajax({
-        url: "/AptCommunity/post/search",
+        url: "/post/search",
         method: "GET",
         data: {
             category: currentCategory,
@@ -158,7 +158,7 @@ function fetchPosts(page = 1) {
                                 <td class="text-center">${post.id}</td>
                                 <td class="text-center">${categoryDisplay}</td>
                                 <td class="ps-4">
-                                    <a href="/AptCommunity/post/detail?id=${post.id}" class="${titleClass}">
+                                    <a href="/post/detail?id=${post.id}" class="${titleClass}">
                                         ${imageIcon}${post.title} ${commentBadge}
                                     </a>
                                 </td>

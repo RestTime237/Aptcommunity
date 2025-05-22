@@ -30,7 +30,7 @@ function getUrlParams() {
 // 상품 데이터 가져오기
 function fetchProducts(page = 1) {
     $.ajax({
-        url: "/AptCommunity/product/search",
+        url: "/product/search",
         method: "GET",
         data: {
             category: currentCategory,
@@ -104,11 +104,11 @@ function renderGridView(products, wishlistedIds) {
         // 상품 카드 생성
         const card = `
       <div class="col-lg-3 col-md-4 col-sm-6 mb-4 position-relative">
-        <a href="/AptCommunity/product/detail?id=${product.id}" class="text-decoration-none text-dark">
+        <a href="/product/detail?id=${product.id}" class="text-decoration-none text-dark">
           <div class="product-card">
             <div class="product-img-container">
               <img
-                src="${product.image ? product.image + "?height=200&width=300" : "/AptCommunity/resources/images/default-image.png"}"
+                src="${product.image ? product.image + "?height=200&width=300" : "/resources/images/default-image.png"}"
                 class="product-img"
                 alt="${product.name}">
               <span class="product-status ${statusClass}">${product.status}</span>
@@ -156,7 +156,7 @@ function renderTableView(products) {
         <td>${product.status}</td>
         <td>${product.category}</td>
         <td>
-          <a href="/AptCommunity/product/detail?id=${product.id}" class="text-decoration-none full-link">
+          <a href="/product/detail?id=${product.id}" class="text-decoration-none full-link">
             ${product.name}
           </a>
         </td>
@@ -212,7 +212,7 @@ function toggleWishlist(productId, element) {
     const icon = element.querySelector("i")
 
     $.ajax({
-        url: "/AptCommunity/wishlist/toggle-ajax",
+        url: "/wishlist/toggle-ajax",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify({ productId: productId }),

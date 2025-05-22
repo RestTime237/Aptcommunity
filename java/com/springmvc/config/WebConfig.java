@@ -15,9 +15,15 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LoginCheckInterceptor())
                 .addPathPatterns(
                         "/post/add",
+                        "/post/update",
+                        "/post/delete",
                         "/product/add",
+                        "/product/update",
+                        "/product/delete",
                         "/vote/add",
-                        "/comment/add",
+                        "/vote/update",
+                        "/vote/delete",
+                        "/comment/**",
                         "/member/mypage",
                         "/chat/**"
                 );

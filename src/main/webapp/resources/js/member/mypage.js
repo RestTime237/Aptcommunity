@@ -2,7 +2,7 @@
 const getContextPath = () => {
     // meta 태그에서 컨텍스트 경로를 가져오거나, 기본값 사용
     const metaContextPath = $('meta[name="contextPath"]').attr('content');
-    return metaContextPath || '/AptCommunity';
+    return metaContextPath || '';
 };
 
 $(document).ready(function () {

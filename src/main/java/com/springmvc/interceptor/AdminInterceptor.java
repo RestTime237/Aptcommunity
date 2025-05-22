@@ -10,11 +10,12 @@ public class AdminInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        String contextPath = request.getContextPath();
         HttpSession session = request.getSession(false);
         Member user = (session != null) ? (Member) session.getAttribute("mb") : null;
 
         if (session == null || user == null || user.getRole() < 3) {
-            response.sendRedirect("/AptCommunity/");
+            response.sendRedirect(contextPath + "/");
             return false;
         }
         return true;

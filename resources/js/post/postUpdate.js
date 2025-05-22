@@ -30,7 +30,7 @@ $(document).ready(function () {
         data.append("refType", "post")
 
         $.ajax({
-            url: '/AptCommunity/uploadImage',
+            url: '/uploadImage',
             type: 'POST',
             data: data,
             contentType: false,
@@ -51,12 +51,12 @@ $(document).ready(function () {
             const postId = "${post.id}";
 
             $.ajax({
-                url: "/AptCommunity/post/delete",
+                url: "/post/delete",
                 method: "GET",
                 data: { id: postId },
                 success: function (res) {
                     alert("게시글이 삭제되었습니다.");
-                    window.location.href = "/AptCommunity/post/list";
+                    window.location.href = "/post/list";
                 },
                 error: function (err) {
                     alert("삭제에 실패했습니다.");

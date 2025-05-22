@@ -10,7 +10,7 @@ let currentView = "grid"; // 기본 뷰 타입
 // 상품 데이터 가져오기
 function fetchProducts(page = 1) {
     $.ajax({
-        url: "/AptCommunity/product/search",
+        url: "/product/search",
         method: "GET",
         data: {
             category: currentCategory,
