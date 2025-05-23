@@ -19,26 +19,26 @@ public class VoteResultRepositoryImpl implements VoteResultRepository {
 
     @Override
     public boolean existsByVoteIdAndUserId(int voteId, String memberId) {
-        String sql = "SELECT COUNT(*) FROM voteResult WHERE voteId = ? AND memberId = ?";
+        String sql = "SELECT COUNT(*) from voteresult WHERE voteId = ? AND memberId = ?";
         Integer count = jdbcTemplate.queryForObject(sql, Integer.class, voteId, memberId);
         return count != null && count > 0;
     }
 
     @Override
     public int countByVoteId(int voteId) {
-        String sql = "SELECT COUNT(*) FROM voteResult WHERE voteId = ?";
+        String sql = "SELECT COUNT(*) from voteresult WHERE voteId = ?";
         return jdbcTemplate.queryForObject(sql, Integer.class, voteId);
     }
 
     @Override
     public int countByOptionId(int optionId) {
-        String sql = "SELECT COUNT(*) FROM voteResult WHERE optionId = ?";
+        String sql = "SELECT COUNT(*) from voteresult WHERE optionId = ?";
         return jdbcTemplate.queryForObject(sql, Integer.class, optionId);
     }
 
     @Override
     public int findOptionIdByVoteIdAndUserId(int voteId, String userId) {
-        String sql = "SELECT optionId FROM voteResult WHERE voteId = ? AND memberId = ?";
+        String sql = "SELECT optionId from voteresult WHERE voteId = ? AND memberId = ?";
         return jdbcTemplate.queryForObject(sql, Integer.class, voteId, userId);
     }
 

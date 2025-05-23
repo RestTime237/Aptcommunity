@@ -16,14 +16,14 @@ public class VoteOptionRepositoryImpl implements VoteOptionRepository {
 
     @Override
     public void addOption(VoteOption option) {
-        String sql = "INSERT INTO voteOption (voteId, optionText) VALUES (?, ?)";
+        String sql = "INSERT INTO voteoption (voteId, optionText) VALUES (?, ?)";
         jdbcTemplate.update(sql, option.getVoteId(), option.getOptionText());
 
     }
 
     @Override
     public List<VoteOption> getOptionsByVoteId(int voteId) {
-        String sql = "SELECT * FROM voteOption WHERE voteId = ?";
+        String sql = "SELECT * FROM voteoption WHERE voteId = ?";
         return jdbcTemplate.query(sql, new VoteOptionRowMapper(), voteId);
     }
 

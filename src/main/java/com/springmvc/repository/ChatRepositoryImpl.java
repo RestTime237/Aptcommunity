@@ -22,26 +22,26 @@ public class ChatRepositoryImpl implements ChatRepository {
 
     @Override
     public List<ChatRoom> findRoomsByUserId(String userId) {
-        String sql = "SELECT * FROM chatRoom WHERE user1 = ? OR user2 = ?";
+        String sql = "SELECT * FROM chatroom WHERE user1 = ? OR user2 = ?";
         return jdbcTemplate.query(sql, new ChatRoomRowMapper(), userId, userId);
     }
 
     @Override
     public ChatRoom findRoomById(Long roomId) {
-        String sql = "SELECT * FROM chatRoom WHERE id = ?";
+        String sql = "SELECT * FROM chatroom WHERE id = ?";
         return jdbcTemplate.queryForObject(sql, new ChatRoomRowMapper(), roomId);
     }
 
     @Override
     public ChatRoom findRoomByUsers(String user1, String user2) {
-        String sql = "SELECT * FROM chatRoom WHERE (user1 = ? AND user2 = ?) OR (user1 = ? AND user2 = ?)";
+        String sql = "SELECT * FROM chatroom WHERE (user1 = ? AND user2 = ?) OR (user1 = ? AND user2 = ?)";
         List<ChatRoom> rooms = jdbcTemplate.query(sql, new ChatRoomRowMapper(), user1, user2, user2, user1);
         return rooms.isEmpty() ? null : rooms.get(0);
     }
 
     @Override
     public Long createRoom(String user1, String user2) {
-        String sql = "INSERT INTO chatRoom (user1, user2) VALUES (?, ?)";
+        String sql = "INSERT INTO chatroom (user1, user2) VALUES (?, ?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
         jdbcTemplate.update(connection -> {
@@ -56,13 +56,13 @@ public class ChatRepositoryImpl implements ChatRepository {
 
     @Override
     public List<ChatMessage> findMessagesByRoomId(Long roomId) {
-        String sql = "SELECT * FROM chatMessage WHERE roomId = ? ORDER BY sentAt ASC";
+        String sql = "SELECT * FROM chatmessage WHERE roomId = ? ORDER BY sentAt ASC";
         return jdbcTemplate.query(sql, new ChatMessageRowMapper(), roomId);
     }
 
     @Override
     public void saveMessage(ChatMessage message) {
-        String sql = "INSERT INTO chatMessage (roomId, senderId, receiverId, content, sentAt, isRead) VALUES (?, ?, ?, ?, Now(), ?)";
+        String sql = "INSERT INTO chatmessage (roomId, senderId, receiverId, content, sentAt, isRead) VALUES (?, ?, ?, ?, Now(), ?)";
         jdbcTemplate.update(sql,
                 message.getRoomId(),
                 message.getSenderId(),
@@ -71,14 +71,14 @@ public class ChatRepositoryImpl implements ChatRepository {
                 message.getIsRead()
         );
 
-        String updateRoom = "update chatRoom set updatedAt = Now() where id = ?";
+        String updateRoom = "update chatroom set updatedAt = Now() where id = ?";
         jdbcTemplate.update(updateRoom, message.getRoomId());
     }
 
 
     @Override
     public Long getOrCreateChatRoom(String userId, String opponentId) {
-        String SQL = "select * from chatRoom " + "where (user1 = ? and user2 = ?) or (user1 = ? and user2 = ?)";
+        String SQL = "select * from chatroom where (user1 = ? and user2 = ?) or (user1 = ? and user2 = ?)";
 
         List<Long> result = jdbcTemplate.query(SQL,
                 (rs, rowNum) -> rs.getLong("id"),
@@ -91,13 +91,13 @@ public class ChatRepositoryImpl implements ChatRepository {
 
     @Override
     public List<ChatMessage> findUnreadMessages(Long roomId, String userId) {
-        String SQL = "select * from chatMessage where roomid = ? and receiverId = ? and isRead = false";
+        String SQL = "select * from chatmessage where roomid = ? and receiverId = ? and isRead = false";
         return jdbcTemplate.query(SQL, new ChatMessageRowMapper(), roomId, userId);
     }
 
     @Override
     public void updateMessages(List<ChatMessage> messages) {
-        String SQL = "update chatMessage set isRead = true, readAt = ? where id = ?";
+        String SQL = "update chatmessage set isRead = true, readAt = ? where id = ?";
         for (ChatMessage msg : messages) {
             jdbcTemplate.update(SQL, Timestamp.valueOf(msg.getReadAt()), msg.getId());
         }
