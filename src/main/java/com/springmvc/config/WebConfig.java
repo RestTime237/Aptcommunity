@@ -26,10 +26,12 @@ public class WebConfig implements WebMvcConfigurer {
                         "/comment/**",
                         "/member/mypage",
                         "/chat/**"
-                );
+                )
+                .excludePathPatterns("/ws/**");
 
         registry.addInterceptor(new AdminInterceptor())
-                .addPathPatterns("/admin/**");
+                .addPathPatterns("/admin/**")
+                .excludePathPatterns("/ws/**");
     }
 
     @Override
