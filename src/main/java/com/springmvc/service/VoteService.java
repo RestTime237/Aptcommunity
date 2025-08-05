@@ -33,4 +33,6 @@ public interface VoteService {
     boolean hasUserVoted(int voteId, String userId);
 
     int getSelectedOptionId(int voteId, String userId);
+
+    void deleteVoteById(int voteId);
 }

@@ -63,5 +63,9 @@ public class VoteRepositoryImpl implements VoteRepository {
         return jdbcTemplate.query(SQL, new VoteRowMapper(), limit, offset);
     }
 
-
+    @Override
+    public void deleteVoteById(int voteId) {
+        String SQL = "delete from vote where id = ?";
+        jdbcTemplate.update(SQL, voteId);
+    }
 }

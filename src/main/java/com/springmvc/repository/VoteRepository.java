@@ -15,4 +15,6 @@ public interface VoteRepository {
     int getTotalVoteCount();
 
     List<Vote> getPaginationVotes(int offset, int limit);
+
+    void deleteVoteById(int voteId);
 }

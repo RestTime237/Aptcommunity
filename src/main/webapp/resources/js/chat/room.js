@@ -87,7 +87,7 @@ function initChat(roomId, userId, partnerName) {
 
     // 웹소켓 연결 함수
     function connect() {
-        const socket = new SockJS('/ws');
+        const socket = new SockJS('https://aptcommunity.vps.webdock.cloud/ws');
         stompClient = Stomp.over(socket);
 
         // 콘솔 로그 비활성화

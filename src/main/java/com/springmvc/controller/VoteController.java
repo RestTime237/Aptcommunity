@@ -105,4 +105,11 @@ public class VoteController {
         voteService.submitVote(voteId, optionId, user.getUserId());
         return "redirect:/vote/detail?voteId=" + voteId;
     }
+
+    @PostMapping("/delete")
+    public String deleteVote(@RequestParam("voteId") int voteId, HttpSession session) {
+        Member mb = (Member) session.getAttribute("mb");
+        voteService.deleteVoteById(voteId);
+        return "redirect:/voteList";
+    }
 }

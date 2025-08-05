@@ -95,4 +95,8 @@ public class VoteServiceImpl implements VoteService {
         return voteRepository.getPaginationVotes(offset, limit);
     }
 
+    @Override
+    public void deleteVoteById(int voteId) {
+        voteRepository.getVoteById(voteId);
+    }
 }
