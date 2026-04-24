@@ -52,14 +52,14 @@
 ## 🔧 트러블슈팅
 
 ### 1. Docker init.sql 마운트 실패
-❌ 문제: ./init:/docker-entrypoint-initdb.d → 디렉토리로 인식
-✅ 해결: ./init.sql:/docker-entrypoint-initdb.d/init.sql
++ ❌ 문제: ./init:/docker-entrypoint-initdb.d → 디렉토리로 인식
++ ✅ 해결: ./init.sql:/docker-entrypoint-initdb.d/init.sql
 + SET FOREIGN_KEY_CHECKS=0; 추가
 
 ### 2. MySQL 데이터 영속성
-❌ 문제: volumes: - .:/var/lib/mysql → 호스트 의존
-✅ 해결: volumes: - mysql_data:/var/lib/mysql
++ ❌ 문제: volumes: - .:/var/lib/mysql → 호스트 의존
++ ✅ 해결: volumes: - mysql_data:/var/lib/mysql
 
 ### 3. EL태그 + JS 충돌
-❌ 문제: JSP 파일 내에서 EL 태그와 JS 변수 간의 간섭 발생
-✅ 해결: JS 변수를 \${변수} 형태로 변경
++ ❌ 문제: JSP 파일 내에서 EL 태그와 JS 변수 간의 간섭 발생
++ ✅ 해결: JS 변수를 \${변수} 형태로 변경
