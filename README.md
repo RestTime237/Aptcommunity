@@ -41,22 +41,25 @@
 
 ## ✨ 주요 기능
 
-- 회원가입 / 로그인
-- 공지사항 · 자유게시판, 판매글 CRUD
-- 주민 투표 기능
-- 아파트 일정 안내
-- 관리자 페이지
+- 👥 회원가입/로그인 (세션 기반)
+- 📢 공지사항 · 자유게시판 (CRUD)
+- 🗳️ 주민 투표 시스템
+- 📅 아파트 일정 관리
+- ⚙️ 관리자 대시보드
 
 ---
 
 ## 🔧 트러블슈팅
 
-### EL태그와 JS 변수
+### 1. Docker init.sql 마운트 실패
+❌ 문제: ./init:/docker-entrypoint-initdb.d → 디렉토리로 인식
+✅ 해결: ./init.sql:/docker-entrypoint-initdb.d/init.sql
++ SET FOREIGN_KEY_CHECKS=0; 추가
 
-### Docker init.sql 마운트 문제
-- **문제**: init.sql이 디렉토리로 마운트되어 DB 초기화 실패
-- **해결**: 폴더 단위 볼륨 마운트로 변경 + `SET FOREIGN_KEY_CHECKS=0` 추가
+### 2. MySQL 데이터 영속성
+❌ 문제: volumes: - .:/var/lib/mysql → 호스트 의존
+✅ 해결: volumes: - mysql_data:/var/lib/mysql
 
-### MySQL 볼륨 데이터 관리
-- **문제**: 컨테이너 재시작 시 데이터 초기화
-- **해결**: Named Volume(`mysql_data`)으로 컨테이너와 데이터 분리
+### 3. EL태그 + JS 충돌
+❌ 문제: JSP 파일 내에서 EL 태그와 JS 변수 간의 간섭 발생
+✅ 해결: JS 변수를 \${변수} 형태로 변경
