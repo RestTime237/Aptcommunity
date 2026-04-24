@@ -95,7 +95,7 @@
                 <h5 class="footer-heading">관리사무소</h5>
                 <p class="text-muted mb-1">주소: 서울특별시 강남구 아파트로 123</p>
                 <p class="text-muted mb-1">전화: 02-123-4567</p>
-                <p class="text-muted mb-1">이메일: info@aptcommunity.com</p>
+                <p class="text-muted mb-1">이메일: info@aptcommu.com</p>
                 <p class="text-muted">운영시간: 평일 09:00 - 18:00</p>
             </div>
         </div>

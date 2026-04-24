@@ -93,7 +93,7 @@ public class PostController {
 
     // DELETE
 
-    @GetMapping("/delete")
+    @DeleteMapping("/delete")
     @ResponseBody
     public String deletePost(@RequestParam("id") Long id, HttpServletRequest req) {
         String path = "/home/admin/uploads";
@@ -113,7 +113,6 @@ public class PostController {
         if (post == null) {
             return "redirect:/post/list";
         }
-
 
         List<Comment> comments = commentService.getComments("post", id);
         postService.incrementViews(id);
@@ -139,6 +138,7 @@ public class PostController {
     @GetMapping("/list")
     public String postList(Model model) {
         List<Post> popularPosts = postService.getPopularPosts();
+        int postCount = postService.countAllposts();
 
         Map<Long, String> thumbnailMap = new HashMap<Long, String>();
         for (Post post : popularPosts) {
@@ -155,9 +155,12 @@ public class PostController {
             }
         }
 
+
+
         model.addAttribute("popularPosts", popularPosts);
         model.addAttribute("thumbnailMap", thumbnailMap);
         model.addAttribute("nicknameMap", nicknameMap);
+        model.addAttribute("postCount", postCount);
 
         return "post/postList";
     }

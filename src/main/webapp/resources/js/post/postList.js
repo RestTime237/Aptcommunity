@@ -30,12 +30,13 @@ function formatDate(dateString) {
     }
 }
 
+
 // 게시판 통계 로드
 function loadBoardStats() {
     // 실제 구현에서는 AJAX로 서버에서 데이터를 가져와야 합니다
     // 여기서는 예시 데이터를 사용합니다
     setTimeout(() => {
-        document.getElementById('total-posts').textContent = '1,245';
+        // document.getElementById('total-posts').textContent = '1,245';
         document.getElementById('today-posts').textContent = '32';
         document.getElementById('total-comments').textContent = '3,891';
         document.getElementById('active-users').textContent = '156';

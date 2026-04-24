@@ -1,23 +1,38 @@
-version: "3"
+version: '3.8'
+
 services:
-  db:
+  mysql:
     image: mysql:8.0
+    container_name: apt-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: rootpassword123
       MYSQL_DATABASE: aptcommunitydb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: 1q3e2w4r
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
-      - db_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   app:
-    build: .
+    image: resttime/aptcommunity:latest  # ← 당신 Docker Hub!
+    container_name: apt-app
     ports:
       - "8080:8080"
-    environment:
-      DB_URL: jdbc:mysql://db:3306/aptcommunitydb
-      DB_USERNAME: root
-      DB_PASSWORD: 1234
     depends_on:
-      - db
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/aptcommunitydb?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: appuser
+      SPRING_DATASOURCE_PASSWORD: 1q3e2w4r
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    restart: unless-stopped
+
 volumes:
-  db_data:
+  mysql_data:

@@ -42,7 +42,7 @@
                             <i class="bi bi-file-text"></i>
                         </div>
                         <div>
-                            <div class="stats-value" id="total-posts">0</div>
+                            <div class="stats-value" id="total-posts">${postCount}</div>
                             <div class="stats-label">전체 게시글</div>
                         </div>
                     </div>

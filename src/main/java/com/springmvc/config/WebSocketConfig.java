@@ -13,7 +13,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws")
-                .setAllowedOrigins("https://aptcommunity.vps.webdock.cloud")
+                .setAllowedOrigins("https://aptcommu.vps.webdock.cloud")
                 .withSockJS();
     }
 

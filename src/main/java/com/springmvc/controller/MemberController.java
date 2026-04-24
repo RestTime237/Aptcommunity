@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,9 @@ import java.util.Map;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
+
+    @Value("${upload.path}")
+    private String uploadPath;
 
     @Autowired
     private MemberService memberService;
@@ -160,7 +164,7 @@ public class MemberController {
 
         deleteProfileImage(session, req);        // 이미 등록된 프로필 이미지를 삭제
 
-        String path = "/home/admin/uploads";        // 이미지 경로 지정
+        String path = uploadPath + "/";        // 이미지 경로 지정
         String name = System.currentTimeMillis() + "." + profileImage.getOriginalFilename().split("\\.")[1];        // 동적 네이밍
 
         System.out.println(profileImage.getOriginalFilename());

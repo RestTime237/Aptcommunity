@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.4.5'
     id 'io.spring.dependency-management' version '1.1.7'
-    id 'war' // WAR 플러그인 추가
+    id 'war'
 }
 
 java {
@@ -22,66 +22,51 @@ repositories {
 }
 
 dependencies {
-    // Spring Boot 기본 스타터들
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation('org.springframework.boot:spring-boot-starter-web') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
-    // CRaC (Coordinated Restore at Checkpoint) support
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
     implementation 'org.crac:crac:1.4.0'
 
-    // JSP 지원을 위한 의존성
-    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'  // JSP 컴파일을 위해 필요
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
     implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0'
     implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1'
 
-    // 서블릿 API는 provided 스코프로 변경 (런타임에 제공됨)
     compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
     compileOnly 'jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.0.0'
 
-    // 데이터베이스 의존성
-    runtimeOnly 'com.mysql:mysql-connector-j'  // MySQL 커넥터 최신 버전
+    runtimeOnly 'com.mysql:mysql-connector-j'
 
-    // 유틸리티 및 JSON 관련
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'org.json:json:20231013'
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
-
-    // 파일 업로드 처리
-    implementation 'commons-fileupload:commons-fileupload:1.5'
-
-    // 외부 라이브러리
-    implementation 'org.locationtech.proj4j:proj4j:1.1.1' // TM 좌표 변환
-
-    // WebSocket 클라이언트
+    implementation 'commons-fileupload:commons-fileupload:1.6.0'
+    implementation 'org.locationtech.proj4j:proj4j:1.1.1'
     implementation 'org.webjars:sockjs-client:1.5.1'
     implementation 'org.webjars:stomp-websocket:2.3.4'
 
-    // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    // 개발 도구
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-
-    // 테스트 의존성
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
-    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.0' // Java 8 날짜/시간 지원
-
-    // JDBC 템플릿을 위한 의존성
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'  // JDBC 템플릿 사용
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 }
 
 bootJar {
-    enabled = false // bootJar 비활성화
+    enabled = false
+}
+
+bootWar {
+    enabled = true
 }
 
 war {
-    enabled = true // war 활성화
-}
-
-war {
+    enabled = true
     from('src/main/webapp') {
         into 'META-INF/resources'
     }

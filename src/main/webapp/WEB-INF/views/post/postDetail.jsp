@@ -174,7 +174,7 @@
                                 </button>
                                 <button class="btn btn-sm btn-primary-soft toggle-replies-btn"
                                         data-comment-id="${comment.id}" data-reply-count="${comment.replyCount}">
-                                    <i class="bi bi-chevron-down me-1"></i> 답글(${comment.replyCount})
+                                    <i class="bi bi-chevron-down me-1"></i>답글(${comment.replyCount})
                                 </button>
                             </div>
 

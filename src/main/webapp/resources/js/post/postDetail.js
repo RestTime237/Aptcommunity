@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (confirm("게시글을 삭제하시겠습니까?")) {
                 $.ajax({
                     url: "/post/delete",
-                    method: "GET",
+                    method: "DELETE",
                     data: {id: postId},
                     success: function (res) {
                         alert("삭제되었습니다.");
@@ -153,7 +153,6 @@ document.querySelectorAll(".deleteComment").forEach(btn => {
         }
     });
 });
-
 
 // 대댓글 수정
 $(document).on('click', '.edit-reply-btn', function () {

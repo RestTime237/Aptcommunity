@@ -97,6 +97,6 @@ public class VoteServiceImpl implements VoteService {
 
     @Override
     public void deleteVoteById(int voteId) {
-        voteRepository.getVoteById(voteId);
+        voteRepository.deleteVoteById(voteId);
     }
 }
