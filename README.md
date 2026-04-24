@@ -51,15 +51,14 @@
 
 ## 🔧 트러블슈팅
 
-### 1. Docker init.sql 마운트 실패
-+ ❌ 문제: ./init:/docker-entrypoint-initdb.d → 디렉토리로 인식
-+ ✅ 해결: ./init.sql:/docker-entrypoint-initdb.d/init.sql
-+ SET FOREIGN_KEY_CHECKS=0; 추가
-
-### 2. MySQL 데이터 영속성
-+ ❌ 문제: volumes: - .:/var/lib/mysql → 호스트 의존
-+ ✅ 해결: volumes: - mysql_data:/var/lib/mysql
-
-### 3. EL태그 + JS 충돌
+### 1. EL태그 + JS 충돌
 + ❌ 문제: JSP 파일 내에서 EL 태그와 JS 변수 간의 간섭 발생
 + ✅ 해결: JS 변수를 \${변수} 형태로 변경
+
+### 2. 서버가 재배포 될 때 DB가 사라지는 현상
++ ❌ 문제: SQL 덤핑 오류로 DB가 제대로 생성되지 않아 임시 DB로 대체하였지만 주기적으로 초기화 됨
++ ✅ 해결: 로컬에서 사용하던 SQL 파일을 서버로 전송하여 DB 생성 후 기존 파일 대체
+
+### 3. 이미지 파일 미노출
++ ❌ 문제: 업로드 된 이미지가 정상적으로 표시되지 않음
++ ✅ 해결: docker-compose.yml 파일에서 누락된 업로드 경로를 추가함
