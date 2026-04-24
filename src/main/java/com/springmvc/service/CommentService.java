@@ -19,4 +19,6 @@ public interface CommentService {
     Comment getCommentById(Long id);                              // 댓글 단건 조회
 
     int getReplyCount(Long commentId);
+
+    int countComments();
 }

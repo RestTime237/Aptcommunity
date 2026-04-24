@@ -19,4 +19,6 @@ public interface CommentRepository {
     Comment findById(Long id);
 
     int getReplyCount(Long commentId);
+
+    int countComments();
 }

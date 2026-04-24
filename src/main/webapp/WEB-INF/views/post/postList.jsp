@@ -53,7 +53,7 @@
                             <i class="bi bi-calendar-check"></i>
                         </div>
                         <div>
-                            <div class="stats-value" id="today-posts">0</div>
+                            <div class="stats-value" id="today-posts">${recentlyWrote}</div>
                             <div class="stats-label">오늘 작성된 글</div>
                         </div>
                     </div>
@@ -64,19 +64,8 @@
                             <i class="bi bi-chat-dots"></i>
                         </div>
                         <div>
-                            <div class="stats-value" id="total-comments">0</div>
+                            <div class="stats-value" id="total-comments">${commentCount}</div>
                             <div class="stats-label">전체 댓글</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 stats-col">
-                    <div class="stats-item">
-                        <div class="stats-icon">
-                            <i class="bi bi-people"></i>
-                        </div>
-                        <div>
-                            <div class="stats-value" id="active-users">0</div>
-                            <div class="stats-label">활동 중인 회원</div>
                         </div>
                     </div>
                 </div>

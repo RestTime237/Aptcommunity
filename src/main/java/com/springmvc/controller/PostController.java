@@ -139,6 +139,8 @@ public class PostController {
     public String postList(Model model) {
         List<Post> popularPosts = postService.getPopularPosts();
         int postCount = postService.countAllposts();
+        int recentlyWrote = postService.countRecent();
+        int commentCount = commentService.countComments();
 
         Map<Long, String> thumbnailMap = new HashMap<Long, String>();
         for (Post post : popularPosts) {
@@ -161,6 +163,8 @@ public class PostController {
         model.addAttribute("thumbnailMap", thumbnailMap);
         model.addAttribute("nicknameMap", nicknameMap);
         model.addAttribute("postCount", postCount);
+        model.addAttribute("recentlyWrote", recentlyWrote);
+        model.addAttribute("commentCount", commentCount);
 
         return "post/postList";
     }

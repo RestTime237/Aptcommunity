@@ -62,4 +62,10 @@ public class CommentRepositoryImpl implements CommentRepository {
         String sql = "SELECT COUNT(*) FROM comment WHERE parentId = ?";
         return jdbcTemplate.queryForObject(sql, Integer.class, commentId);
     }
+
+    @Override
+    public int countComments() {
+        String SQL = "select count(*) from comment";
+        return jdbcTemplate.queryForObject(SQL, Integer.class);
+    }
 }

@@ -48,4 +48,9 @@ public class CommentServiceImpl implements CommentService {
     public int getReplyCount(Long commentId) {
         return commentRepository.getReplyCount(commentId);
     }
+
+    @Override
+    public int countComments() {
+        return commentRepository.countComments();
+    }
 }

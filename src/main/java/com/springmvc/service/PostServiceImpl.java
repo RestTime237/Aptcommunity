@@ -87,7 +87,10 @@ public class PostServiceImpl implements PostService {
 
     }
 
-
+    @Override
+    public int countRecent() {
+        return postRepository.countRecent();
+    }
 }
 
 

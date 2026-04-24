@@ -21,6 +21,8 @@ public interface PostRepository {
 
     int getPostCount(String userId);
 
+    int countRecent();
+
     List<Post> searchPosts(String category, String choice, String keyword, String sort, int limit, int offset);
 
     int getSearchResultCount(String category, String choice, String keyword);

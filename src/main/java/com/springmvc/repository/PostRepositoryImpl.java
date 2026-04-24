@@ -202,5 +202,9 @@ public class PostRepositoryImpl implements PostRepository {
         return jdbcTemplate.query(SQL, new PostRowMapper());
     }
 
-
+    @Override
+    public int countRecent() {
+        String SQL = "select count(*) from post where date(createdAt) = curdate()";
+        return jdbcTemplate.queryForObject(SQL, Integer.class);
+    }
 }
