@@ -24,7 +24,7 @@ public class UploadController {
         System.out.println("이미지 업로드 입장 / refType = " + refType);
         String contextPath = req.getContextPath();
 
-        String path = "/home/admin/uploads";
+        String path = "/home/app/uploads";
         String originalName = file.getOriginalFilename();
         String[] format = originalName.split("\\.");
         String newName = System.currentTimeMillis() + "." + format[1];
