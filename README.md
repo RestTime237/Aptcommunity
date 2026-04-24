@@ -28,14 +28,14 @@
 ---
 
 ## 🏗️ 아키텍처
-Browser (JSP View)
-↓ HTTPS
-Nginx (리버스 프록시)
-↓
-Spring Boot (MVC) 
-Controller ←→ Service ←→ Repository
-↓
-**MySQL (Persistent Volume)**
+- Browser (JSP View)
+- ↓ HTTPS
+- Nginx (리버스 프록시)
+- ↓
+- Spring Boot (MVC) 
+- Controller ←→ Service ←→ Repository
+- ↓
+- **MySQL (Persistent Volume)**
 
 ---
 
