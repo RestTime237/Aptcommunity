@@ -59,7 +59,7 @@ public class DustController {
             // 1. 공공데이터 API로 도로명 주소 조회
             URI uri = UriComponentsBuilder
                     .fromHttpUrl("https://apis.data.go.kr/1613000/AptListService3/getRoadnameAptList3")
-                    .queryParam("serviceKey", "aXyObuGPEAQMX%2BVEblg9toTV8WnQy3bVimRyj7gcAJnGYrdc9WqQRMkB6zFM9%2FfIKgL%2FQ%2F0qYaGvamAOsyXv%2Fg%3D%3D")
+                    .queryParam("serviceKey", "")
                     .queryParam("roadCode", roadCode)
                     .queryParam("pageNo", 1)
                     .queryParam("numOfRows", 100)
@@ -93,7 +93,7 @@ public class DustController {
 
             // 3. 네이버 Geocoding API 호출
             String client_id = "5615p50o9n";
-            String client_secret = "XUo0bC0zrJd0jGpKHaCaHBNLIuJw53y2d50Y1mkB";
+            String client_secret = "";
             String encodedAddr = URLEncoder.encode(simplified, StandardCharsets.UTF_8);
             String urlStr = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query=" + encodedAddr;
             System.out.println("📡 네이버 요청 URL: " + urlStr);
@@ -152,7 +152,7 @@ public class DustController {
     }
 
     private String findNearestStation(double tmX, double tmY) throws IOException {
-        String serviceKey = "aXyObuGPEAQMX%2BVEblg9toTV8WnQy3bVimRyj7gcAJnGYrdc9WqQRMkB6zFM9%2FfIKgL%2FQ%2F0qYaGvamAOsyXv%2Fg%3D%3D";
+        String serviceKey = "";
         String url = "http://apis.data.go.kr/B552584/MsrstnInfoInqireSvc/getNearbyMsrstnList"
                 + "?tmX=" + tmX
                 + "&tmY=" + tmY
@@ -169,7 +169,7 @@ public class DustController {
     }
 
     private Map<String, Object> getDustValue(String stationName) throws IOException {
-        String serviceKey = "aXyObuGPEAQMX%2BVEblg9toTV8WnQy3bVimRyj7gcAJnGYrdc9WqQRMkB6zFM9%2FfIKgL%2FQ%2F0qYaGvamAOsyXv%2Fg%3D%3D";
+        String serviceKey = "";
         String url = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty"
                 + "?stationName=" + URLEncoder.encode(stationName, StandardCharsets.UTF_8)
                 + "&dataTerm=DAILY&pageNo=1&numOfRows=1&ver=1.3&returnType=json"
