@@ -51,7 +51,7 @@ public class WeatherController {
     @GetMapping("/weather")
     @ResponseBody
     public Map<String, Object> getWeather(@RequestParam double lat, @RequestParam double lon, HttpSession session) {
-        String apiKey = "5701e684d56157b82454a280e4b248a0"; // 실제 키로 대체
+        String apiKey = ""; // 실제 키로 대체
         String url = String.format(
                 "https://api.openweathermap.org/data/2.5/weather?lat=%f&lon=%f&appid=%s&units=metric&lang=kr",
                 lat, lon, apiKey
@@ -68,7 +68,7 @@ public class WeatherController {
             loc = lon + "," + lat;
             System.out.println("loc 값 : " + loc);
             String client_id = "id0d6qmb5d";
-            String client_secret = "U1PeFJsTXrZRRV8TGJEeSXfaawcBRoIQJsXq8lJZ";
+            String client_secret = "";
 
             String setting = loc + "&orders=legalcode%2Cadmcode%2Caddr%2Croadaddr&output=json";
 
@@ -149,7 +149,7 @@ public class WeatherController {
             // 1. 공공데이터 API로 도로명 주소 조회
             URI uri = UriComponentsBuilder
                     .fromHttpUrl("https://apis.data.go.kr/1613000/AptListService3/getRoadnameAptList3")
-                    .queryParam("serviceKey", "aXyObuGPEAQMX%2BVEblg9toTV8WnQy3bVimRyj7gcAJnGYrdc9WqQRMkB6zFM9%2FfIKgL%2FQ%2F0qYaGvamAOsyXv%2Fg%3D%3D")
+                    .queryParam("serviceKey", "")
                     .queryParam("roadCode", roadCode)
                     .queryParam("pageNo", 1)
                     .queryParam("numOfRows", 100)
@@ -189,7 +189,7 @@ public class WeatherController {
 
             // 3. 네이버 Geocoding API 호출
             String client_id = "5615p50o9n";
-            String client_secret = "XUo0bC0zrJd0jGpKHaCaHBNLIuJw53y2d50Y1mkB";
+            String client_secret = "";
             String encodedAddr = URLEncoder.encode(simplified, StandardCharsets.UTF_8);
             String urlStr = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query=" + encodedAddr;
             System.out.println("📡 네이버 요청 URL: " + urlStr);
@@ -231,7 +231,7 @@ public class WeatherController {
             System.out.println("📍 위도: " + lat + ", 경도: " + lon);
 
             // 4. OpenWeatherMap API 호출
-            String openWeatherApiKey = "5701e684d56157b82454a280e4b248a0";
+            String openWeatherApiKey = "";
             String weatherUrl = String.format(
                     "https://api.openweathermap.org/data/2.5/weather?lat=%f&lon=%f&appid=%s&units=metric&lang=kr",
                     lat, lon, openWeatherApiKey
