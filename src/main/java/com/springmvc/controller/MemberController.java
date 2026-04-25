@@ -63,7 +63,7 @@ public class MemberController {
         try {
             URI uri = UriComponentsBuilder
                     .fromHttpUrl("https://apis.data.go.kr/1613000/AptListService3/getRoadnameAptList3")
-                    .queryParam("serviceKey", "aXyObuGPEAQMX%2BVEblg9toTV8WnQy3bVimRyj7gcAJnGYrdc9WqQRMkB6zFM9%2FfIKgL%2FQ%2F0qYaGvamAOsyXv%2Fg%3D%3D")
+                    .queryParam("serviceKey", "")
                     .queryParam("roadCode", sigunguCode + roadnameCode)
                     .queryParam("pageNo", 1)
                     .queryParam("numOfRows", 100)
